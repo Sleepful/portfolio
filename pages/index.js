@@ -16,7 +16,6 @@ export default function Home() {
 
       <footer>
           Powered by Jose!
-        </a>
       </footer>
 
       <style jsx>{`
