@@ -7,7 +7,8 @@ module.exports = {
       'postcss-preset-env',
       {
         autoprefixer: {
-          flexbox: 'no-2009'
+          flexbox: 'no-2009',
+          // grid: 'autoplace'
         },
         stage: 3,
         features: {
