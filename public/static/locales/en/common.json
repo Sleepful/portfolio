@@ -1,0 +1,14 @@
+{
+    "header"       : "Welcome to my page",
+    "subheader"    : "My name is Jose Vargas",
+    "aboutme"      : "I'm glad to have you here with me and I hope that you are doing well in these trying times. I work writing computer software and I'm based in Costa Rica. I care that my work contributes to inclusivity and accesibility of the industry and technology.",
+    "technologies" : "Technologies that I like to work with",
+    "personal"     : "Projects",
+    "p1title"      : "Online movie search",
+    "p1desc"       : "A small project to showcase ReactJS with Typescript, TailwindCSS and Jest Unit tests.",
+    "p2title"      : "Chinese study notes",
+    "p2desc"       : "An online notebook of my own personal study notes, it's a project that I began recently so it does not have much content yet.",
+    "p3title"      : "This website",
+    "p3desc"       : "Built with NextJS and TailwindCSS",
+    "contact"      : "Online Presence"
+}

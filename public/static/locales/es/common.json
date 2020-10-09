@@ -1,0 +1,14 @@
+{
+    "header"       : "Bienvenides a mi pagina",
+    "subheader"    : "Soy Jose Vargas",
+    "aboutme"      : "Me alegra que se encuentre aquí conmigo y espero que se encuentre bien en estos tiempos dificiles. Yo trabajo escribiendo programas de computadora y soy de Costa Rica. Me interesa que mi trabajo aporte a la inclusividad y accesibilidad de la industria y la tecnología.",
+    "technologies" : "Technologies that I like to work with",
+    "personal"     : "Proyectos",
+    "p1title"      : "Buscador de peliculas en linea",
+    "p1desc"       : "Un pequeño proyecto para demostrar el uso de ReactJS con TypeScript, TailwindCSS y pruebas unitarias con Jest.",
+    "p2title"      : "Notas de estudio de Chino",
+    "p2desc"       : "Un cuaderno en linea con mis notas personales de estudio, es un proyecto que he empezado recientemente así que no tiene mucho contenido aún.",
+    "p3title"      : "Este sitio web",
+    "p3desc"       : "Construido con NextJS y TailwindCSS",
+    "contact"      : "Presencia Online"
+}
