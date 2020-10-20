@@ -2,7 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
+.sideburns {
+  border-width: 3px;
+  border-style: solid;
+  border-image:
+    linear-gradient(
+      to bottom,
+      red,
+      rgba(0, 0, 0, 0)
+    ) 1 100%;
+}
+
 .theme-default {
+  --color-bg-primary: white;
+  --color-bg-secondary: blue;
+  --color-text-primary: black;
+  --color-border-primary: red;
+}
+
+.theme-somethingElse{
   --color-bg-primary: white;
   --color-bg-secondary: blue;
   --color-text-primary: black;

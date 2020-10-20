@@ -1,14 +1,17 @@
 {
     "header"       : "Welcome to my page",
     "subheader"    : "My name is Jose Vargas",
-    "aboutme"      : "I'm glad to have you here with me and I hope that you are doing well in these trying times. I work writing computer software and I'm based in Costa Rica. I care that my work contributes to inclusivity and accesibility of the industry and technology.",
-    "technologies" : "Technologies that I like to work with",
-    "personal"     : "Projects",
-    "p1title"      : "Online movie search",
-    "p1desc"       : "A small project to showcase ReactJS with Typescript, TailwindCSS and Jest Unit tests.",
+    "aboutme"      : "I'm glad to have you here with me and I hope that you are doing well in these trying times. This is my little corner of the internet to present myself.",
+    "personal"     : "A couple of my projects",
+    "p1title"      : "Movie search front-end",
+    "p1desc"       : "A small project to showcase ReactJS with Typescript, TailwindCSS and Jest. «The fizzbuzz test of web developers». It has one bug, if you find it you may have one cookie.",
     "p2title"      : "Chinese study notes",
     "p2desc"       : "An online notebook of my own personal study notes, it's a project that I began recently so it does not have much content yet.",
     "p3title"      : "This website",
     "p3desc"       : "Built with NextJS and TailwindCSS",
+    "technologies" : "Tools I like to work with",
+    "wouldlike"    : "Tools I would like to work with",
+    "work"         : "Hire me",
+    "workdesc"     : "Would you like to work with me? These are the rules: I'm open to positions in greenfield projects. I will work with the technologies that I have listed above in this page, nothing else, unless you show me something new that would peak my interest. I care that my work contributes to the inclusivity and accesibility of the industry and technology, so if you are a non-profit then contact me. If you think you have a position for me then shoot me a message in one of the platforms below.",
     "contact"      : "Online Presence"
 }
