@@ -1,6 +1,8 @@
 import Head from 'next/head'
-import { withTranslation } from '../i18n'
-
+import { i18n, withTranslation } from '../i18n'
+/** @jsx jsx */
+import { jsx, css } from '@emotion/core'
+import { useState } from 'react'
 
 
 const Body = ({ children }) => {
@@ -17,19 +19,27 @@ const Title = ({ children }) => {
     <div className="flex items-start text-lg">
       <div className="border-solid rounded-full border-black border-0
         py-2 flex-initial flex flex-row
-        font-serif text-2xl">
+        font-serif text-2xl text-emphasis">
         {children}
       </div>
     </div>
   )
 }
 
+const style = css`
+  background: rgb(174,12,6);
+  background: linear-gradient(90deg, var(--color-border-primary) 0%, var(--color-border-second) 100%);
+  padding: 3px;
+`
+
 const Pill = ({ children }) => {
   return (
-    <div className="border-solid rounded-full border-black border-2
-        p-2 flex-initial flex flex-row
-        ">
-      {children}
+    <div className="rounded-full
+        flex-initial flex flex-row "
+      css={style}>
+      <div className="bg-primary rounded-full p-2">
+        {children}
+      </div>
     </div>
   )
 }
@@ -48,96 +58,107 @@ const Horizontal = ({ children }) => (
 )
 
 function Home({ t }) {
+  const [theme, setTheme] = useState('theme-light')
+  const [lang, setLang] = useState('es')
   return (
-    <div className="
-      h-screen
-      theme-default bg-primary
-      flex flex-col max-w-md mx-auto my-2">
-      <Head>
-        <title>Jose Vargas</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+    <div className={`${theme}
+        bg-primary
+        flex flex-col`}>
+      <div className=" mx-auto my-2 max-w-md">
+        <Head>
+          <title>Jose Vargas</title>
+          <link rel="icon" href="/favicon.ico" />
+        </Head>
 
-      <main className="theme-default bg-primary
-        space-y-6 flex flex-col">
-        <Horizontal>
-          <Pill>
-            <p>Español</p>
-          </Pill>
-          <Pill>
-            <p>English</p>
-          </Pill>
-          <Pill>
-            <p>Theme1</p>
-          </Pill>
-          <Pill>
-            <p>Theme2</p>
-          </Pill>
-        </Horizontal>
-        <h1 className="bg-primary font-serif text-4xl text-gray-800">
-          {t('header')}
-        </h1>
-        <Section>
-          <Title>
-            <h2>
-              {t('subheader')}
-            </h2>
-          </Title>
-          <Body>
-            <p>{t('aboutme')}</p>
-          </Body>
-        </Section>
-        <Section>
-          <Title>
-            <p>{t('personal')}</p>
-          </Title>
-          <Body>
-            <p>{t('p1title')}</p>
-            <p>{t('p1desc')}</p>
-          </Body>
-          <Body>
-            <p>{t('p2title')}</p>
-            <p>{t('p2desc')}</p>
-          </Body>
-          <Body>
-            <p>{t('p3title')}</p>
-            <p>{t('p3desc')}</p>
-          </Body>
-        </Section>
-        <Section>
-          <Title>
-            <p>{t('technologies')}</p>
-          </Title>
-          <Body>
-            <p>TypeScript, ReactJs, TailwindCSS, NextJs, NodeJs, GraphQl, CSS
-              Emacs, Linux </p>
-          </Body>
-        </Section>
-        <Section>
-          <Title>
-            <p>{t('wouldlike')}</p>
-          </Title>
-          <Body>
-            <p>Rust, Elixir, Deno, WebAssembly, Go</p>
-          </Body>
-        </Section>
-        <Section>
-          <Title>
-            <p>{t('work')}</p>
-          </Title>
-          <Body>
-            <p>{t('workdesc')}</p>
-          </Body>
-        </Section>
-        <Section>
-          <Title>
-            <p>{t('contact')}</p>
-          </Title>
-          <div>github</div>
-          <div>linkedin</div>
-          <div>stack overflow</div>
-        </Section>
-      </main>
+        <main className="text-body
+          space-y-6 flex flex-col">
+          <Horizontal>
+            <Pill>
+              <p onClick={() =>
+                i18n.changeLanguage('es')
+              }>Español</p>
+            </Pill>
+            <Pill>
+              <p onClick={() =>
+                i18n.changeLanguage('en')
+              }>English</p>
+            </Pill>
+            <Pill>
+              <p onClick={() => setTheme('theme-light')}>
+                Light
+              </p>
+            </Pill>
+            <Pill>
+              <p onClick={() => setTheme('theme-dark')}>
+                Dark
+              </p>
+            </Pill>
+          </Horizontal>
+          <h1 className="bg-primary font-serif text-4xl text-emphasis">
+            {t('header')}
+          </h1>
+          <Section>
+            <Title>
+              <h2>
+                {t('subheader')}
+              </h2>
+            </Title>
+            <Body>
+              <p>{t('aboutme')}</p>
+            </Body>
+          </Section>
+          <Section>
+            <Title>
+              <p>{t('personal')}</p>
+            </Title>
+            <Body>
+              <p>{t('p1title')}</p>
+              <p>{t('p1desc')}</p>
+            </Body>
+            <Body>
+              <p>{t('p2title')}</p>
+              <p>{t('p2desc')}</p>
+            </Body>
+            <Body>
+              <p>{t('p3title')}</p>
+              <p>{t('p3desc')}</p>
+            </Body>
+          </Section>
+          <Section>
+            <Title>
+              <p>{t('technologies')}</p>
+            </Title>
+            <Body>
+              <p>TypeScript, ReactJs, TailwindCSS, NextJs, NodeJs, GraphQl, CSS,
+                Emacs, Linux </p>
+            </Body>
+          </Section>
+          <Section>
+            <Title>
+              <p>{t('wouldlike')}</p>
+            </Title>
+            <Body>
+              <p>Rust, Elixir, Deno, WebAssembly, Go</p>
+            </Body>
+          </Section>
+          <Section>
+            <Title>
+              <p>{t('work')}</p>
+            </Title>
+            <Body>
+              <p>{t('workdesc')}</p>
+            </Body>
+          </Section>
+          <Section>
+            <Title>
+              <p>{t('contact')}</p>
+            </Title>
+            <div>github</div>
+            <div>linkedin</div>
+            <div>stack overflow</div>
+          </Section>
+        </main>
+      </div>
     </div>
   )
 }

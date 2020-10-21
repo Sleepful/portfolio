@@ -5,16 +5,17 @@ module.exports = {
   },
   purge: [],
   theme: {
-      backgroundColor: {
-        primary: "var(--color-bg-primary)",
-        secondary: "var(--color-bg-secondary)",
-      },
-      borderColor: {
-        primary: "var(--color-border-primary)"
-      },
-      textColor: {
-        primary: "var(--color-text-primary)"
-      }
+    backgroundColor: {
+      primary: "var(--color-bg)",
+      highlight: "var(--color-bg-highlights)",
+    },
+    borderColor: {
+      primary: "var(--color-border-primary)",
+    },
+    textColor: {
+      body: "var(--color-text-body)",
+      emphasis: "var(--color-text-emphasis)"
+    },
   },
   variants: {},
   plugins: [],
