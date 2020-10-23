@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { i18n, withTranslation } from '../i18n'
+import { withTranslation } from '../i18n'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
 import { useState } from 'react'
@@ -32,15 +32,16 @@ const style = css`
   padding: 3px;
 `
 
-const Pill = ({ children }) => {
+const Pill = ({ children, onClick, active }) => {
   return (
-    <div className="rounded-full
-        flex-initial flex flex-row "
+    <button onClick={onClick} className="rounded-full
+        flex-initial flex flex-row"
       css={style}>
-      <div className="bg-primary rounded-full p-2">
+      <div className={`bg-primary rounded-full p-2
+              ${active && 'bg-highlight'}`}>
         {children}
       </div>
-    </div>
+    </button>
   )
 }
 
@@ -57,40 +58,42 @@ const Horizontal = ({ children }) => (
   <div className="flex flex-row space-x-2">{children}</div>
 )
 
-function Home({ t }) {
+function Home({ t, i18n }) {
   const [theme, setTheme] = useState('theme-light')
   const [lang, setLang] = useState('es')
   return (
     <div className={`${theme}
         bg-primary
-        flex flex-col`}>
-      <div className=" mx-auto my-2 max-w-md">
+        flex flex-col
+        text-body`}>
+      <div className=" mx-auto my-2 max-w-md space-y-6">
         <Head>
           <title>Jose Vargas</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
-        <main className="text-body
-          space-y-6 flex flex-col">
+        <main className=" space-y-6 flex flex-col">
           <Horizontal>
-            <Pill>
-              <p onClick={() =>
-                i18n.changeLanguage('es')
-              }>Español</p>
+            <Pill active={i18n.language == 'es'} onClick={() =>
+              i18n.changeLanguage('es')
+            }>
+              <p>Español</p>
             </Pill>
-            <Pill>
-              <p onClick={() =>
-                i18n.changeLanguage('en')
-              }>English</p>
+            <Pill active={i18n.language == 'en'} onClick={() =>
+              i18n.changeLanguage('en')
+            }>
+              <p >English</p>
             </Pill>
-            <Pill>
-              <p onClick={() => setTheme('theme-light')}>
-                Light
+            <Pill active={theme == 'theme-light'}
+              onClick={() => setTheme('theme-light')}>
+              <p>
+                {t('light')}
               </p>
             </Pill>
-            <Pill>
-              <p onClick={() => setTheme('theme-dark')}>
-                Dark
+            <Pill active={theme == 'theme-dark'}
+              onClick={() => setTheme('theme-dark')}>
+              <p>
+                {t('dark')}
               </p>
             </Pill>
           </Horizontal>
@@ -112,16 +115,41 @@ function Home({ t }) {
               <p>{t('personal')}</p>
             </Title>
             <Body>
-              <p>{t('p1title')}</p>
-              <p>{t('p1desc')}</p>
+              <a className="anchor"
+                href="https://movie-searcher-site.netlify.app" >
+                {t('p1title')}
+              </a>
+              {' '}
+              <p>{t('p1desc')} {' '}
+                <a className="anchor"
+                  href="https://github.com/Sleepful/movie_searcher" >
+                  GitHub.
+                </a>
+              </p>
             </Body>
             <Body>
-              <p>{t('p2title')}</p>
-              <p>{t('p2desc')}</p>
+              <a className="anchor"
+                href="https://chinesenotes.netlify.app/" >
+                {t('p2title')}
+              </a>
+              {' '}
+              <p>{t('p2desc')} {' '}
+                <a className="anchor"
+                  href="https://github.com/Sleepful/chinese" >
+                  GitHub.
+                </a>
+              </p>
             </Body>
             <Body>
-              <p>{t('p3title')}</p>
-              <p>{t('p3desc')}</p>
+              <a className="anchor"
+                href="https://josecodea.com">
+                {t('p3title')}</a>
+              <p>{t('p3desc')} {' '}
+                <a className="anchor"
+                  href="https://github.com/Sleepful/portfolio" >
+                  GitHub.
+                </a>
+              </p>
             </Body>
           </Section>
           <Section>
@@ -153,13 +181,28 @@ function Home({ t }) {
             <Title>
               <p>{t('contact')}</p>
             </Title>
-            <div>github</div>
-            <div>linkedin</div>
-            <div>stack overflow</div>
+            <Horizontal className="flex-center">
+              <a className="anchor" href="https://github.com/Sleepful">
+                GitHub
+              </a>
+              <a className="anchor" href="https://www.linkedin.com/in/jose-pablo-vargas-campos-685a4b172/">
+                LinkedIn
+              </a>
+              <a className="anchor" href="https://stackoverflow.com/users/2446144/jose-v">
+                Stack Overflow
+              </a>
+            </Horizontal>
           </Section>
-        </main>
-      </div>
-    </div>
+        </main >
+        <footer>
+          {t('themeby')}{' '}
+          <a className="anchor"
+            href="https://github.com/altercation/solarized">
+            altercation
+          </a>
+        </footer>
+      </div >
+    </div >
   )
 }
 

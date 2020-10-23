@@ -3,7 +3,7 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
-  purge: [],
+  purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   theme: {
     backgroundColor: {
       primary: "var(--color-bg)",
@@ -14,7 +14,9 @@ module.exports = {
     },
     textColor: {
       body: "var(--color-text-body)",
-      emphasis: "var(--color-text-emphasis)"
+      emphasis: "var(--color-text-emphasis)",
+      color1: "var(--color-border-primary)",
+      color2: "var(--color-border-secondary)",
     },
   },
   variants: {},

@@ -1,5 +1,7 @@
+/* purgecss start ignore */
 @tailwind base;
 @tailwind components;
+/* purgecss end ignore */
 @tailwind utilities;
 
 .sideburns {
@@ -11,6 +13,10 @@
       var(--color-border-primary),
       rgba(0, 0, 0, 0)
     ) 1 100%;
+}
+
+.anchor {
+  @apply underline text-color1
 }
 
 .theme-dark {

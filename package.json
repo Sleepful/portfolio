@@ -12,6 +12,7 @@
     "@emotion/core": "^10.0.35",
     "next": "9.4.4",
     "next-i18next": "^6.0.3",
+    "postcss-flexbugs-fixes": "^4.2.1",
     "react": "16.13.1",
     "react-dom": "16.13.1"
   },
