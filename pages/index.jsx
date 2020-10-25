@@ -34,8 +34,7 @@ const style = css`
 
 const Pill = ({ children, onClick, active }) => {
   return (
-    <button onClick={onClick} className="rounded-full
-        flex-initial flex flex-row"
+    <button onClick={onClick} className="rounded-full "
       css={style}>
       <div className={`bg-primary rounded-full p-2
               ${active && 'bg-highlight'}`}>
@@ -54,8 +53,16 @@ const Section = ({ children }) => {
   )
 }
 
+const FourGrid = ({ children }) => {
+  return (
+    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+      {children}
+    </div>
+  )
+}
+
 const Horizontal = ({ children }) => (
-  <div className="flex flex-row space-x-2">{children}</div>
+  <div className="flex flex-1 flex-row space-x-2">{children}</div>
 )
 
 function Home({ t, i18n }) {
@@ -65,15 +72,15 @@ function Home({ t, i18n }) {
     <div className={`${theme}
         bg-primary
         flex flex-col
-        text-body`}>
-      <div className=" mx-auto my-2 max-w-md space-y-6">
+        text-body px-2`}>
+      <div className=" mx-auto my-2 max-w-md space-y-6 mx-2">
         <Head>
           <title>Jose Vargas</title>
           <link rel="icon" href="/favicon.ico" />
         </Head>
 
         <main className=" space-y-6 flex flex-col">
-          <Horizontal>
+          <FourGrid>
             <Pill active={i18n.language == 'es'} onClick={() =>
               i18n.changeLanguage('es')
             }>
@@ -96,7 +103,7 @@ function Home({ t, i18n }) {
                 {t('dark')}
               </p>
             </Pill>
-          </Horizontal>
+          </FourGrid>
           <h1 className="bg-primary font-serif text-4xl text-emphasis">
             {t('header')}
           </h1>
