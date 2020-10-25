@@ -2,7 +2,8 @@ import Head from 'next/head'
 import { withTranslation } from '../i18n'
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core'
-import { useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import { useLocalStorage } from '../hooks/useLocalStorage'
 
 
 const Body = ({ children }) => {
@@ -66,8 +67,13 @@ const Horizontal = ({ children }) => (
 )
 
 function Home({ t, i18n }) {
-  const [theme, setTheme] = useState('theme-light')
-  const [lang, setLang] = useState('es')
+  const [theme, setTheme] = useLocalStorage('theme', 'theme-light')
+  useEffect(
+    () => {
+      document.documentElement.lang = i18n.language
+    },
+    [i18n.language]
+  )
   return (
     <div className={`${theme}
         bg-primary
@@ -173,7 +179,7 @@ function Home({ t, i18n }) {
               <p>{t('wouldlike')}</p>
             </Title>
             <Body>
-              <p>Rust, Elixir, Deno, WebAssembly, Go</p>
+              <p>Rust, Elixir, Deno, WebAssembly, Clojure, Go</p>
             </Body>
           </Section>
           <Section>
