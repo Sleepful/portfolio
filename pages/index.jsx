@@ -205,7 +205,7 @@ function Home({ t, i18n }) {
           {t('themeby')}{' '}
           <a className="anchor"
             href="https://github.com/altercation/solarized">
-            altercation
+            Solarized
           </a>
         </footer>
       </div >
