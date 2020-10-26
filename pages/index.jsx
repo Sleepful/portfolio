@@ -72,7 +72,7 @@ function Home({ t, i18n }) {
   useEffect(
     () => {
       i18n.changeLanguage(lang)
-      document.documentElement.lang = i18n.language
+      document.documentElement.lang = lang
     },
     [lang]
   )
