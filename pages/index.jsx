@@ -68,11 +68,13 @@ const Horizontal = ({ children }) => (
 
 function Home({ t, i18n }) {
   const [theme, setTheme] = useLocalStorage('theme', 'theme-light')
+  const [lang, setLang] = useLocalStorage('lang', i18n.language)
   useEffect(
     () => {
+      i18n.changeLanguage(lang)
       document.documentElement.lang = i18n.language
     },
-    [i18n.language]
+    [lang]
   )
   return (
     <div className={`${theme}
@@ -87,13 +89,13 @@ function Home({ t, i18n }) {
 
         <main className=" space-y-6 flex flex-col">
           <FourGrid>
-            <Pill active={i18n.language == 'es'} onClick={() =>
-              i18n.changeLanguage('es')
+            <Pill active={lang == 'es'} onClick={() =>
+              setLang('es')
             }>
               <p>Español</p>
             </Pill>
-            <Pill active={i18n.language == 'en'} onClick={() =>
-              i18n.changeLanguage('en')
+            <Pill active={lang == 'en'} onClick={() =>
+              setLang('en')
             }>
               <p >English</p>
             </Pill>
