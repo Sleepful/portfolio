@@ -1,9 +1,9 @@
 {
     "header"       : "Bienvenides a mi pagina",
     "subheader"    : "Soy Jose Vargas",
-    "aboutme"      : "Me alegra que se encuentre aquí conmigo y espero que se encuentre bien en estos tiempos dificiles. Yo trabajo creando programas de computadora. Me interesa que mi trabajo aporte a la inclusividad y accesibilidad de la industria y la tecnología.",
+    "aboutme"      : "Me alegra que se encuentre aquí conmigo y espero que se encuentre bien en estos tiempos difíciles. Esta es mi pequeña esquina del internet para presentarme.",
     "personal"     : "Proyectos",
-    "p1title"      : "Buscador de peliculas en linea",
+    "p1title"      : "Buscador de películas en linea",
     "p1desc"       : "Un pequeño proyecto para demostrar el uso de ReactJS con TypeScript, TailwindCSS y Jest.",
     "p2title"      : "Notas de estudio de Chino",
     "p2desc"       : "Un cuaderno en linea con mis notas personales de estudio, es un proyecto que he empezado recientemente así que no tiene mucho contenido aún.",
@@ -12,9 +12,9 @@
     "technologies" : "Herramientas de trabajo",
     "wouldlike"    : "Herramientas con las que me gustaría trabajar",
     "work"         : "Contráteme",
-    "workdesc"     : "¿Le gustaría trabajar conmigo? ¡Genial! Estoy abierto a posiciones de proyectos nuevos. Yo trabajo con las tecnologias que he listado en esta pagina unicamente, al menos que me muestre algo nuevo que sea de mi interes. Me importa que mi trabajo contribuya a la inclusividad y accesibilidad de la industria y de la tecnología, así que estoy particularmente interesado en organizaciones sin fines de lucro. Si cree que tiene una posición para mi entonces escribame por medio de una de las siguientes plataformas.",
+    "workdesc"     : "¿Le gustaría trabajar conmigo? ¡Genial! Estoy abierto a posiciones de proyectos nuevos. Yo trabajo con las tecnologías que he listado en esta pagina únicamente, al menos que me muestre algo nuevo que sea de mi interés. Me importa que mi trabajo contribuya a la inclusividad y accesibilidad de la industria y de la tecnología, así que estoy particularmente interesado en organizaciones sin fines de lucro. Si cree que tiene una posición para mi entonces escríbame por medio de una de las siguientes plataformas.",
     "contact"      : "Presencia Online",
-    "light":"Claro",
-    "dark":"Oscuro",
-    "themeby": "Colores de tema por"
+    "light"        :"Claro",
+    "dark"         :"Oscuro",
+    "themeby"      : "Colores de tema por"
 }
