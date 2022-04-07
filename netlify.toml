@@ -1,0 +1,5 @@
+[[redirects]]
+  from = "/github"
+  to = "https://github.com/Sleepful/"
+  status = 200
+  force = true
