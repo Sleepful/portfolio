@@ -5,6 +5,15 @@ const localeSubpaths = {}
 module.exports = {
   rewrites: async () => nextI18NextRewrites(localeSubpaths),
   publicRuntimeConfig: {
-    localeSubpaths,
+    localeSubpaths
   },
+  async redirects() {
+    return [
+      {
+        source: '/github',
+        destination: 'https://github.com/Sleepful/',
+        permanent: false
+      }
+    ]
+  }
 }
