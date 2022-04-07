@@ -1,15 +1,15 @@
 import Head from 'next/head'
 import { withTranslation } from '../i18n'
-/** @jsx jsx */
-import { jsx, css } from '@emotion/core'
+import { jsx, css } from '@emotion/react'
 import { useEffect, useRef, useState } from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
-
 const Body = ({ children }) => {
   return (
-    <div className="border-solid rounded-lg border-black border-0
-      py-2">
+    <div
+      className="border-solid rounded-lg border-black border-0
+      py-2"
+    >
       {children}
     </div>
   )
@@ -18,9 +18,11 @@ const Body = ({ children }) => {
 const Title = ({ children }) => {
   return (
     <div className="flex items-start text-lg">
-      <div className="border-solid rounded-full border-black border-0
+      <div
+        className="border-solid rounded-full border-black border-0
         py-2 flex-initial flex flex-row
-        font-serif text-2xl text-emphasis">
+        font-serif text-2xl text-emphasis"
+      >
         {children}
       </div>
     </div>
@@ -28,17 +30,22 @@ const Title = ({ children }) => {
 }
 
 const style = css`
-  background: rgb(174,12,6);
-  background: linear-gradient(90deg, var(--color-border-primary) 0%, var(--color-border-second) 100%);
+  background: rgb(174, 12, 6);
+  background: linear-gradient(
+    90deg,
+    var(--color-border-primary) 0%,
+    var(--color-border-second) 100%
+  );
   padding: 3px;
 `
 
 const Pill = ({ children, onClick, active }) => {
   return (
-    <button onClick={onClick} className="rounded-full "
-      css={style}>
-      <div className={`bg-primary rounded-full p-2
-              ${active && 'bg-highlight'}`}>
+    <button onClick={onClick} className="rounded-full " css={style}>
+      <div
+        className={`bg-primary rounded-full p-2
+              ${active && 'bg-highlight'}`}
+      >
         {children}
       </div>
     </button>
@@ -50,16 +57,12 @@ const Section = ({ children }) => {
     // <div className="sideburns -mx-4">
     <div className="sideburns">
       <section className="px-4">{children}</section>
-    </div >
+    </div>
   )
 }
 
 const FourGrid = ({ children }) => {
-  return (
-    <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-      {children}
-    </div>
-  )
+  return <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">{children}</div>
 }
 
 const Horizontal = ({ children }) => (
@@ -69,18 +72,17 @@ const Horizontal = ({ children }) => (
 function Home({ t, i18n }) {
   const [theme, setTheme] = useLocalStorage('theme', 'theme-light')
   const [lang, setLang] = useLocalStorage('lang', i18n.language)
-  useEffect(
-    () => {
-      i18n.changeLanguage(lang)
-      document.documentElement.lang = lang
-    },
-    [lang]
-  )
+  useEffect(() => {
+    i18n.changeLanguage(lang)
+    document.documentElement.lang = lang
+  }, [lang])
   return (
-    <div className={`${theme}
+    <div
+      className={`${theme}
         bg-primary
         flex flex-col
-        text-body px-2`}>
+        text-body px-2`}
+    >
       <div className=" mx-auto my-2 max-w-md space-y-6 mx-2">
         <Head>
           <title>Jose Vargas</title>
@@ -89,27 +91,23 @@ function Home({ t, i18n }) {
 
         <main className=" space-y-6 flex flex-col">
           <FourGrid>
-            <Pill active={lang == 'es'} onClick={() =>
-              setLang('es')
-            }>
+            <Pill active={lang == 'es'} onClick={() => setLang('es')}>
               <p>Español</p>
             </Pill>
-            <Pill active={lang == 'en'} onClick={() =>
-              setLang('en')
-            }>
-              <p >English</p>
+            <Pill active={lang == 'en'} onClick={() => setLang('en')}>
+              <p>English</p>
             </Pill>
-            <Pill active={theme == 'theme-light'}
-              onClick={() => setTheme('theme-light')}>
-              <p>
-                {t('light')}
-              </p>
+            <Pill
+              active={theme == 'theme-light'}
+              onClick={() => setTheme('theme-light')}
+            >
+              <p>{t('light')}</p>
             </Pill>
-            <Pill active={theme == 'theme-dark'}
-              onClick={() => setTheme('theme-dark')}>
-              <p>
-                {t('dark')}
-              </p>
+            <Pill
+              active={theme == 'theme-dark'}
+              onClick={() => setTheme('theme-dark')}
+            >
+              <p>{t('dark')}</p>
             </Pill>
           </FourGrid>
           <h1 className="bg-primary font-serif text-4xl text-emphasis">
@@ -117,9 +115,7 @@ function Home({ t, i18n }) {
           </h1>
           <Section>
             <Title>
-              <h2>
-                {t('subheader')}
-              </h2>
+              <h2>{t('subheader')}</h2>
             </Title>
             <Body>
               <p>{t('aboutme')}</p>
@@ -130,38 +126,46 @@ function Home({ t, i18n }) {
               <p>{t('personal')}</p>
             </Title>
             <Body>
-              <a className="anchor"
-                href="https://movie-searcher-site.netlify.app" >
+              <a
+                className="anchor"
+                href="https://movie-searcher-site.netlify.app"
+              >
                 {t('p1title')}
-              </a>
-              {' '}
-              <p>{t('p1desc')} {' '}
-                <a className="anchor"
-                  href="https://github.com/Sleepful/movie_searcher" >
+              </a>{' '}
+              <p>
+                {t('p1desc')}{' '}
+                <a
+                  className="anchor"
+                  href="https://github.com/Sleepful/movie_searcher"
+                >
                   GitHub.
                 </a>
               </p>
             </Body>
             <Body>
-              <a className="anchor"
-                href="https://chinesenotes.netlify.app/" >
+              <a className="anchor" href="https://chinesenotes.netlify.app/">
                 {t('p2title')}
-              </a>
-              {' '}
-              <p>{t('p2desc')} {' '}
-                <a className="anchor"
-                  href="https://github.com/Sleepful/chinese" >
+              </a>{' '}
+              <p>
+                {t('p2desc')}{' '}
+                <a
+                  className="anchor"
+                  href="https://github.com/Sleepful/chinese"
+                >
                   GitHub.
                 </a>
               </p>
             </Body>
             <Body>
-              <a className="anchor"
-                href="https://josecodea.com">
-                {t('p3title')}</a>
-              <p>{t('p3desc')} {' '}
-                <a className="anchor"
-                  href="https://github.com/Sleepful/portfolio" >
+              <a className="anchor" href="https://josecodea.com">
+                {t('p3title')}
+              </a>
+              <p>
+                {t('p3desc')}{' '}
+                <a
+                  className="anchor"
+                  href="https://github.com/Sleepful/portfolio"
+                >
                   GitHub.
                 </a>
               </p>
@@ -172,8 +176,10 @@ function Home({ t, i18n }) {
               <p>{t('technologies')}</p>
             </Title>
             <Body>
-              <p>TypeScript, ReactJs, TailwindCSS, NextJs, NodeJs, GraphQl, CSS,
-                Emacs, Linux </p>
+              <p>
+                TypeScript, ReactJs, TailwindCSS, NextJs, NodeJs, GraphQl, CSS,
+                Emacs, Linux{' '}
+              </p>
             </Body>
           </Section>
           <Section>
@@ -200,30 +206,34 @@ function Home({ t, i18n }) {
               <a className="anchor" href="https://github.com/Sleepful">
                 GitHub
               </a>
-              <a className="anchor" href="https://www.linkedin.com/in/jose-pablo-vargas-campos-685a4b172/">
+              <a
+                className="anchor"
+                href="https://www.linkedin.com/in/jose-pablo-vargas-campos-685a4b172/"
+              >
                 LinkedIn
               </a>
-              <a className="anchor" href="https://stackoverflow.com/users/2446144/jose-v">
+              <a
+                className="anchor"
+                href="https://stackoverflow.com/users/2446144/jose-v"
+              >
                 Stack Overflow
               </a>
             </Horizontal>
           </Section>
-        </main >
+        </main>
         <footer>
           {t('themeby')}{' '}
-          <a className="anchor"
-            href="https://github.com/altercation/solarized">
+          <a className="anchor" href="https://github.com/altercation/solarized">
             Solarized
           </a>
         </footer>
-      </div >
-    </div >
+      </div>
+    </div>
   )
 }
 
 Home.getInitialProps = async () => ({
-  namespacesRequired: ['common'],
+  namespacesRequired: ['common']
 })
-
 
 export default withTranslation('common')(Home)
