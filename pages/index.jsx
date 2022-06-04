@@ -43,7 +43,7 @@ const Pill = ({ children, onClick, active }) => {
   return (
     <button onClick={onClick} className="rounded-full " css={style}>
       <div
-        className={`bg-primary rounded-full p-2
+        className={`bg-primary rounded-full p-2 border-2 border-primary
               ${active && 'bg-highlight'}`}
       >
         {children}
