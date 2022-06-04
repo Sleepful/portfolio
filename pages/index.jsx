@@ -187,7 +187,7 @@ function Home({ t, i18n }) {
               <p>{t('wouldlike')}</p>
             </Title>
             <Body>
-              <p>Rust, Elixir, Deno, WebAssembly, Clojure, Go</p>
+              <p>Rust, Elixir, Deno, WebAssembly, Clojure, Go, Ruby</p>
             </Body>
           </Section>
           <Section>
