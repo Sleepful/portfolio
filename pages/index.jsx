@@ -143,14 +143,17 @@ function Home({ t, i18n }) {
               </p>
             </Body>
             <Body>
-              <a className="anchor" href="https://chinesenotes.netlify.app/">
-                {t('p2title')}
+              <a
+                className="anchor"
+                href="/static/YingYangTunnel_output_Spin.mov"
+              >
+                {t('yinyang_title')}
               </a>{' '}
               <p>
-                {t('p2desc')}{' '}
+                {t('yinyang_description')}{' '}
                 <a
                   className="anchor"
-                  href="https://github.com/Sleepful/chinese"
+                  href="https://github.com/Sleepful/Visuals"
                 >
                   GitHub.
                 </a>
@@ -170,7 +173,48 @@ function Home({ t, i18n }) {
                 </a>
               </p>
             </Body>
+            <Body>
+              <a className="anchor" href="https://github.com/Sleepful/Phoenix_blog">
+                {t('phoenix_blog_title')}
+              </a>{' '}
+              <p>
+                {t('phoenix_blog_description')}{' '}
+                <a
+                  className="anchor"
+                  href="https://github.com/Sleepful/Phoenix_blog"
+                >
+                  GitHub.
+                </a>
+              </p>
+            </Body>
           </Section>
+          {
+            /*
+
+
+          <Section>
+            <Title>
+              <p>{t('open_source')}</p>
+            </Title>
+            <Body>
+              <a
+                className="anchor"
+                href="https://movie-searcher-site.netlify.app"
+              >
+                Date + Name Of Repo + (elixir)
+                todo: 
+              "liveview_1"   
+              "liveview_2"   
+              "tailwind_1"   
+              "ecto_1"       
+              "ecto_2"       
+              </a>
+            </Body>
+          </Section>
+
+            */
+          }
+
           <Section>
             <Title>
               <p>{t('technologies')}</p>
