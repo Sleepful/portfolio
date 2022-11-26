@@ -130,7 +130,7 @@ function Home({ t, i18n }) {
                 className="anchor"
                 href="https://movie-searcher-site.netlify.app"
               >
-                {t('p1title')}
+                <b>{t('p1title')}</b>
               </a>{' '}
               <p>
                 {t('p1desc')}{' '}
@@ -147,7 +147,7 @@ function Home({ t, i18n }) {
                 className="anchor"
                 href="/static/YingYangTunnel_output_Spin.mov"
               >
-                {t('yinyang_title')}
+                <b> {t('yinyang_title')} </b>
               </a>{' '}
               <p>
                 {t('yinyang_description')}{' '}
@@ -161,7 +161,7 @@ function Home({ t, i18n }) {
             </Body>
             <Body>
               <a className="anchor" href="https://josecodea.com">
-                {t('p3title')}
+                <b>{t('p3title')}</b>
               </a>
               <p>
                 {t('p3desc')}{' '}
@@ -175,7 +175,7 @@ function Home({ t, i18n }) {
             </Body>
             <Body>
               <a className="anchor" href="https://github.com/Sleepful/Phoenix_blog">
-                {t('phoenix_blog_title')}
+                <b>{t('phoenix_blog_title')}</b>
               </a>{' '}
               <p>
                 {t('phoenix_blog_description')}{' '}
@@ -189,32 +189,84 @@ function Home({ t, i18n }) {
             </Body>
           </Section>
           {
-            /*
-
-
+            // TODO embed yinyang with loop
+            // - make it a video that can be
+            //   unfolded
+            // - need to replace mov with better
+            //   one that loops nicely, or make
+            //   high qual gif (eh)
+          }
           <Section>
             <Title>
               <p>{t('open_source')}</p>
             </Title>
+            {
+            // TODO: 
+            // https://github.com/phoenixframework/phoenix_live_view/pull/2340
+            // <Body>
+            //   <a
+            //     className="anchor"
+            //     href=""
+            //   >
+            //     <b>
+            //       phoenixframework/phoenix_live_view
+            //     </b>
+            //   </a>
+            // </Body>
+            }
             <Body>
               <a
                 className="anchor"
-                href="https://movie-searcher-site.netlify.app"
+                href="https://github.com/phoenixframework/phoenix_live_view/pull/2336"
               >
-                Date + Name Of Repo + (elixir)
-                todo: 
-              "liveview_1"   
-              "liveview_2"   
-              "tailwind_1"   
-              "ecto_1"       
-              "ecto_2"       
+                <b>
+                  phoenixframework/phoenix_live_view
+                </b>
               </a>
+              <p>
+                Update sample code for on_mount authentication
+              </p>
+            </Body>
+            <Body>
+              <a
+                className="anchor"
+                href="https://github.com/elixir-ecto/ecto/pull/3967"
+              >
+                <b>
+                  elixir-ecto/ecto
+                </b>
+              </a>
+              <p>
+                Support preloading associations in embedded schemas from the parent schema
+              </p>
+            </Body>
+            <Body>
+              <a
+                className="anchor"
+                href="https://github.com/elixir-ecto/ecto/pull/4051"
+              >
+                <b>
+                  elixir-ecto/ecto
+                </b>
+              </a>
+              <p>
+                Add small clarification to Ecto.Query docs
+              </p>
+            </Body>
+            <Body>
+              <a
+                className="anchor"
+                href="https://github.com/tailwindlabs/tailwindcss.com/pull/1378"
+              >
+                <b>
+                  tailwindlabs/tailwindcss.com 
+                </b>
+              </a>
+              <p>
+                Add arbitrary-variants section in arbitrary-values
+              </p>
             </Body>
           </Section>
-
-            */
-          }
-
           <Section>
             <Title>
               <p>{t('technologies')}</p>
