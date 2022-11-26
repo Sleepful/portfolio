@@ -224,7 +224,7 @@ function Home({ t, i18n }) {
                 </b>
               </a>
               <p>
-                Update sample code for on_mount authentication
+                Update sample code for on_mount authentication.
               </p>
             </Body>
             <Body>
@@ -237,7 +237,7 @@ function Home({ t, i18n }) {
                 </b>
               </a>
               <p>
-                Support preloading associations in embedded schemas from the parent schema
+                Support preloading associations in embedded schemas from the parent schema.
               </p>
             </Body>
             <Body>
@@ -250,7 +250,7 @@ function Home({ t, i18n }) {
                 </b>
               </a>
               <p>
-                Add small clarification to Ecto.Query docs
+                Add small clarification to Ecto.Query docs.
               </p>
             </Body>
             <Body>
@@ -263,7 +263,7 @@ function Home({ t, i18n }) {
                 </b>
               </a>
               <p>
-                Add arbitrary-variants section in arbitrary-values
+                Add arbitrary-variants section in arbitrary-values.
               </p>
             </Body>
           </Section>
@@ -273,17 +273,8 @@ function Home({ t, i18n }) {
             </Title>
             <Body>
               <p>
-                TypeScript, ReactJs, TailwindCSS, NextJs, NodeJs, GraphQl, CSS,
-                Emacs, Linux{' '}
+                Elixir, Phoenix, Rust, Clojure, TypeScript, Emacs, Linux.
               </p>
-            </Body>
-          </Section>
-          <Section>
-            <Title>
-              <p>{t('wouldlike')}</p>
-            </Title>
-            <Body>
-              <p>Rust, Elixir, Deno, WebAssembly, Clojure, Go, Ruby</p>
             </Body>
           </Section>
           <Section>
