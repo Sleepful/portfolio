@@ -305,6 +305,12 @@ function Home({ t, i18n }) {
               >
                 Stack Overflow
               </a>
+              <a
+                className="anchor"
+                href="mailto:josepablov@gmail.com"
+              >
+                josepablov@gmail.com
+              </a>
             </Horizontal>
           </Section>
         </main>
