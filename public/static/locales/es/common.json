@@ -1,7 +1,7 @@
 {
     "header"       : "Bienvenidos a mi pagina",
     "subheader"    : "Soy Jose Vargas",
-    "aboutme"      : "Me alegra que se encuentre aquí conmigo y espero que se encuentre bien en estos tiempos difíciles. Esta es mi pequeña esquina del internet para presentarme.",
+    "aboutme"      : "Vivo en Costa Rica, estoy buscando freelance con Elixir. Tengo bastante experiencia en roles de tiempo completo, full-stack y remoto atraves de varias compañías.",
     "personal"     : "Proyectos",
     "p1title"      : "Buscador de películas en linea",
     "p1desc"       : "Un pequeño proyecto para demostrar el uso de ReactJS con TypeScript, TailwindCSS y Jest.",
