@@ -1,8 +1,7 @@
 {
     "header"       : "Welcome to my page",
     "subheader"    : "My name is Jose Vargas",
-    "aboutme"      : "I live in Costa Rica, I am looking for freelance work with Elixir. I have plenty of full-time experience in full-stack remote roles across multiple companies.",
-
+    "aboutme"      : "I live in Costa Rica, I am looking for freelance work with Elixir. I have plenty of full-time experience in full-stack (TypeScript) remote roles across multiple companies.",
     "personal"     : "A couple of my projects",
     "p1title"      : "Movie search front-end",
     "p1desc"       : "A small project to showcase ReactJS with Typescript, TailwindCSS and Jest. «The fizzbuzz test of web developers». It has one bug, if you find it you may have one cookie.",
