@@ -15,13 +15,13 @@ const Body = ({ children }) => {
   )
 }
 
-const Title = ({ children }) => {
+const Title = ({ children, textSize = "text-2xl" }) => {
   return (
     <div className="flex items-start text-lg">
       <div
-        className="border-solid rounded-full border-black border-0
+        className={`border-solid rounded-full border-black border-0
         py-2 flex-initial flex flex-row
-        font-serif text-2xl text-emphasis"
+        font-serif ${textSize} text-emphasis`}
       >
         {children}
       </div>
@@ -60,6 +60,23 @@ const Section = ({ children }) => {
     </div>
   )
 }
+
+const OSSBody = ({ pr, repo, desc }) =>
+  (
+            <Body>
+              <a
+                className="anchor"
+                href={`https://github.com/${repo}/pull/${pr}`}
+              >
+                <b>
+                  {repo}
+                </b>
+              </a>
+              <p>
+                {desc}
+              </p>
+            </Body>
+  )
 
 const FourGrid = ({ children }) => {
   return <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">{children}</div>
@@ -200,6 +217,9 @@ function Home({ t, i18n }) {
             <Title>
               <p>{t('open_source')}</p>
             </Title>
+            <Title textSize = "text-lg">
+              <p>Elixir</p>
+            </Title>
             {
             // TODO: 
             // https://github.com/phoenixframework/phoenix_live_view/pull/2340
@@ -253,6 +273,9 @@ function Home({ t, i18n }) {
                 Add small clarification to Ecto.Query docs.
               </p>
             </Body>
+            <Title textSize = "text-lg">
+              <p>TailwindCSS</p>
+            </Title>
             <Body>
               <a
                 className="anchor"
@@ -266,6 +289,34 @@ function Home({ t, i18n }) {
                 Add arbitrary-variants section in arbitrary-values.
               </p>
             </Body>
+            <Title textSize = "text-lg">
+              <p>Emacs</p>
+            </Title>
+            <OSSBody
+              pr="212"
+              repo="lassik/emacs-format-all-the-code"
+              desc="Add support for HTML+EEX"
+            />
+            <OSSBody
+              pr="23"
+              repo="lassik/emacs-language-id"
+              desc="Add HTML+EEX language-id"
+            />
+            <OSSBody
+              pr="6900"
+              repo="doomemacs/doomemacs"
+              desc="fix(highlight-indent-guides): for terminal users"
+            />
+            <OSSBody
+              pr="409"
+              repo="ananthakumaran/tide"
+              desc="Fix tide-rename-file bug on new buffer name"
+            />
+            <OSSBody
+              pr="19"
+              repo="andre-r/centered-cursor-mode.el"
+              desc="Only use mouse-wheel variables when bound"
+            />
           </Section>
           <Section>
             <Title>
