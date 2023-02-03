@@ -273,6 +273,19 @@ function Home({ t, i18n }) {
                 Add small clarification to Ecto.Query docs.
               </p>
             </Body>
+            <Body>
+              <a
+                className="anchor"
+                href="https://github.com/livebook-dev/livebook/pull/1682"
+              >
+                <b>
+                  livebook-dev/livebook
+                </b>
+              </a>
+              <p>
+                Small clarification to running Livebook inside a Mix project
+              </p>
+            </Body>
             <Title textSize = "text-lg">
               <p>TailwindCSS</p>
             </Title>
