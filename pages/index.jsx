@@ -283,7 +283,7 @@ function Home({ t, i18n }) {
                 </b>
               </a>
               <p>
-                Small clarification to running Livebook inside a Mix project
+                Small clarification to running Livebook inside a Mix project.
               </p>
             </Body>
             <Title textSize = "text-lg">
