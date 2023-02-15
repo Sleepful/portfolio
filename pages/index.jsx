@@ -220,20 +220,23 @@ function Home({ t, i18n }) {
             <Title textSize = "text-lg">
               <p>Elixir</p>
             </Title>
-            {
-            // TODO: 
-            // https://github.com/phoenixframework/phoenix_live_view/pull/2340
-            // <Body>
-            //   <a
-            //     className="anchor"
-            //     href=""
-            //   >
-            //     <b>
-            //       phoenixframework/phoenix_live_view
-            //     </b>
-            //   </a>
-            // </Body>
-            }
+            <Body>
+              <a
+                className="anchor"
+                href="https://github.com/phoenixframework/phoenix_live_view/pull/2340"
+              >
+                <b>
+                  phoenixframework/phoenix_live_view
+                </b>
+              </a>
+              <p>
+                Docs: Explain sockets as a server-only data struct {" "}
+                <a
+                className="anchor"
+                href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00"
+                >(merge commit)</a>
+              </p>
+            </Body>
             <Body>
               <a
                 className="anchor"
