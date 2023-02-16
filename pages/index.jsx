@@ -215,10 +215,10 @@ function Home({ t, i18n }) {
           }
           <Section>
             <Title>
-              <p>{t('open_source')}</p>
+              <a name="openSource">{t('open_source')}</a>
             </Title>
             <Title textSize = "text-lg">
-              <p>Elixir</p>
+              <a name="elixir">Elixir</a>
             </Title>
             <Body>
               <a
