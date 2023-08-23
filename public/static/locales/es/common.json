@@ -5,7 +5,7 @@
   "personal": "Proyectos",
   "bloggeroo_title": "Mi blog",
   "bloggeroo_desc": "Hecho en Rust.",
-  "lsat_title": "Graficos de resultados academicos",
+  "lsat_title": "Gráficos de resultados academicos",
   "lsat_desc": "Pequeña applicación web para mostrar graficos de VegaLite dentro de Phoenix. Usa un archivo de CSV como fuente de datos, muestra el percentil de la media de resultados para el LSAT en varias universidades.",
   "p1title": "Buscador de películas en linea",
   "p1desc": "Un pequeño proyecto para demostrar el uso de ReactJS con TypeScript, TailwindCSS y Jest.",
