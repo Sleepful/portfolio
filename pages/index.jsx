@@ -132,7 +132,8 @@ function Home({ t, i18n }) {
           </Section>
           <Section>
             <Title>
-              <p>{t('personal')}</p>
+              <a name="this" />
+              <p >{t('personal')}</p>
             </Title>
             <Body>
               <a className="anchor" href="https://bloggeroo.dev">
@@ -199,7 +200,7 @@ function Home({ t, i18n }) {
               </p>
             </Body>
             <Body>
-              <a className="anchor" name="this" href="#this">
+              <a className="anchor" href="#this">
                 <b>{t('p3title')}</b>
               </a>
               <p>
