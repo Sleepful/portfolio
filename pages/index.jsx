@@ -15,7 +15,7 @@ const Body = ({ children }) => {
   )
 }
 
-const Title = ({ children, textSize = "text-2xl" }) => {
+const Title = ({ children, textSize = 'text-2xl' }) => {
   return (
     <div className="flex items-start text-lg">
       <div
@@ -61,22 +61,14 @@ const Section = ({ children }) => {
   )
 }
 
-const OSSBody = ({ pr, repo, desc }) =>
-  (
-            <Body>
-              <a
-                className="anchor"
-                href={`https://github.com/${repo}/pull/${pr}`}
-              >
-                <b>
-                  {repo}
-                </b>
-              </a>
-              <p>
-                {desc}
-              </p>
-            </Body>
-  )
+const OSSBody = ({ pr, repo, desc }) => (
+  <Body>
+    <a className="anchor" href={`https://github.com/${repo}/pull/${pr}`}>
+      <b>{repo}</b>
+    </a>
+    <p>{desc}</p>
+  </Body>
+)
 
 const FourGrid = ({ children }) => {
   return <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">{children}</div>
@@ -143,6 +135,29 @@ function Home({ t, i18n }) {
               <p>{t('personal')}</p>
             </Title>
             <Body>
+              <a className="anchor" href="https://bloggeroo.dev">
+                <b>{t('bloggeroo_title')}</b>
+              </a>{' '}
+              <p>
+                {t('bloggeroo_desc')}{' '}
+                <a
+                  className="anchor"
+                  href="https://github.com/Sleepful/Bloggeroo"
+                >
+                  GitHub.
+                </a>
+              </p>
+            </Body>
+
+            <Body>
+              <a className="anchor" href="https://lsat.fly.dev/">
+                <b>{t('lsat_title')}</b>
+              </a>{' '}
+              <p>
+                {t('lsat_desc')}{' '}
+              </p>
+            </Body>
+            <Body>
               <a
                 className="anchor"
                 href="https://movie-searcher-site.netlify.app"
@@ -190,20 +205,6 @@ function Home({ t, i18n }) {
                 </a>
               </p>
             </Body>
-            <Body>
-              <a className="anchor" href="https://github.com/Sleepful/Phoenix_blog">
-                <b>{t('phoenix_blog_title')}</b>
-              </a>{' '}
-              <p>
-                {t('phoenix_blog_description')}{' '}
-                <a
-                  className="anchor"
-                  href="https://github.com/Sleepful/Phoenix_blog"
-                >
-                  GitHub.
-                </a>
-              </p>
-            </Body>
           </Section>
           {
             // TODO embed yinyang with loop
@@ -217,7 +218,7 @@ function Home({ t, i18n }) {
             <Title>
               <a name="openSource">{t('open_source')}</a>
             </Title>
-            <Title textSize = "text-lg">
+            <Title textSize="text-lg">
               <a name="elixir">Elixir</a>
             </Title>
             <Body>
@@ -225,16 +226,16 @@ function Home({ t, i18n }) {
                 className="anchor"
                 href="https://github.com/phoenixframework/phoenix_live_view/pull/2340"
               >
-                <b>
-                  phoenixframework/phoenix_live_view
-                </b>
+                <b>phoenixframework/phoenix_live_view</b>
               </a>
               <p>
-                Docs: Explain sockets as a server-only data struct {" "}
+                Docs: Explain sockets as a server-only data struct{' '}
                 <a
-                className="anchor"
-                href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00"
-                >(merge commit)</a>
+                  className="anchor"
+                  href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00"
+                >
+                  (merge commit)
+                </a>
               </p>
             </Body>
             <Body>
@@ -242,25 +243,20 @@ function Home({ t, i18n }) {
                 className="anchor"
                 href="https://github.com/phoenixframework/phoenix_live_view/pull/2336"
               >
-                <b>
-                  phoenixframework/phoenix_live_view
-                </b>
+                <b>phoenixframework/phoenix_live_view</b>
               </a>
-              <p>
-                Update sample code for on_mount authentication.
-              </p>
+              <p>Update sample code for on_mount authentication.</p>
             </Body>
             <Body>
               <a
                 className="anchor"
                 href="https://github.com/elixir-ecto/ecto/pull/3967"
               >
-                <b>
-                  elixir-ecto/ecto
-                </b>
+                <b>elixir-ecto/ecto</b>
               </a>
               <p>
-                Support preloading associations in embedded schemas from the parent schema.
+                Support preloading associations in embedded schemas from the
+                parent schema.
               </p>
             </Body>
             <Body>
@@ -268,28 +264,22 @@ function Home({ t, i18n }) {
                 className="anchor"
                 href="https://github.com/elixir-ecto/ecto/pull/4051"
               >
-                <b>
-                  elixir-ecto/ecto
-                </b>
+                <b>elixir-ecto/ecto</b>
               </a>
-              <p>
-                Add small clarification to Ecto.Query docs.
-              </p>
+              <p>Add small clarification to Ecto.Query docs.</p>
             </Body>
             <Body>
               <a
                 className="anchor"
                 href="https://github.com/livebook-dev/livebook/pull/1682"
               >
-                <b>
-                  livebook-dev/livebook
-                </b>
+                <b>livebook-dev/livebook</b>
               </a>
               <p>
                 Small clarification to running Livebook inside a Mix project.
               </p>
             </Body>
-            <Title textSize = "text-lg">
+            <Title textSize="text-lg">
               <p>TailwindCSS</p>
             </Title>
             <Body>
@@ -297,15 +287,11 @@ function Home({ t, i18n }) {
                 className="anchor"
                 href="https://github.com/tailwindlabs/tailwindcss.com/pull/1378"
               >
-                <b>
-                  tailwindlabs/tailwindcss.com 
-                </b>
+                <b>tailwindlabs/tailwindcss.com</b>
               </a>
-              <p>
-                Add arbitrary-variants section in arbitrary-values.
-              </p>
+              <p>Add arbitrary-variants section in arbitrary-values.</p>
             </Body>
-            <Title textSize = "text-lg">
+            <Title textSize="text-lg">
               <p>Emacs</p>
             </Title>
             <OSSBody
@@ -339,9 +325,7 @@ function Home({ t, i18n }) {
               <p>{t('technologies')}</p>
             </Title>
             <Body>
-              <p>
-                Elixir, Phoenix, Rust, Clojure, TypeScript, Emacs, Linux.
-              </p>
+              <p>Elixir, Phoenix, Rust, Clojure, TypeScript, Emacs, Linux.</p>
             </Body>
           </Section>
           <Section>
@@ -374,10 +358,7 @@ function Home({ t, i18n }) {
               </a>
             </Horizontal>
             <Horizontal>
-              <a
-                className="anchor"
-                href="mailto:josepablov@gmail.com"
-              >
+              <a className="anchor" href="mailto:josepablov@gmail.com">
                 josepablov@gmail.com
               </a>
             </Horizontal>
