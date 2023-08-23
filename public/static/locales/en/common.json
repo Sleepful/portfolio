@@ -6,7 +6,7 @@
   "bloggeroo_title": "My blog",
   "bloggeroo_desc": "Built with Rust.",
   "lsat_title": "Test scores graphs",
-  "lsat_desc": "Small website to showcase VegaLite graphs inside a Phoenix app. Uses a CSV as a data source, displays the percentile of median scores for different univeresities.",
+  "lsat_desc": "Small website to showcase VegaLite graphs inside a Phoenix app. Uses a CSV file as a data source, displays the percentile of median scores for LSAT tests across different universities.",
   "p1title": "Movie search front-end",
   "p1desc": "A small project to showcase ReactJS with Typescript, TailwindCSS and Jest.",
   "yinyang_title": "Yin Yang Fractal Animation",

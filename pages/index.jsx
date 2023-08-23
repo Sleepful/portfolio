@@ -224,6 +224,29 @@ function Home({ t, i18n }) {
             <Body>
               <a
                 className="anchor"
+                href="https://github.com/livebook-dev/livebook/pull/1911"
+              >
+                <b>livebook-dev/livebook</b>
+              </a>
+              <p>
+                Add doctest decorations to Monaco editor per result.
+              </p>
+            </Body>
+            <Body>
+              <a
+                className="anchor"
+                href="https://github.com/elixir-ecto/ecto/pull/3967"
+              >
+                <b>elixir-ecto/ecto</b>
+              </a>
+              <p>
+                Support preloading associations in embedded schemas from the
+                parent schema.
+              </p>
+            </Body>
+            <Body>
+              <a
+                className="anchor"
                 href="https://github.com/phoenixframework/phoenix_live_view/pull/2340"
               >
                 <b>phoenixframework/phoenix_live_view</b>
@@ -246,18 +269,6 @@ function Home({ t, i18n }) {
                 <b>phoenixframework/phoenix_live_view</b>
               </a>
               <p>Update sample code for on_mount authentication.</p>
-            </Body>
-            <Body>
-              <a
-                className="anchor"
-                href="https://github.com/elixir-ecto/ecto/pull/3967"
-              >
-                <b>elixir-ecto/ecto</b>
-              </a>
-              <p>
-                Support preloading associations in embedded schemas from the
-                parent schema.
-              </p>
             </Body>
             <Body>
               <a
