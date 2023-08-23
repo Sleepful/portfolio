@@ -199,7 +199,7 @@ function Home({ t, i18n }) {
               </p>
             </Body>
             <Body>
-              <a className="anchor" href="https://josecodea.com">
+              <a className="anchor" name="this" href="#this">
                 <b>{t('p3title')}</b>
               </a>
               <p>
