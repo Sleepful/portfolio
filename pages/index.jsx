@@ -336,7 +336,7 @@ function Home({ t, i18n }) {
               <p>{t('technologies')}</p>
             </Title>
             <Body>
-              <p>Elixir, Phoenix, Rust, Clojure, TypeScript, Emacs, Linux.</p>
+              <p>Elixir, Phoenix, Rust, Clojure, TypeScript, Neovim, Linux.</p>
             </Body>
           </Section>
           <Section>
