@@ -303,6 +303,19 @@ function Home({ t, i18n }) {
               <p>Add arbitrary-variants section in arbitrary-values.</p>
             </Body>
             <Title textSize="text-lg">
+              <p>Neovim</p>
+            </Title>
+            <OSSBody
+              pr="268"
+              repo="renerocksai/telekasten.nvim"
+              desc="Create subdirs when creating new note"
+            />
+            <OSSBody
+              pr="1626"
+              repo="hrsh7th/nvim-cmp"
+              desc="Expand docs for select_next_item select_prev_item"
+            />
+            <Title textSize="text-lg">
               <p>Emacs</p>
             </Title>
             <OSSBody
