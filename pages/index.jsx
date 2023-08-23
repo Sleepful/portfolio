@@ -142,10 +142,17 @@ function Home({ t, i18n }) {
                 {t('bloggeroo_desc')}{' '}
                 <a
                   className="anchor"
+                  href="https://bloggeroo.dev/articles/202307301408"
+                >
+                  How I did it
+                </a>
+                {" & "}
+                <a
+                  className="anchor"
                   href="https://github.com/Sleepful/Bloggeroo"
                 >
-                  GitHub.
-                </a>
+                  GitHub
+                </a>.
               </p>
             </Body>
 
@@ -170,8 +177,8 @@ function Home({ t, i18n }) {
                   className="anchor"
                   href="https://github.com/Sleepful/movie_searcher"
                 >
-                  GitHub.
-                </a>
+                  GitHub
+                </a>.
               </p>
             </Body>
             <Body>
@@ -187,8 +194,8 @@ function Home({ t, i18n }) {
                   className="anchor"
                   href="https://github.com/Sleepful/Visuals"
                 >
-                  GitHub.
-                </a>
+                  GitHub
+                </a>.
               </p>
             </Body>
             <Body>
@@ -201,8 +208,8 @@ function Home({ t, i18n }) {
                   className="anchor"
                   href="https://github.com/Sleepful/portfolio"
                 >
-                  GitHub.
-                </a>
+                  GitHub
+                </a>.
               </p>
             </Body>
           </Section>
