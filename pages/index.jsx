@@ -1,4 +1,4 @@
-import Head from 'next/head'
+import Head from 'next/head' 
 import { withTranslation } from '../i18n'
 import { jsx, css } from '@emotion/react'
 import { useEffect, useRef, useState } from 'react'
@@ -14,6 +14,152 @@ const Body = ({ children }) => {
     </div>
   )
 }
+
+const BodyListItem = ({ children }) => {
+  return (
+    <li>
+      <Body>
+        {children}
+      </Body>
+    </li>
+  )
+}
+
+const BulletList = ({children}) => {
+  return (
+    <ul className="list-disc pl-6 pb-8">
+      {children}
+    </ul>
+  )
+}
+
+const LinkTitle = ({ title, href }) => 
+  (<a className="pb-2 flex justify-between">
+    <b>{ title }</b>
+    <a className="anchor" href={href} >[link]</a>
+  </a>)
+
+const LinkDescription = ({ children }) => (
+  <p className="p-2">
+    {children}{' '}
+  </p>
+)
+
+const hobbySection = ({t}) => { 
+  return ( 
+    <Section>
+      <Title>
+        <a name="this" />
+        <p >{t('personal')}</p>
+      </Title>
+      <BulletList>
+        <BodyListItem>
+          <LinkTitle 
+            title={ t('bloggeroo_title') }
+            href="https://bloggeroo.dev"/>
+          <LinkDescription>
+            {t('bloggeroo_desc')}{' '}
+            <a
+              className="anchor"
+              href="https://bloggeroo.dev/articles/202307301408"
+            >
+              How I did it
+            </a>
+            {" & "}
+            <a
+              className="anchor"
+              href="https://github.com/Sleepful/Bloggeroo"
+            >
+              GitHub
+            </a>.
+          </LinkDescription>
+        </BodyListItem>
+
+        <BodyListItem>
+          <LinkTitle 
+             title={t('lsat_title')}
+             href="https://lsat.fly.dev/"/>
+          <LinkDescription>
+            {t('lsat_desc')}{' '}
+          </LinkDescription>
+        </BodyListItem>
+        <BodyListItem>
+          <LinkTitle 
+             title={t('p1title')}
+             href="https://movie-searcher-site.netlify.app"/>
+          <LinkDescription>
+            {t('p1desc')}{' '}
+            <a
+              className="anchor"
+              href="https://github.com/Sleepful/movie_searcher"
+            >
+              GitHub
+            </a>.
+          </LinkDescription>
+        </BodyListItem>
+        <BodyListItem>
+          <LinkTitle 
+             title={t('yinyang_title')}
+             href="/static/YingYangTunnel_output_Spin.mov"/>
+          <LinkDescription>
+            {t('yinyang_description')}{' '}
+            <a
+              className="anchor"
+              href="https://github.com/Sleepful/Visuals"
+            >
+              GitHub
+            </a>.
+          </LinkDescription>
+        </BodyListItem>
+        <BodyListItem>
+          <LinkTitle 
+             title={t('p3title')}
+             href="#this"/>
+          <LinkDescription>
+            {t('p3desc')}{' '}
+            <a
+              className="anchor"
+              href="https://github.com/Sleepful/portfolio"
+            >
+              GitHub
+            </a>.
+          </LinkDescription>
+        </BodyListItem>
+      </BulletList>
+    </Section> ) }
+
+const NixosMCBlogPost = ({t}) => (
+<>
+  <LinkTitle 
+    title="NixOS Minecraft Server" 
+    href="https://bloggeroo.dev/articles/202402292320"/>
+  <LinkDescription>
+    {t('blog_post_nixos_mc')}
+  </LinkDescription>
+</>
+)
+
+const RustSSGBlogPost = ({t}) => (
+<>
+    <LinkTitle 
+      title="Making my Static Blog Generator" 
+      href="https://bloggeroo.dev/articles/202307301408"/>
+    <LinkDescription>
+      {t('blog_post_ssg')}
+    </LinkDescription>
+</>
+)
+
+const OSSList = ({ title,  children }) => (
+  <>
+    <Title textSize="text-lg">
+      <p>{title}</p>
+    </Title>
+    <BulletList>
+      { children }
+    </BulletList>
+  </>
+)
 
 const Title = ({ children, textSize = 'text-2xl' }) => {
   return (
@@ -62,12 +208,12 @@ const Section = ({ children }) => {
 }
 
 const OSSBody = ({ pr, repo, desc }) => (
-  <Body>
+  <BodyListItem>
     <a className="anchor" href={`https://github.com/${repo}/pull/${pr}`}>
       <b>{repo}</b>
     </a>
     <p>{desc}</p>
-  </Body>
+  </BodyListItem>
 )
 
 const FourGrid = ({ children }) => {
@@ -126,110 +272,31 @@ function Home({ t, i18n }) {
             <Title>
               <h2>{t('subheader')}</h2>
             </Title>
-            <Body>
-              <p>{t('aboutme')}</p>
-            </Body>
+            <div className="pl-6">
+              <Body>
+                <p>{t('aboutme')}</p>
+              </Body>
+            </div>
           </Section>
           <Section>
             <Title>
-              <a name="this" />
-              <p >{t('personal')}</p>
+              <p>{t('blog_post_title')}</p>
             </Title>
-            <Body>
-              <a className="anchor" href="https://bloggeroo.dev">
-                <b>{t('bloggeroo_title')}</b>
-              </a>{' '}
-              <p>
-                {t('bloggeroo_desc')}{' '}
-                <a
-                  className="anchor"
-                  href="https://bloggeroo.dev/articles/202307301408"
-                >
-                  How I did it
-                </a>
-                {" & "}
-                <a
-                  className="anchor"
-                  href="https://github.com/Sleepful/Bloggeroo"
-                >
-                  GitHub
-                </a>.
-              </p>
-            </Body>
-
-            <Body>
-              <a className="anchor" href="https://lsat.fly.dev/">
-                <b>{t('lsat_title')}</b>
-              </a>{' '}
-              <p>
-                {t('lsat_desc')}{' '}
-              </p>
-            </Body>
-            <Body>
-              <a
-                className="anchor"
-                href="https://movie-searcher-site.netlify.app"
-              >
-                <b>{t('p1title')}</b>
-              </a>{' '}
-              <p>
-                {t('p1desc')}{' '}
-                <a
-                  className="anchor"
-                  href="https://github.com/Sleepful/movie_searcher"
-                >
-                  GitHub
-                </a>.
-              </p>
-            </Body>
-            <Body>
-              <a
-                className="anchor"
-                href="/static/YingYangTunnel_output_Spin.mov"
-              >
-                <b> {t('yinyang_title')} </b>
-              </a>{' '}
-              <p>
-                {t('yinyang_description')}{' '}
-                <a
-                  className="anchor"
-                  href="https://github.com/Sleepful/Visuals"
-                >
-                  GitHub
-                </a>.
-              </p>
-            </Body>
-            <Body>
-              <a className="anchor" href="#this">
-                <b>{t('p3title')}</b>
-              </a>
-              <p>
-                {t('p3desc')}{' '}
-                <a
-                  className="anchor"
-                  href="https://github.com/Sleepful/portfolio"
-                >
-                  GitHub
-                </a>.
-              </p>
-            </Body>
+            <BulletList>
+              <BodyListItem>
+                {NixosMCBlogPost({ t })}
+              </BodyListItem>
+              <BodyListItem>
+                {RustSSGBlogPost({ t })}
+              </BodyListItem>
+            </BulletList>
           </Section>
-          {
-            // TODO embed yinyang with loop
-            // - make it a video that can be
-            //   unfolded
-            // - need to replace mov with better
-            //   one that loops nicely, or make
-            //   high qual gif (eh)
-          }
           <Section>
             <Title>
               <a name="openSource">{t('open_source')}</a>
             </Title>
-            <Title textSize="text-lg">
-              <a name="elixir">Elixir</a>
-            </Title>
-            <Body>
+            <OSSList title="Elixir">
+            <BodyListItem>
               <a
                 className="anchor"
                 href="https://github.com/livebook-dev/livebook/pull/1911"
@@ -239,8 +306,8 @@ function Home({ t, i18n }) {
               <p>
                 Add doctest decorations to Monaco editor per result.
               </p>
-            </Body>
-            <Body>
+            </BodyListItem>
+            <BodyListItem>
               <a
                 className="anchor"
                 href="https://github.com/elixir-ecto/ecto/pull/3967"
@@ -251,8 +318,8 @@ function Home({ t, i18n }) {
                 Support preloading associations in embedded schemas from the
                 parent schema.
               </p>
-            </Body>
-            <Body>
+            </BodyListItem>
+            <BodyListItem>
               <a
                 className="anchor"
                 href="https://github.com/phoenixframework/phoenix_live_view/pull/2340"
@@ -268,8 +335,8 @@ function Home({ t, i18n }) {
                   (merge commit)
                 </a>
               </p>
-            </Body>
-            <Body>
+            </BodyListItem>
+            <BodyListItem>
               <a
                 className="anchor"
                 href="https://github.com/phoenixframework/phoenix_live_view/pull/2336"
@@ -277,8 +344,8 @@ function Home({ t, i18n }) {
                 <b>phoenixframework/phoenix_live_view</b>
               </a>
               <p>Update sample code for on_mount authentication.</p>
-            </Body>
-            <Body>
+            </BodyListItem>
+            <BodyListItem>
               <a
                 className="anchor"
                 href="https://github.com/elixir-ecto/ecto/pull/4051"
@@ -286,8 +353,8 @@ function Home({ t, i18n }) {
                 <b>elixir-ecto/ecto</b>
               </a>
               <p>Add small clarification to Ecto.Query docs.</p>
-            </Body>
-            <Body>
+            </BodyListItem>
+            <BodyListItem>
               <a
                 className="anchor"
                 href="https://github.com/livebook-dev/livebook/pull/1682"
@@ -297,11 +364,10 @@ function Home({ t, i18n }) {
               <p>
                 Small clarification to running Livebook inside a Mix project.
               </p>
-            </Body>
-            <Title textSize="text-lg">
-              <p>TailwindCSS</p>
-            </Title>
-            <Body>
+            </BodyListItem>
+            </OSSList>
+            <OSSList title="TailwindCSS">
+            <BodyListItem>
               <a
                 className="anchor"
                 href="https://github.com/tailwindlabs/tailwindcss.com/pull/1378"
@@ -309,69 +375,72 @@ function Home({ t, i18n }) {
                 <b>tailwindlabs/tailwindcss.com</b>
               </a>
               <p>Add arbitrary-variants section in arbitrary-values.</p>
-            </Body>
-            <Title textSize="text-lg">
-              <p>Neovim</p>
-            </Title>
-            <OSSBody
-              pr="268"
-              repo="renerocksai/telekasten.nvim"
-              desc="Create subdirs when creating new note"
-            />
-            <OSSBody
-              pr="1626"
-              repo="hrsh7th/nvim-cmp"
-              desc="Expand docs for select_next_item select_prev_item"
-            />
-            <Title textSize="text-lg">
-              <p>Emacs</p>
-            </Title>
-            <OSSBody
-              pr="212"
-              repo="lassik/emacs-format-all-the-code"
-              desc="Add support for HTML+EEX"
-            />
-            <OSSBody
-              pr="23"
-              repo="lassik/emacs-language-id"
-              desc="Add HTML+EEX language-id"
-            />
-            <OSSBody
-              pr="6900"
-              repo="doomemacs/doomemacs"
-              desc="fix(highlight-indent-guides): for terminal users"
-            />
-            <OSSBody
-              pr="409"
-              repo="ananthakumaran/tide"
-              desc="Fix tide-rename-file bug on new buffer name"
-            />
-            <OSSBody
-              pr="19"
-              repo="andre-r/centered-cursor-mode.el"
-              desc="Only use mouse-wheel variables when bound"
-            />
+            </BodyListItem>
+            </OSSList>
+            <OSSList title="Neovim">
+              <OSSBody
+                pr="268"
+                repo="renerocksai/telekasten.nvim"
+                desc="Create subdirs when creating new note"
+              />
+              <OSSBody
+                pr="1626"
+                repo="hrsh7th/nvim-cmp"
+                desc="Expand docs for select_next_item select_prev_item"
+              />
+            </OSSList>
+            <OSSList title="Emacs">
+              <OSSBody
+                pr="212"
+                repo="lassik/emacs-format-all-the-code"
+                desc="Add support for HTML+EEX"
+              />
+              <OSSBody
+                pr="23"
+                repo="lassik/emacs-language-id"
+                desc="Add HTML+EEX language-id"
+              />
+              <OSSBody
+                pr="6900"
+                repo="doomemacs/doomemacs"
+                desc="fix(highlight-indent-guides): for terminal users"
+              />
+              <OSSBody
+                pr="409"
+                repo="ananthakumaran/tide"
+                desc="Fix tide-rename-file bug on new buffer name"
+              />
+              <OSSBody
+                pr="19"
+                repo="andre-r/centered-cursor-mode.el"
+                desc="Only use mouse-wheel variables when bound"
+              />
+            </OSSList>
           </Section>
-          <Section>
-            <Title>
-              <p>{t('technologies')}</p>
-            </Title>
-            <Body>
-              <p>Elixir, Phoenix, Rust, Clojure, TypeScript, Deno, Neovim, Linux.</p>
-            </Body>
-          </Section>
+          { hobbySection({t}) }
+          {
+            // TODO embed yinyang with loop
+            // - make it a video that can be
+            //   unfolded
+            // - need to replace mov with better
+            //   one that loops nicely, or make
+            //   high qual gif (eh)
+          }
           <Section>
             <Title>
               <p>{t('work')}</p>
             </Title>
-            <Body>
-              <p>{t('workdesc')}</p>
-            </Body>
+            <div className="pl-6">
+              <Body>
+                <p>{t('workdesc')}</p>
+              </Body>
+            </div>
           </Section>
           <Section>
             <Title>
               <p>{t('contact')}</p>
             </Title>
+            <div className="pl-6">
             <Horizontal className="flex-center">
               <a className="anchor" href="https://github.com/Sleepful">
                 GitHub
@@ -394,6 +463,7 @@ function Home({ t, i18n }) {
                 josepablov@gmail.com
               </a>
             </Horizontal>
+            </div>
           </Section>
         </main>
         <footer>
