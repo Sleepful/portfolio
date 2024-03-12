@@ -4,7 +4,7 @@
   "aboutme": "I am a freelancer from Costa Rica, I offer development and consulting services to grow your software product.",
   "blog_post_title": "Blog posts",
   "blog_post_ssg": "Covers how to create your own Static Site Generator using the Rust programming language. The article is aimed at people who are in the process of learning Rust.",
-  "blog_post_nixos_mc": "This is a tutorial on how to deploy a NixOS server to AWS EC2 from a MacOS computer. In the exercise the server instance is utilized to host a videogame (Minecraft) that other players can join. Uses Docker for building and deploying the NixOS from the local computer to AWS EC2. Uses a custom SystemD service written in Rust to monitor the server and turn it off automatically when there are no players connected to the game.",
+  "blog_post_nixos_mc": "This is a tutorial on how to deploy a NixOS server to AWS EC2 from a MacOS computer. In the exercise the server instance is utilized to host a videogame (Minecraft) that other players can join. Uses Docker for building and deploying the NixOS from the local computer to AWS EC2. Includes a custom SystemD service that I wrote in Rust to monitor the server and turn it off automatically when there are no players connected to the game.",
   "blog_post_hmac": "Here I explain how to verify cryptographic HMAC signatures with TypeScript in Deno, and by extension in the browser as well. In this specific example I demonstrate how to verify these signatures for Paddle Webhooks.",
   "personal": "Hobby Projects",
   "bloggeroo_title": "My blog",
