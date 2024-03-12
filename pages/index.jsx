@@ -128,6 +128,17 @@ const hobbySection = ({t}) => {
       </BulletList>
     </Section> ) }
 
+const HMACBlogPost = ({t}) => (
+<>
+    <LinkTitle 
+      title="Verify HMAC signatures in Deno" 
+      href="https://bloggeroo.dev/articles/202310212239"/>
+    <LinkDescription>
+      {t('blog_post_hmac')}
+    </LinkDescription>
+</>
+)
+
 const NixosMCBlogPost = ({t}) => (
 <>
   <LinkTitle 
@@ -283,6 +294,9 @@ function Home({ t, i18n }) {
               <p>{t('blog_post_title')}</p>
             </Title>
             <BulletList>
+              <BodyListItem>
+                {HMACBlogPost({ t })}
+              </BodyListItem>
               <BodyListItem>
                 {NixosMCBlogPost({ t })}
               </BodyListItem>
