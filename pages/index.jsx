@@ -364,16 +364,16 @@ function Home({ t, i18n }) {
               <p>Español</p>
             </Pill>
             <Pill
-              active={theme == 'theme-dark'}
-              onClick={() => setTheme('theme-dark')}
-            >
-              <p>{t('dark')}</p>
-            </Pill>
-            <Pill
               active={theme == 'theme-light'}
               onClick={() => setTheme('theme-light')}
             >
               <p>{t('light')}</p>
+            </Pill>
+            <Pill
+              active={theme == 'theme-dark'}
+              onClick={() => setTheme('theme-dark')}
+            >
+              <p>{t('dark')}</p>
             </Pill>
           </FourGrid>
           <h1 className="bg-primary font-serif text-4xl text-emphasis">
