@@ -386,6 +386,9 @@ function Home({ t, i18n }) {
             <div className="pl-6">
               <Body>
                 <p>{t('aboutme')}</p>
+                <div className="pt-6" >
+                <p>{t('work_with_me')}</p>
+                </div >
                   <BulletList className="pb-4">
                   <div className="pt-3 space-y-2">
                     <li>{t('aboutme_b_1')}</li>
