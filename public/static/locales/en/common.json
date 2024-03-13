@@ -1,7 +1,10 @@
 {
   "header": "Welcome to my page",
   "subheader": "My name is Jose Vargas",
-  "aboutme": "I am a freelancer from Costa Rica, I offer development and consulting services to grow your software product.",
+  "aboutme": "I am a freelancer from Costa Rica, I offer development and consulting services to grow your software product. I specialize in web app development and eCommerce. You should work with me because:",
+  "aboutme_b_1": "I will make sure your product feels valuable to your users.",
+  "aboutme_b_2": "The product we build will last for years.",
+  "aboutme_3": "I specialize in the following technologies:",
   "available": "Find the pricing for my services here:",
   "blog_post_title": "Blog posts",
   "blog_post_ssg": "Covers how I created my own Static Site Generator using the Rust programming language. This is the project that I currently use to publish my blog. The article is aimed at people who are in the process of learning Rust and desire to also create their own blog.",

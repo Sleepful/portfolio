@@ -25,9 +25,9 @@ const BodyListItem = ({ children }) => {
   )
 }
 
-const BulletList = ({children}) => {
+const BulletList = ({children, className=""}) => {
   return (
-    <ul className="list-disc pl-6 pb-8">
+    <ul className={ "list-disc pl-6 pb-8 " + className }>
       {children}
     </ul>
   )
@@ -386,9 +386,23 @@ function Home({ t, i18n }) {
             <div className="pl-6">
               <Body>
                 <p>{t('aboutme')}</p>
-                <p>{
+                  <BulletList className="pb-4">
+                  <div className="pt-3 space-y-2">
+                    <li>{t('aboutme_b_1')}</li>
+                    <li>{t('aboutme_b_2')}</li>
+                  </div>
+                  </BulletList>
+                <p>{t('aboutme_3')}</p>
+                <BulletList>
+                <div className="pt-3">
+                    <li>TypeScript, Elixir, Rust, Clojure, NixOS, Docker, AWS.</li>
+                </div>
+                </BulletList>
+                  
+                {
                   // t('available')
-                } <a className="anchor" href="#pricing">[Pricing]</a></p>
+                }
+                <a className="anchor" href="#pricing">[Pricing]</a>
               </Body>
             </div>
           </Section>
