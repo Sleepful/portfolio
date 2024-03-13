@@ -576,10 +576,15 @@ function Home({ t, i18n }) {
               <p>Pricing</p>
             </Title>
             <Body>
-              <div className="pl-6 pb-2">
+              <div className="pl-6 pb-4">
                   <p>I am currently available to work with new clients. The pricing depends on the characteristics of the job, you can calculate the hourly charge by selecting the qualities of the job.</p>
               </div>
               <PricingTable t={t}/>
+              <div className="pl-6 py-4">
+                <p>
+                  I can offer dynamic pricing, for example, if you want some fixed hours of work when we may collaborate, but other hours are flexible. Get in touch with me and we will iron out the details.
+                </p>
+              </div>
               <Alert/>
             </Body>
           </Section>
