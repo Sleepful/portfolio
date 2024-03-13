@@ -112,9 +112,9 @@ const PricingTable = ({t}) => {
             <PricingTd>{prices.manager} USD</PricingTd>
           </tr>
           <tr className="bg-highlight">
-            <PricingTd center={ false }></PricingTd>
             <PricingTd>Total hourly cost:</PricingTd>
             <PricingTd><b>{total} USD</b></PricingTd>
+            <PricingTd></PricingTd>
           </tr>
         </tbody>
       </table>
