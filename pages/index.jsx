@@ -390,12 +390,13 @@ function Home({ t, i18n }) {
                   <div className="pt-3 space-y-2">
                     <li>{t('aboutme_b_1')}</li>
                     <li>{t('aboutme_b_2')}</li>
+                    <li>{t('aboutme_b_3')}</li>
                   </div>
                   </BulletList>
                 <p>{t('aboutme_3')}</p>
                 <BulletList>
                 <div className="pt-3">
-                    <li>TypeScript, Elixir, Rust, Clojure, NixOS, Docker, AWS.</li>
+                    <li>TypeScript, Elixir, Rust, Clojure, NixOS, Docker, PosgreSQL, AWS.</li>
                 </div>
                 </BulletList>
                   
