@@ -242,7 +242,7 @@ const HMACBlogPost = ({t}) => (
 const NixosMCBlogPost = ({t}) => (
 <>
   <LinkTitle 
-    title="NixOS Minecraft Server" 
+    title="NixOS Minecraft Server in AWS" 
     href="https://bloggeroo.dev/articles/202402292320"/>
   <LinkDescription>
     {t('blog_post_nixos_mc')}
