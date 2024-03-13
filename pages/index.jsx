@@ -336,7 +336,7 @@ const Horizontal = ({ children }) => (
 )
 
 function Home({ t, i18n }) {
-  const [theme, setTheme] = useLocalStorage('theme', 'theme-dark')
+  const [theme, setTheme] = useLocalStorage('theme', 'theme-light')
   const [lang, setLang] = useLocalStorage('lang', i18n.language)
   useEffect(() => {
     i18n.changeLanguage(lang)
