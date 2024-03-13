@@ -300,8 +300,8 @@ const Pill = ({ children, onClick, active }) => {
   return (
     <button onClick={onClick} className="rounded-full " css={style}>
       <div
-        className={`bg-primary rounded-full p-2 border-2 border-primary
-              ${active && 'bg-highlight'}`}
+        className={`rounded-full p-2 border-2 border-primary
+              ${active && " bg-highlight" || " bg-primary "}`}
       >
         {children}
       </div>
@@ -357,23 +357,23 @@ function Home({ t, i18n }) {
 
         <main className=" space-y-6 flex flex-col">
           <FourGrid>
-            <Pill active={lang == 'es'} onClick={() => setLang('es')}>
-              <p>Español</p>
-            </Pill>
             <Pill active={lang == 'en'} onClick={() => setLang('en')}>
               <p>English</p>
             </Pill>
-            <Pill
-              active={theme == 'theme-light'}
-              onClick={() => setTheme('theme-light')}
-            >
-              <p>{t('light')}</p>
+            <Pill active={lang == 'es'} onClick={() => setLang('es')}>
+              <p>Español</p>
             </Pill>
             <Pill
               active={theme == 'theme-dark'}
               onClick={() => setTheme('theme-dark')}
             >
               <p>{t('dark')}</p>
+            </Pill>
+            <Pill
+              active={theme == 'theme-light'}
+              onClick={() => setTheme('theme-light')}
+            >
+              <p>{t('light')}</p>
             </Pill>
           </FourGrid>
           <h1 className="bg-primary font-serif text-4xl text-emphasis">
