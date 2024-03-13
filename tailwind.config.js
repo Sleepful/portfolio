@@ -3,6 +3,12 @@ module.exports = {
     // removeDeprecatedGapUtilities: true,
     // purgeLayersByDefault: true,
   },
+  // content: ["./src/**/*.{html,js}"],
+  content: [
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   purge: ['./components/**/*.{js,ts,jsx,tsx}', './pages/**/*.{js,ts,jsx,tsx}'],
   theme: {
     backgroundColor: {
@@ -21,5 +27,6 @@ module.exports = {
     },
   },
   variants: {},
-  plugins: [],
+  // plugins: [],
+  plugins: [require("daisyui")],
 }

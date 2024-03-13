@@ -1,9 +1,9 @@
-import { useState, useLayoutEffect, useReducer } from 'react'
+import { useState, useEffect, useReducer } from 'react'
 
 export function useLocalStorage(key, initialValue) {
   const [storedValue, setStoredValue] = useState(initialValue);
 
-  useLayoutEffect(() => {
+  useEffect(() => {
     const item = window.localStorage.getItem(key);
     item && setStoredValue(JSON.parse(item));
   }, [])

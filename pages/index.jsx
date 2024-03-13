@@ -33,11 +33,111 @@ const BulletList = ({children}) => {
   )
 }
 
+const PricingTr = ({children, classes}) => 
+  (<tr className={ "p-2 ${ classes }" }>
+    {children}
+  </tr>)
+
+const PricingTh = ({children, center = true}) =>
+  (<th className="p-2 px-4">
+    <div className={ center && "flex justify-around" || "" } >
+    {children}
+    </div >
+  </th>)
+
+const PricingTd = ({children, center = true}) => (
+  <td className="p-1 px-4">
+    <div className={ center && "flex justify-around" || "" } >
+    {children}
+    </div >
+  </td>)
+
+const PricingBox = ({disabled = false, active = false, onClick}) => 
+  <input 
+    disabled={disabled} defaultChecked={active && true}
+    onClick={onClick}
+    className="checkbox border-2 border-primary" type="checkbox"/>
+
+const PricingTable = ({t}) => {
+  const [oss, setOss] = useState(false);
+  const [fixed, setFixed] = useState(false);
+  const [daily, setDaily] = useState(false);
+  const [manager, setManager] = useState(false);
+  const prices = {
+    oss: -10,
+    fixed: 10,
+    daily: 10,
+    manager: 20,
+  }
+  const total = 60 
+  + (oss && prices.oss || 0)
+  + (fixed && prices.fixed + 0)
+  + (daily && prices.daily + 0)
+  + (manager && prices.manager + 0)
+
+  return (
+    <div className="overflow-x-auto flex justify-around">
+      <table className="table">
+        <thead>
+          <tr className="bg-highlight text-body">
+            <PricingTh>Quality</PricingTh>
+            <PricingTh>Included</PricingTh>
+            <PricingTh>Hourly cost</PricingTh>
+          </tr>
+        </thead>
+        <tbody>
+          <tr className="">
+            <PricingTd center={ false }>Baseline</PricingTd>
+            <PricingTd><PricingBox disabled active/></PricingTd>
+            <PricingTd>60 USD</PricingTd>
+          </tr>
+          <tr className="bg-highlight">
+            <PricingTd center={ false }>Open Source</PricingTd>
+            <PricingTd><PricingBox onClick={() => setOss(!oss)}/></PricingTd>
+            <PricingTd>{prices.oss} USD</PricingTd>
+          </tr>
+          <tr className="">
+            <PricingTd center={ false }>Fixed Schedule</PricingTd>
+            <PricingTd><PricingBox onClick={() => setFixed(!fixed)}/></PricingTd>
+            <PricingTd>{prices.fixed} USD</PricingTd>
+          </tr>
+          <tr className="bg-highlight">
+            <PricingTd center={ false }>Daily meetings</PricingTd>
+            <PricingTd><PricingBox onClick={() => setDaily(!daily)}/></PricingTd>
+            <PricingTd>{prices.daily} USD</PricingTd>
+          </tr>
+          <tr className="">
+            <PricingTd center={ false }>Managerial role</PricingTd>
+            <PricingTd><PricingBox onClick={() => setManager(!manager)}/></PricingTd>
+            <PricingTd>{prices.manager} USD</PricingTd>
+          </tr>
+          <tr className="bg-highlight">
+            <PricingTd center={ false }></PricingTd>
+            <PricingTd>Total hourly cost:</PricingTd>
+            <PricingTd><b>{total} USD</b></PricingTd>
+          </tr>
+        </tbody>
+      </table>
+    </div>)
+}
+
+  const Alert = () =>
+    <div className="p-2 pt-4">
+      <div role="alert" className="alert bg-highlight text-body">
+      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+      <span>I offer a free 30 minutes consultation for your project</span>
+      <div>
+        <a className="btn btn-sm border-primary border-2 bg-highlight hover:bg-primary hover:border-primary text-body" href="https://calendly.com/josepablov/meeting">Schedule</a>
+      </div>
+      </div>
+      </div>
+
+
 const LinkTitle = ({ title, href }) => 
-  (<a className="pb-2 flex justify-between">
+  (<p className="pb-2 flex justify-between">
     <b>{ title }</b>
     <a className="anchor" href={href} >[link]</a>
-  </a>)
+  </p>)
 
 const LinkDescription = ({ children }) => (
   <p className="p-2">
@@ -172,9 +272,9 @@ const OSSList = ({ title,  children }) => (
   </>
 )
 
-const Title = ({ children, textSize = 'text-2xl' }) => {
+const Title = ({ children, textSize = 'text-2xl', id = undefined }) => {
   return (
-    <div className="flex items-start text-lg">
+    <div id={id} className="flex items-start text-lg">
       <div
         className={`border-solid rounded-full border-black border-0
         py-2 flex-initial flex flex-row
@@ -236,7 +336,7 @@ const Horizontal = ({ children }) => (
 )
 
 function Home({ t, i18n }) {
-  const [theme, setTheme] = useLocalStorage('theme', 'theme-light')
+  const [theme, setTheme] = useLocalStorage('theme', 'theme-dark')
   const [lang, setLang] = useLocalStorage('lang', i18n.language)
   useEffect(() => {
     i18n.changeLanguage(lang)
@@ -286,6 +386,9 @@ function Home({ t, i18n }) {
             <div className="pl-6">
               <Body>
                 <p>{t('aboutme')}</p>
+                <p>{
+                  // t('available')
+                } <a className="anchor" href="#pricing">[Pricing]</a></p>
               </Body>
             </div>
           </Section>
@@ -449,6 +552,18 @@ function Home({ t, i18n }) {
                 <p>{t('workdesc')}</p>
               </Body>
             </div>
+          </Section>
+          <Section>
+            <Title id="pricing">
+              <p>Pricing</p>
+            </Title>
+            <Body>
+              <div className="pl-6 pb-2">
+                  <p>I am currently available to work with new clients. The pricing depends on the characteristics of the job, you can calculate the hourly charge by selecting the qualities of the job.</p>
+              </div>
+              <PricingTable t={t}/>
+              <Alert/>
+            </Body>
           </Section>
           <Section>
             <Title>
