@@ -405,8 +405,8 @@ function Home({ t, i18n }) {
                   
                 {
                   // t('available')
+                  // <a className="anchor" href="#pricing">[Pricing]</a>
                 }
-                <a className="anchor" href="#pricing">[Pricing]</a>
               </Body>
             </div>
           </Section>
