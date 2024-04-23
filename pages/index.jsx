@@ -92,7 +92,7 @@ const PricingTable = ({t}) => {
             <PricingTd>60 USD</PricingTd>
           </tr>
           <tr className="bg-highlight">
-            <PricingTd center={ false }>Open Source</PricingTd>
+            <PricingTd center={ false }>Open Source Discount</PricingTd>
             <PricingTd><PricingBox onClick={() => setOss(!oss)}/></PricingTd>
             <PricingTd>{prices.oss} USD</PricingTd>
           </tr>
