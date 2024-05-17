@@ -611,8 +611,8 @@ function Home({ t, i18n }) {
               </a>
             </Horizontal>
             <Horizontal>
-              <a className="anchor" href="mailto:josepablov@gmail.com">
-                josepablov@gmail.com
+              <a className="anchor" href="mailto:josepablov+biz@gmail.com">
+                josepablov+biz@gmail.com
               </a>
             </Horizontal>
             </div>
