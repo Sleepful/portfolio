@@ -64,12 +64,13 @@ const PricingTable = ({t}) => {
   const [daily, setDaily] = useState(false);
   const [manager, setManager] = useState(false);
   const prices = {
+    baseline: 80,
     oss: -10,
     fixed: 10,
     daily: 10,
     manager: 20,
   }
-  const total = 60 
+  const total = prices.baseline 
   + (oss && prices.oss || 0)
   + (fixed && prices.fixed + 0)
   + (daily && prices.daily + 0)
@@ -89,7 +90,7 @@ const PricingTable = ({t}) => {
           <tr className="">
             <PricingTd center={ false }>Baseline</PricingTd>
             <PricingTd><PricingBox disabled active/></PricingTd>
-            <PricingTd>60 USD</PricingTd>
+            <PricingTd>{prices.baseline} USD</PricingTd>
           </tr>
           <tr className="bg-highlight">
             <PricingTd center={ false }>Open Source Discount</PricingTd>
