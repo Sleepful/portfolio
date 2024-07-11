@@ -65,7 +65,7 @@ const PricingTable = ({t}) => {
   const [manager, setManager] = useState(false);
   const prices = {
     baseline: 80,
-    oss: -10,
+    oss: -20,
     fixed: 10,
     daily: 10,
     manager: 20,
