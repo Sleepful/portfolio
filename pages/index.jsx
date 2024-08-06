@@ -235,7 +235,7 @@ const HMACBlogPost = ({ t }) => (
     <LinkTitle
       title="Verify HMAC signatures in Deno"
       href="https://bloggeroo.dev/articles/202310212239" />
-    <div className="badge badge-outline">
+    <div className="ml-2 badge badge-outline">
       TypeScript
     </div>
     <LinkDescription>
@@ -249,7 +249,7 @@ const NixosMCBlogPost = ({ t }) => (
     <LinkTitle
       title="NixOS Minecraft Server in AWS"
       href="https://bloggeroo.dev/articles/202402292320" />
-    <div className="badge badge-outline mr-2">
+    <div className="ml-2 badge badge-outline mr-2">
       NixOS
     </div>
     <div className="badge badge-outline">
@@ -266,7 +266,7 @@ const RustSSGBlogPost = ({ t }) => (
     <LinkTitle
       title="Making my Static Blog Generator"
       href="https://bloggeroo.dev/articles/202307301408" />
-    <div className="badge badge-outline">
+    <div className="ml-2 badge badge-outline">
       Rust
     </div>
     <LinkDescription>
