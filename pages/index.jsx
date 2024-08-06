@@ -1,4 +1,4 @@
-import Head from 'next/head' 
+import Head from 'next/head'
 import { withTranslation } from '../i18n'
 import { jsx, css } from '@emotion/react'
 import { useEffect, useRef, useState } from 'react'
@@ -25,40 +25,40 @@ const BodyListItem = ({ children }) => {
   )
 }
 
-const BulletList = ({children, className=""}) => {
+const BulletList = ({ children, className = "" }) => {
   return (
-    <ul className={ "list-disc pl-6 pb-8 " + className }>
+    <ul className={"list-disc pl-6 pb-8 " + className}>
       {children}
     </ul>
   )
 }
 
-const PricingTr = ({children, classes}) => 
-  (<tr className={ "p-2 ${ classes }" }>
+const PricingTr = ({ children, classes }) =>
+  (<tr className={"p-2 ${ classes }"}>
     {children}
   </tr>)
 
-const PricingTh = ({children, center = true}) =>
+const PricingTh = ({ children, center = true }) =>
   (<th className="p-2 px-4">
-    <div className={ center && "flex justify-around" || "" } >
-    {children}
+    <div className={center && "flex justify-around" || ""} >
+      {children}
     </div >
   </th>)
 
-const PricingTd = ({children, center = true}) => (
+const PricingTd = ({ children, center = true }) => (
   <td className="p-1 px-4">
-    <div className={ center && "flex justify-around" || "" } >
-    {children}
+    <div className={center && "flex justify-around" || ""} >
+      {children}
     </div >
   </td>)
 
-const PricingBox = ({disabled = false, active = false, onClick}) => 
-  <input 
+const PricingBox = ({ disabled = false, active = false, onClick }) =>
+  <input
     disabled={disabled} defaultChecked={active && true}
     onClick={onClick}
-    className="checkbox border-2 border-primary" type="checkbox"/>
+    className="checkbox border-2 border-primary" type="checkbox" />
 
-const PricingTable = ({t}) => {
+const PricingTable = ({ t }) => {
   const [oss, setOss] = useState(false);
   const [fixed, setFixed] = useState(false);
   const [daily, setDaily] = useState(false);
@@ -70,11 +70,11 @@ const PricingTable = ({t}) => {
     daily: 10,
     manager: 20,
   }
-  const total = prices.baseline 
-  + (oss && prices.oss || 0)
-  + (fixed && prices.fixed + 0)
-  + (daily && prices.daily + 0)
-  + (manager && prices.manager + 0)
+  const total = prices.baseline
+    + (oss && prices.oss || 0)
+    + (fixed && prices.fixed + 0)
+    + (daily && prices.daily + 0)
+    + (manager && prices.manager + 0)
 
   return (
     <div className="overflow-x-auto flex justify-around">
@@ -88,28 +88,28 @@ const PricingTable = ({t}) => {
         </thead>
         <tbody>
           <tr className="">
-            <PricingTd center={ false }>Baseline</PricingTd>
-            <PricingTd><PricingBox disabled active/></PricingTd>
+            <PricingTd center={false}>Baseline</PricingTd>
+            <PricingTd><PricingBox disabled active /></PricingTd>
             <PricingTd>{prices.baseline} USD</PricingTd>
           </tr>
           <tr className="bg-highlight">
-            <PricingTd center={ false }>Open Source Discount</PricingTd>
-            <PricingTd><PricingBox onClick={() => setOss(!oss)}/></PricingTd>
+            <PricingTd center={false}>Open Source Discount</PricingTd>
+            <PricingTd><PricingBox onClick={() => setOss(!oss)} /></PricingTd>
             <PricingTd>{prices.oss} USD</PricingTd>
           </tr>
           <tr className="">
-            <PricingTd center={ false }>Fixed Schedule</PricingTd>
-            <PricingTd><PricingBox onClick={() => setFixed(!fixed)}/></PricingTd>
+            <PricingTd center={false}>Fixed Schedule</PricingTd>
+            <PricingTd><PricingBox onClick={() => setFixed(!fixed)} /></PricingTd>
             <PricingTd>{prices.fixed} USD</PricingTd>
           </tr>
           <tr className="bg-highlight">
-            <PricingTd center={ false }>Daily meetings</PricingTd>
-            <PricingTd><PricingBox onClick={() => setDaily(!daily)}/></PricingTd>
+            <PricingTd center={false}>Daily meetings</PricingTd>
+            <PricingTd><PricingBox onClick={() => setDaily(!daily)} /></PricingTd>
             <PricingTd>{prices.daily} USD</PricingTd>
           </tr>
           <tr className="">
-            <PricingTd center={ false }>Managerial role</PricingTd>
-            <PricingTd><PricingBox onClick={() => setManager(!manager)}/></PricingTd>
+            <PricingTd center={false}>Managerial role</PricingTd>
+            <PricingTd><PricingBox onClick={() => setManager(!manager)} /></PricingTd>
             <PricingTd>{prices.manager} USD</PricingTd>
           </tr>
           <tr className="bg-highlight">
@@ -122,21 +122,21 @@ const PricingTable = ({t}) => {
     </div>)
 }
 
-  const Alert = () =>
-    <div className="p-2 pt-4">
-      <div role="alert" className="alert bg-highlight text-body">
+const Alert = () =>
+  <div className="p-2 pt-4">
+    <div role="alert" className="alert bg-highlight text-body">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
       <span>I offer a free 30 minutes consultation for your project</span>
       <div>
         <a className="btn btn-sm border-primary border-2 bg-highlight hover:bg-primary hover:border-primary text-body" href="https://calendly.com/josepablov/meeting">Schedule</a>
       </div>
-      </div>
-      </div>
+    </div>
+  </div>
 
 
-const LinkTitle = ({ title, href }) => 
+const LinkTitle = ({ title, href }) =>
   (<p className="pb-2 flex justify-between">
-    <b>{ title }</b>
+    <b>{title}</b>
     <a className="anchor" href={href} >[link]</a>
   </p>)
 
@@ -146,8 +146,8 @@ const LinkDescription = ({ children }) => (
   </p>
 )
 
-const hobbySection = ({t}) => { 
-  return ( 
+const hobbySection = ({ t }) => {
+  return (
     <Section>
       <Title>
         <a name="this" />
@@ -155,9 +155,9 @@ const hobbySection = ({t}) => {
       </Title>
       <BulletList>
         <BodyListItem>
-          <LinkTitle 
-            title={ t('bloggeroo_title') }
-            href="https://bloggeroo.dev"/>
+          <LinkTitle
+            title={t('bloggeroo_title')}
+            href="https://bloggeroo.dev" />
           <LinkDescription>
             {t('bloggeroo_desc')}{' '}
             <a
@@ -177,17 +177,17 @@ const hobbySection = ({t}) => {
         </BodyListItem>
 
         <BodyListItem>
-          <LinkTitle 
-             title={t('lsat_title')}
-             href="https://lsat.fly.dev/"/>
+          <LinkTitle
+            title={t('lsat_title')}
+            href="https://lsat.fly.dev/" />
           <LinkDescription>
             {t('lsat_desc')}{' '}
           </LinkDescription>
         </BodyListItem>
         <BodyListItem>
-          <LinkTitle 
-             title={t('p1title')}
-             href="https://movie-searcher-site.netlify.app"/>
+          <LinkTitle
+            title={t('p1title')}
+            href="https://movie-searcher-site.netlify.app" />
           <LinkDescription>
             {t('p1desc')}{' '}
             <a
@@ -199,9 +199,9 @@ const hobbySection = ({t}) => {
           </LinkDescription>
         </BodyListItem>
         <BodyListItem>
-          <LinkTitle 
-             title={t('yinyang_title')}
-             href="/static/YingYangTunnel_output_Spin.mov"/>
+          <LinkTitle
+            title={t('yinyang_title')}
+            href="/static/YingYangTunnel_output_Spin.mov" />
           <LinkDescription>
             {t('yinyang_description')}{' '}
             <a
@@ -213,9 +213,9 @@ const hobbySection = ({t}) => {
           </LinkDescription>
         </BodyListItem>
         <BodyListItem>
-          <LinkTitle 
-             title={t('p3title')}
-             href="#this"/>
+          <LinkTitle
+            title={t('p3title')}
+            href="#this" />
           <LinkDescription>
             {t('p3desc')}{' '}
             <a
@@ -227,48 +227,61 @@ const hobbySection = ({t}) => {
           </LinkDescription>
         </BodyListItem>
       </BulletList>
-    </Section> ) }
+    </Section>)
+}
 
-const HMACBlogPost = ({t}) => (
-<>
-    <LinkTitle 
-      title="Verify HMAC signatures in Deno" 
-      href="https://bloggeroo.dev/articles/202310212239"/>
+const HMACBlogPost = ({ t }) => (
+  <>
+    <LinkTitle
+      title="Verify HMAC signatures in Deno"
+      href="https://bloggeroo.dev/articles/202310212239" />
+    <div className="badge badge-outline">
+      TypeScript
+    </div>
     <LinkDescription>
       {t('blog_post_hmac')}
     </LinkDescription>
-</>
+  </>
 )
 
-const NixosMCBlogPost = ({t}) => (
-<>
-  <LinkTitle 
-    title="NixOS Minecraft Server in AWS" 
-    href="https://bloggeroo.dev/articles/202402292320"/>
-  <LinkDescription>
-    {t('blog_post_nixos_mc')}
-  </LinkDescription>
-</>
+const NixosMCBlogPost = ({ t }) => (
+  <>
+    <LinkTitle
+      title="NixOS Minecraft Server in AWS"
+      href="https://bloggeroo.dev/articles/202402292320" />
+    <div className="badge badge-outline mr-2">
+      NixOS
+    </div>
+    <div className="badge badge-outline">
+      Rust
+    </div>
+    <LinkDescription>
+      {t('blog_post_nixos_mc')}
+    </LinkDescription>
+  </>
 )
 
-const RustSSGBlogPost = ({t}) => (
-<>
-    <LinkTitle 
-      title="Making my Static Blog Generator" 
-      href="https://bloggeroo.dev/articles/202307301408"/>
+const RustSSGBlogPost = ({ t }) => (
+  <>
+    <LinkTitle
+      title="Making my Static Blog Generator"
+      href="https://bloggeroo.dev/articles/202307301408" />
+    <div className="badge badge-outline">
+      Rust
+    </div>
     <LinkDescription>
       {t('blog_post_ssg')}
     </LinkDescription>
-</>
+  </>
 )
 
-const OSSList = ({ title,  children }) => (
+const OSSList = ({ title, children }) => (
   <>
     <Title textSize="text-lg">
       <p>{title}</p>
     </Title>
     <BulletList>
-      { children }
+      {children}
     </BulletList>
   </>
 )
@@ -388,22 +401,22 @@ function Home({ t, i18n }) {
               <Body>
                 <p>{t('aboutme')}</p>
                 <div className="pt-6" >
-                <p>{t('work_with_me')}</p>
+                  <p>{t('work_with_me')}</p>
                 </div >
-                  <BulletList className="pb-4">
+                <BulletList className="pb-4">
                   <div className="pt-3 space-y-2">
                     <li>{t('aboutme_b_1')}</li>
                     <li>{t('aboutme_b_2')}</li>
                     <li>{t('aboutme_b_3')}</li>
                   </div>
-                  </BulletList>
+                </BulletList>
                 <p>{t('aboutme_3')}</p>
                 <BulletList>
-                <div className="pt-3">
+                  <div className="pt-3">
                     <li>TypeScript, Elixir, Rust, Clojure, NixOS, Docker, PosgreSQL, AWS.</li>
-                </div>
+                  </div>
                 </BulletList>
-                  
+
                 {
                   // t('available')
                   // <a className="anchor" href="#pricing">[Pricing]</a>
@@ -432,86 +445,86 @@ function Home({ t, i18n }) {
               <a name="openSource">{t('open_source')}</a>
             </Title>
             <OSSList title="Elixir">
-            <BodyListItem>
-              <a
-                className="anchor"
-                href="https://github.com/livebook-dev/livebook/pull/1911"
-              >
-                <b>livebook-dev/livebook</b>
-              </a>
-              <p>
-                Add doctest decorations to Monaco editor per result.
-              </p>
-            </BodyListItem>
-            <BodyListItem>
-              <a
-                className="anchor"
-                href="https://github.com/elixir-ecto/ecto/pull/3967"
-              >
-                <b>elixir-ecto/ecto</b>
-              </a>
-              <p>
-                Support preloading associations in embedded schemas from the
-                parent schema.
-              </p>
-            </BodyListItem>
-            <BodyListItem>
-              <a
-                className="anchor"
-                href="https://github.com/phoenixframework/phoenix_live_view/pull/2340"
-              >
-                <b>phoenixframework/phoenix_live_view</b>
-              </a>
-              <p>
-                Docs: Explain sockets as a server-only data struct{' '}
+              <BodyListItem>
                 <a
                   className="anchor"
-                  href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00"
+                  href="https://github.com/livebook-dev/livebook/pull/1911"
                 >
-                  (merge commit)
+                  <b>livebook-dev/livebook</b>
                 </a>
+                <p>
+                  Add doctest decorations to Monaco editor per result.
               </p>
-            </BodyListItem>
-            <BodyListItem>
-              <a
-                className="anchor"
-                href="https://github.com/phoenixframework/phoenix_live_view/pull/2336"
-              >
-                <b>phoenixframework/phoenix_live_view</b>
-              </a>
-              <p>Update sample code for on_mount authentication.</p>
-            </BodyListItem>
-            <BodyListItem>
-              <a
-                className="anchor"
-                href="https://github.com/elixir-ecto/ecto/pull/4051"
-              >
-                <b>elixir-ecto/ecto</b>
-              </a>
-              <p>Add small clarification to Ecto.Query docs.</p>
-            </BodyListItem>
-            <BodyListItem>
-              <a
-                className="anchor"
-                href="https://github.com/livebook-dev/livebook/pull/1682"
-              >
-                <b>livebook-dev/livebook</b>
-              </a>
-              <p>
-                Small clarification to running Livebook inside a Mix project.
+              </BodyListItem>
+              <BodyListItem>
+                <a
+                  className="anchor"
+                  href="https://github.com/elixir-ecto/ecto/pull/3967"
+                >
+                  <b>elixir-ecto/ecto</b>
+                </a>
+                <p>
+                  Support preloading associations in embedded schemas from the
+                  parent schema.
               </p>
-            </BodyListItem>
+              </BodyListItem>
+              <BodyListItem>
+                <a
+                  className="anchor"
+                  href="https://github.com/phoenixframework/phoenix_live_view/pull/2340"
+                >
+                  <b>phoenixframework/phoenix_live_view</b>
+                </a>
+                <p>
+                  Docs: Explain sockets as a server-only data struct{' '}
+                  <a
+                    className="anchor"
+                    href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00"
+                  >
+                    (merge commit)
+                </a>
+                </p>
+              </BodyListItem>
+              <BodyListItem>
+                <a
+                  className="anchor"
+                  href="https://github.com/phoenixframework/phoenix_live_view/pull/2336"
+                >
+                  <b>phoenixframework/phoenix_live_view</b>
+                </a>
+                <p>Update sample code for on_mount authentication.</p>
+              </BodyListItem>
+              <BodyListItem>
+                <a
+                  className="anchor"
+                  href="https://github.com/elixir-ecto/ecto/pull/4051"
+                >
+                  <b>elixir-ecto/ecto</b>
+                </a>
+                <p>Add small clarification to Ecto.Query docs.</p>
+              </BodyListItem>
+              <BodyListItem>
+                <a
+                  className="anchor"
+                  href="https://github.com/livebook-dev/livebook/pull/1682"
+                >
+                  <b>livebook-dev/livebook</b>
+                </a>
+                <p>
+                  Small clarification to running Livebook inside a Mix project.
+              </p>
+              </BodyListItem>
             </OSSList>
             <OSSList title="TailwindCSS">
-            <BodyListItem>
-              <a
-                className="anchor"
-                href="https://github.com/tailwindlabs/tailwindcss.com/pull/1378"
-              >
-                <b>tailwindlabs/tailwindcss.com</b>
-              </a>
-              <p>Add arbitrary-variants section in arbitrary-values.</p>
-            </BodyListItem>
+              <BodyListItem>
+                <a
+                  className="anchor"
+                  href="https://github.com/tailwindlabs/tailwindcss.com/pull/1378"
+                >
+                  <b>tailwindlabs/tailwindcss.com</b>
+                </a>
+                <p>Add arbitrary-variants section in arbitrary-values.</p>
+              </BodyListItem>
             </OSSList>
             <OSSList title="Neovim">
               <OSSBody
@@ -553,7 +566,7 @@ function Home({ t, i18n }) {
               />
             </OSSList>
           </Section>
-          { hobbySection({t}) }
+          {hobbySection({ t })}
           {
             // TODO embed yinyang with loop
             // - make it a video that can be
@@ -578,15 +591,15 @@ function Home({ t, i18n }) {
             </Title>
             <Body>
               <div className="pl-6 pb-4">
-                  <p>I am currently available to work with new clients. The pricing depends on the characteristics of the job, you can calculate the hourly charge by selecting the qualities of the job.</p>
+                <p>I am currently available to work with new clients. The pricing depends on the characteristics of the job, you can calculate the hourly charge by selecting the qualities of the job.</p>
               </div>
-              <PricingTable t={t}/>
+              <PricingTable t={t} />
               <div className="pl-6 py-4">
                 <p>
                   I can offer dynamic pricing, for example, if you want some fixed hours of work when we may collaborate, but other hours are flexible. Get in touch with me and we will iron out the details.
                 </p>
               </div>
-              <Alert/>
+              <Alert />
             </Body>
           </Section>
           <Section>
@@ -594,28 +607,28 @@ function Home({ t, i18n }) {
               <p>{t('contact')}</p>
             </Title>
             <div className="pl-6">
-            <Horizontal className="flex-center">
-              <a className="anchor" href="https://github.com/Sleepful">
-                GitHub
+              <Horizontal className="flex-center">
+                <a className="anchor" href="https://github.com/Sleepful">
+                  GitHub
               </a>
-              <a
-                className="anchor"
-                href="https://www.linkedin.com/in/jose-pablo-vargas-campos-685a4b172/"
-              >
-                LinkedIn
+                <a
+                  className="anchor"
+                  href="https://www.linkedin.com/in/jose-pablo-vargas-campos-685a4b172/"
+                >
+                  LinkedIn
               </a>
-              <a
-                className="anchor"
-                href="https://stackoverflow.com/users/2446144/jose-v"
-              >
-                Stack Overflow
+                <a
+                  className="anchor"
+                  href="https://stackoverflow.com/users/2446144/jose-v"
+                >
+                  Stack Overflow
               </a>
-            </Horizontal>
-            <Horizontal>
-              <a className="anchor" href="mailto:josepablov+biz@gmail.com">
-                josepablov+biz@gmail.com
+              </Horizontal>
+              <Horizontal>
+                <a className="anchor" href="mailto:josepablov+biz@gmail.com">
+                  josepablov+biz@gmail.com
               </a>
-            </Horizontal>
+              </Horizontal>
             </div>
           </Section>
         </main>
