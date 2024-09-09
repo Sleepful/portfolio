@@ -128,7 +128,7 @@ const Alert = () =>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
       <span>I offer a free 30 minutes consultation for your project</span>
       <div>
-        <a className="btn btn-sm border-primary border-2 bg-highlight hover:bg-primary hover:border-primary text-body" href="https://calendly.com/josepablov/meeting">Schedule</a>
+        <a className="btn btn-sm border-primary border-2 bg-highlight hover:bg-primary hover:border-primary text-body" href="https://calendly.com/josepablov/meeting-1">Schedule</a>
       </div>
     </div>
   </div>

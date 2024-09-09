@@ -1,3 +1,5 @@
+const colors = require('tailwindcss/colors')
+
 module.exports = {
   future: {
     // removeDeprecatedGapUtilities: true,
@@ -24,6 +26,11 @@ module.exports = {
       link: "var(--color-text-link)",
       color1: "var(--color-border-primary)",
       color2: "var(--color-border-secondary)",
+    },
+    extend: {
+      colors: {
+        ...colors,
+      }
     },
   },
   variants: {},
