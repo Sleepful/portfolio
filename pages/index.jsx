@@ -178,14 +178,6 @@ const hobbySection = ({ t }) => {
 
         <BodyListItem>
           <LinkTitle
-            title={t('lsat_title')}
-            href="https://lsat.fly.dev/" />
-          <LinkDescription>
-            {t('lsat_desc')}{' '}
-          </LinkDescription>
-        </BodyListItem>
-        <BodyListItem>
-          <LinkTitle
             title={t('p1title')}
             href="https://movie-searcher-site.netlify.app" />
           <LinkDescription>
