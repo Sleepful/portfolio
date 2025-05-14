@@ -583,7 +583,7 @@ function Home({ t, i18n }) {
             </Title>
             <Body>
               <div className="pl-6 pb-4">
-                <p>I am currently available to work with new clients. The pricing depends on the characteristics of the job, you can calculate the hourly charge by selecting the qualities of the job.</p>
+                <p>I am currently available to work with new clients. The pricing depends on the characteristics of the job, you can calculate the hourly charge by selecting the qualities of the job. Alternatively, I prefer working for a <a href="https://www.investopedia.com/terms/d/dayrate.asp">day-rate</a>, in which case the price will be lower than the hourly rate shown here. Full-time offers are also considered.</p>
               </div>
               <PricingTable t={t} />
               <div className="pl-6 py-4">
