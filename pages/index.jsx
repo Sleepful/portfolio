@@ -442,6 +442,9 @@ function Home({ t, i18n }) {
             </Title>
             <BulletList>
               <BodyListItem>
+                {KagiBlogPost({ t })}
+              </BodyListItem>
+              <BodyListItem>
                 {HMACBlogPost({ t })}
               </BodyListItem>
               <BodyListItem>
@@ -449,9 +452,6 @@ function Home({ t, i18n }) {
               </BodyListItem>
               <BodyListItem>
                 {RustSSGBlogPost({ t })}
-              </BodyListItem>
-              <BodyListItem>
-                {KagiBlogPost({ t })}
               </BodyListItem>
             </BulletList>
           </Section>
