@@ -267,6 +267,26 @@ const RustSSGBlogPost = ({ t }) => (
   </>
 )
 
+const KagiBlogPost = ({ t }) => (
+  <>
+    <LinkTitle
+      title="Making a web app that sends and receives emails"
+      href="https://bloggeroo.dev/articles/202504031434" />
+    <div className="ml-2 badge badge-outline">
+      Golang
+    </div>
+    <div className="ml-2 badge badge-outline">
+      AWS ECS + Fargate
+    </div>
+    <div className="ml-2 badge badge-outline">
+      Pulumi
+    </div>
+    <LinkDescription>
+      {t('blog_post_kagi')}
+    </LinkDescription>
+  </>
+)
+
 const OSSList = ({ title, children }) => (
   <>
     <Title textSize="text-lg">
@@ -429,6 +449,9 @@ function Home({ t, i18n }) {
               </BodyListItem>
               <BodyListItem>
                 {RustSSGBlogPost({ t })}
+              </BodyListItem>
+              <BodyListItem>
+                {KagiBlogPost({ t })}
               </BodyListItem>
             </BulletList>
           </Section>

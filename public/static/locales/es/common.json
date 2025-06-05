@@ -12,6 +12,7 @@
   "blog_post_ssg": "El artículo cubre como hice mi propio generador de blog estático con el lenguaje de programación Rust. Este es el proyecto que actualmente uso para publicar mi blog. El artículo está dirigido a personas que están en el proceso de aprender Rust y también desean crear su propio blog.",
   "blog_post_nixos_mc": "Este es un tutorial sobre como crear un servidor de NixOS en AWS EC2 desde una computadora MacOS. En este ejercicio la instancia del servidor es utilizada para albergar un videojuego (Minecraft) al cual otros jugadores se pueden unir. Utiliza Docker para desplegar el sistema de NixOS al AWS EC2. Incluye un servicio personalizado de SystemD que yo escribí en Rust para monitoreaer el servidor y apagarlo automaticamente cuando no hay jugadores conectados al juego.",
   "blog_post_hmac": "Aquí explico como verificar firmas criptográficas HMAC con TypeScript en Deno, y por extensión en el buscador también. En este ejemplo específico demuestro como verificar estas firmas para los Webhooks de Paddle.",
+  "blog_post_kagi": "Desarrollé un cliente de correo electrónico sencillo y lo desplegué en AWS ECS con Pulumi. Esto lo hice como un intento de aplicar a una empresa.",
   "personal": "Proyectos Hobby",
   "bloggeroo_title": "Mi blog",
   "bloggeroo_desc": "Hecho en Rust.",
