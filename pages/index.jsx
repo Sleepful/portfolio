@@ -459,6 +459,24 @@ function Home({ t, i18n }) {
             <Title>
               <a name="openSource">{t('open_source')}</a>
             </Title>
+            <OSSList title="GraphQL">
+              <BodyListItem>
+                <a
+                  className="anchor"
+                  href="https://github.com/graphile/crystal/pull/2560"
+                >
+                  <b>graphile/crystal</b>
+                </a>
+                <p>
+                  Improve TypeScript's type inference for GraphQL queries within the <a
+                    className="anchor"
+                    href="https://postgraphile.org/"
+                  >
+                    postgraphile.org
+                  </a> project.
+                </p>
+              </BodyListItem>
+            </OSSList>
             <OSSList title="Elixir">
               <BodyListItem>
                 <a
