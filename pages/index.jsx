@@ -660,8 +660,13 @@ function Home({ t, i18n }) {
               <Horizontal>
                 <a className="anchor" href="mailto:josepablov+biz@gmail.com">
                   josepablov+biz@gmail.com
-              </a>
+                </a>
               </Horizontal>
+            </div>
+            <div className="pl-6 pt-6">
+              <p >
+                Please, no soliciting for unpaid work. Equity does not count as payment.
+                </p>
             </div>
           </Section>
         </main>
