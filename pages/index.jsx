@@ -438,7 +438,7 @@ function Home({ t, i18n }) {
           </Section>
           <Section>
             <Title>
-              <p>{t('blog_post_title')}</p>
+              <a name="blog">{t('blog_post_title')}</a>
             </Title>
             <BulletList>
               <BodyListItem>
