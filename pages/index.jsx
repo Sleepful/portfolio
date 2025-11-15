@@ -137,7 +137,7 @@ const Alert = () =>
 const LinkTitle = ({ title, href }) =>
   (<p className="pb-2 flex justify-between">
     <b>{title}</b>
-    <a className="anchor" href={href} >[link]</a>
+    <a className="anchor" href={href} target="_blank">[link]</a>
   </p>)
 
 const LinkDescription = ({ children }) => (
@@ -161,6 +161,7 @@ const hobbySection = ({ t }) => {
           <LinkDescription>
             {t('bloggeroo_desc')}{' '}
             <a
+              target="_blank"
               className="anchor"
               href="https://bloggeroo.dev/articles/202307301408"
             >
@@ -168,6 +169,7 @@ const hobbySection = ({ t }) => {
             </a>
             {" & "}
             <a
+              target="_blank"
               className="anchor"
               href="https://github.com/Sleepful/Bloggeroo"
             >
@@ -183,6 +185,7 @@ const hobbySection = ({ t }) => {
           <LinkDescription>
             {t('p1desc')}{' '}
             <a
+              target="_blank"
               className="anchor"
               href="https://github.com/Sleepful/movie_searcher"
             >
@@ -197,6 +200,7 @@ const hobbySection = ({ t }) => {
           <LinkDescription>
             {t('yinyang_description')}{' '}
             <a
+              target="_blank"
               className="anchor"
               href="https://github.com/Sleepful/Visuals"
             >
@@ -211,6 +215,7 @@ const hobbySection = ({ t }) => {
           <LinkDescription>
             {t('p3desc')}{' '}
             <a
+              target="_blank"
               className="anchor"
               href="https://github.com/Sleepful/portfolio"
             >
@@ -346,7 +351,8 @@ const Section = ({ children }) => {
 
 const OSSBody = ({ pr, repo, desc }) => (
   <BodyListItem>
-    <a className="anchor" href={`https://github.com/${repo}/pull/${pr}`}>
+    <a className="anchor" href={`https://github.com/${repo}/pull/${pr}`}
+      target="_blank" >
       <b>{repo}</b>
     </a>
     <p>{desc}</p>
@@ -464,6 +470,7 @@ function Home({ t, i18n }) {
                 <a
                   className="anchor"
                   href="https://github.com/graphile/crystal/pull/2560"
+                  target="_blank"
                 >
                   <b>graphile/crystal</b>
                 </a>
@@ -482,6 +489,7 @@ function Home({ t, i18n }) {
                 <a
                   className="anchor"
                   href="https://github.com/livebook-dev/livebook/pull/1911"
+                  target="_blank"
                 >
                   <b>livebook-dev/livebook</b>
                 </a>
@@ -493,6 +501,7 @@ function Home({ t, i18n }) {
                 <a
                   className="anchor"
                   href="https://github.com/elixir-ecto/ecto/pull/3967"
+                  target="_blank"
                 >
                   <b>elixir-ecto/ecto</b>
                 </a>
@@ -505,6 +514,7 @@ function Home({ t, i18n }) {
                 <a
                   className="anchor"
                   href="https://github.com/phoenixframework/phoenix_live_view/pull/2340"
+                  target="_blank"
                 >
                   <b>phoenixframework/phoenix_live_view</b>
                 </a>
@@ -513,6 +523,7 @@ function Home({ t, i18n }) {
                   <a
                     className="anchor"
                     href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00"
+                    target="_blank"
                   >
                     (merge commit)
                 </a>
@@ -522,6 +533,7 @@ function Home({ t, i18n }) {
                 <a
                   className="anchor"
                   href="https://github.com/phoenixframework/phoenix_live_view/pull/2336"
+                  target="_blank"
                 >
                   <b>phoenixframework/phoenix_live_view</b>
                 </a>
@@ -531,6 +543,7 @@ function Home({ t, i18n }) {
                 <a
                   className="anchor"
                   href="https://github.com/elixir-ecto/ecto/pull/4051"
+                  target="_blank"
                 >
                   <b>elixir-ecto/ecto</b>
                 </a>
@@ -540,6 +553,7 @@ function Home({ t, i18n }) {
                 <a
                   className="anchor"
                   href="https://github.com/livebook-dev/livebook/pull/1682"
+                  target="_blank"
                 >
                   <b>livebook-dev/livebook</b>
                 </a>
@@ -553,6 +567,7 @@ function Home({ t, i18n }) {
                 <a
                   className="anchor"
                   href="https://github.com/tailwindlabs/tailwindcss.com/pull/1378"
+                  target="_blank"
                 >
                   <b>tailwindlabs/tailwindcss.com</b>
                 </a>
@@ -624,7 +639,7 @@ function Home({ t, i18n }) {
             </Title>
             <Body>
               <div className="pl-6 pb-4">
-                <p>I am currently available to work with new clients. The pricing depends on the characteristics of the job, you can calculate the hourly charge by selecting the qualities of the job. Alternatively, I prefer working for a <a className="anchor" href="https://www.investopedia.com/terms/d/dayrate.asp">day-rate</a>, in which case the price will be lower than the hourly rate shown here. Full-time offers are also considered.</p>
+                <p>I am currently available to work with new clients. The pricing depends on the characteristics of the job, you can calculate the hourly charge by selecting the qualities of the job. Alternatively, I prefer working for a <a className="anchor" target="_blank" href="https://www.investopedia.com/terms/d/dayrate.asp">day-rate</a>, in which case the price will be lower than the hourly rate shown here. Full-time offers are also considered.</p>
               </div>
               <PricingTable t={t} />
               <div className="pl-6 py-4">
@@ -641,16 +656,18 @@ function Home({ t, i18n }) {
             </Title>
             <div className="pl-6">
               <Horizontal className="flex-center">
-                <a className="anchor" href="https://github.com/Sleepful">
+                <a target="_blank" className="anchor" href="https://github.com/Sleepful">
                   GitHub
               </a>
                 <a
+                  target="_blank"
                   className="anchor"
                   href="https://www.linkedin.com/in/jose-pablo-vargas-campos-685a4b172/"
                 >
                   LinkedIn
               </a>
                 <a
+                  target="_blank"
                   className="anchor"
                   href="https://stackoverflow.com/users/2446144/jose-v"
                 >
@@ -658,7 +675,7 @@ function Home({ t, i18n }) {
               </a>
               </Horizontal>
               <Horizontal>
-                <a className="anchor" href="mailto:josepablov+biz@gmail.com">
+                <a target="_blank" className="anchor" href="mailto:josepablov+biz@gmail.com">
                   josepablov+biz@gmail.com
                 </a>
               </Horizontal>
@@ -672,7 +689,7 @@ function Home({ t, i18n }) {
         </main>
         <footer>
           {t('themeby')}{' '}
-          <a className="anchor" href="https://github.com/altercation/solarized">
+          <a target="_blank" className="anchor" href="https://github.com/altercation/solarized">
             Solarized
           </a>
         </footer>
