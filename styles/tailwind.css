@@ -19,6 +19,32 @@
   @apply underline text-link
 }
 
+/* Thematic DaisyUI tooltip overrides */
+.tooltip::before {
+  background-color: var(--color-bg-highlights);
+  color: var(--color-text-emphasis);
+  border: 1px solid var(--color-border-primary);
+  font-size: 0.875em;
+  padding: 0.5em 0.75em;
+  max-width: 16em;
+  white-space: normal;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.tooltip::after {
+  background-color: var(--color-bg-highlights);
+  border: 1px solid var(--color-border-primary);
+}
+
+/* Scale DaisyUI badges with container font-size */
+.badge {
+  font-size: 0.75em !important;
+  height: auto !important;
+  min-height: 1.25em !important;
+  line-height: 1.25em !important;
+}
+
 .theme-dark {
   --color-text-emphasis  : var(--base1);
   --color-text-body      : var(--base0);

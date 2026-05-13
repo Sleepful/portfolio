@@ -292,24 +292,33 @@ const KagiBlogPost = ({ t }) => (
   </>
 )
 
-const OSSList = ({ title, children }) => (
+const OSSList = ({ title, categoryDesc, children }) => (
   <>
     <Title textSize="text-lg">
-      <p>{title}</p>
+      <span>{title}</span>
+      {categoryDesc && <span className="text-secondary font-sans ml-2" style={{ fontSize: '0.875em' }}>— {categoryDesc}</span>}
     </Title>
-    <BulletList>
+    <ul className="list-none pl-0 pb-8">
       {children}
-    </BulletList>
+    </ul>
   </>
 )
 
+const titleSizeMap = {
+  'text-lg': '1.125em',
+  'text-xl': '1.25em',
+  'text-2xl': '1.5em',
+  'text-4xl': '2.25em',
+}
+
 const Title = ({ children, textSize = 'text-2xl', id = undefined }) => {
   return (
-    <div id={id} className="flex items-start text-lg">
+    <div id={id} className="flex items-start">
       <div
-        className={`border-solid rounded-full border-black border-0
-        py-2 flex-initial flex flex-row
-        font-serif ${textSize} text-emphasis`}
+        className="border-solid rounded-full border-black border-0
+        py-2 flex-initial flex flex-row items-baseline
+        font-serif text-emphasis"
+        style={{ fontSize: titleSizeMap[textSize] || '1.5em' }}
       >
         {children}
       </div>
@@ -349,15 +358,35 @@ const Section = ({ children }) => {
   )
 }
 
-const OSSBody = ({ pr, repo, desc }) => (
-  <BodyListItem>
-    <a className="anchor" href={`https://github.com/${repo}/pull/${pr}`}
-      target="_blank" >
-      <b>{repo}</b>
-    </a>
-    <p>{desc}</p>
-  </BodyListItem>
+const InfoIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="w-5 h-5 inline-block cursor-help">
+    <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+  </svg>
 )
+
+const OSSBody = ({ pr, repo, projectDesc, desc }) => {
+  const repoName = repo.split('/').pop()
+  return (
+    <BodyListItem>
+      <div className="flex items-baseline gap-2">
+        {projectDesc ? (
+          <span className="tooltip tooltip-right flex-shrink-0 text-link font-bold" data-tip={projectDesc}>
+            <InfoIcon />
+          </span>
+        ) : (
+          <span className="flex-shrink-0 w-4"></span>
+        )}
+        <div>
+          <a className="anchor font-bold" href={`https://github.com/${repo}/pull/${pr}`}
+            target="_blank" >
+            {repoName}
+          </a>
+          <p>{desc}</p>
+        </div>
+      </div>
+    </BodyListItem>
+  )
+}
 
 const FourGrid = ({ children }) => {
   return <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">{children}</div>
@@ -370,10 +399,13 @@ const Horizontal = ({ children }) => (
 function Home({ t, i18n }) {
   const [theme, setTheme] = useLocalStorage('theme', 'theme-light')
   const [lang, setLang] = useLocalStorage('lang', i18n.language)
+  const [fontScale, setFontScale] = useLocalStorage('font-scale', 1)
   useEffect(() => {
     i18n.changeLanguage(lang)
     document.documentElement.lang = lang
   }, [lang])
+  const clampedScale = Math.min(Math.max(fontScale, 0.8), 1.4)
+  const adjustFont = (delta) => setFontScale(Math.min(Math.max(clampedScale + delta, 0.8), 1.4))
   return (
     <div
       className={`${theme}
@@ -381,7 +413,18 @@ function Home({ t, i18n }) {
         flex flex-col
         text-body px-2`}
     >
-      <div className=" mx-auto my-2 max-w-md space-y-6 mx-2">
+      {/* Fixed font-size controls */}
+      <div className="fixed top-4 right-4 z-50 flex items-baseline gap-2 text-link bg-primary bg-opacity-90 rounded-lg px-3 py-2 border border-secondary shadow-sm">
+        <button onClick={() => adjustFont(-0.1)} className="hover:opacity-70 transition-opacity font-bold text-xl leading-none" aria-label="Decrease font size">A-</button>
+        <button onClick={() => adjustFont(0.1)} className="hover:opacity-70 transition-opacity font-bold text-2xl leading-none" aria-label="Increase font size">A+</button>
+      </div>
+
+      <div className="mx-auto my-2 space-y-6 px-2"
+        style={{
+          maxWidth: `calc(clamp(28rem, 45vw, 42rem) * ${Math.min(clampedScale, 1.25)})`,
+          fontSize: `calc(clamp(0.9rem, 0.8vw + 0.75rem, 1.05rem) * ${clampedScale})`
+        }}
+      >
         <Head>
           <title>Jose Vargas</title>
           <link rel="icon" href="/favicon.ico" />
@@ -408,7 +451,7 @@ function Home({ t, i18n }) {
               <p>{t('dark')}</p>
             </Pill>
           </FourGrid>
-          <h1 className="bg-primary font-serif text-4xl text-emphasis">
+          <h1 className="bg-primary font-serif text-emphasis" style={{ fontSize: '2.25em' }}>
             {t('header')}
           </h1>
           <Section>
@@ -465,151 +508,137 @@ function Home({ t, i18n }) {
             <Title>
               <a name="openSource">{t('open_source')}</a>
             </Title>
-            <OSSList title="GraphQL">
-              <BodyListItem>
-                <a
-                  className="anchor"
-                  href="https://github.com/graphile/crystal/pull/2560"
-                  target="_blank"
-                >
-                  <b>graphile/crystal</b>
-                </a>
-                <p>
-                  Improve TypeScript's type inference for GraphQL queries within the <a
-                    className="anchor"
-                    href="https://postgraphile.org/"
-                  >
-                    postgraphile.org
-                  </a> project.
-                </p>
-              </BodyListItem>
+            <OSSList title="OpenCode" categoryDesc="AI coding agent ecosystem">
+              <OSSBody
+                pr="24725"
+                repo="anomalyco/opencode"
+                projectDesc="Open-source AI coding agent"
+                desc="Sort session picker by full updated timestamp while keeping order stable while browsing."
+              />
             </OSSList>
-            <OSSList title="Elixir">
-              <BodyListItem>
-                <a
-                  className="anchor"
-                  href="https://github.com/livebook-dev/livebook/pull/1911"
-                  target="_blank"
-                >
-                  <b>livebook-dev/livebook</b>
-                </a>
-                <p>
-                  Add doctest decorations to Monaco editor per result.
-              </p>
-              </BodyListItem>
-              <BodyListItem>
-                <a
-                  className="anchor"
-                  href="https://github.com/elixir-ecto/ecto/pull/3967"
-                  target="_blank"
-                >
-                  <b>elixir-ecto/ecto</b>
-                </a>
-                <p>
-                  Support preloading associations in embedded schemas from the
-                  parent schema.
-              </p>
-              </BodyListItem>
-              <BodyListItem>
-                <a
-                  className="anchor"
-                  href="https://github.com/phoenixframework/phoenix_live_view/pull/2340"
-                  target="_blank"
-                >
-                  <b>phoenixframework/phoenix_live_view</b>
-                </a>
-                <p>
-                  Docs: Explain sockets as a server-only data struct{' '}
-                  <a
-                    className="anchor"
-                    href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00"
-                    target="_blank"
-                  >
-                    (merge commit)
-                </a>
-                </p>
-              </BodyListItem>
-              <BodyListItem>
-                <a
-                  className="anchor"
-                  href="https://github.com/phoenixframework/phoenix_live_view/pull/2336"
-                  target="_blank"
-                >
-                  <b>phoenixframework/phoenix_live_view</b>
-                </a>
-                <p>Update sample code for on_mount authentication.</p>
-              </BodyListItem>
-              <BodyListItem>
-                <a
-                  className="anchor"
-                  href="https://github.com/elixir-ecto/ecto/pull/4051"
-                  target="_blank"
-                >
-                  <b>elixir-ecto/ecto</b>
-                </a>
-                <p>Add small clarification to Ecto.Query docs.</p>
-              </BodyListItem>
-              <BodyListItem>
-                <a
-                  className="anchor"
-                  href="https://github.com/livebook-dev/livebook/pull/1682"
-                  target="_blank"
-                >
-                  <b>livebook-dev/livebook</b>
-                </a>
-                <p>
-                  Small clarification to running Livebook inside a Mix project.
-              </p>
-              </BodyListItem>
+            <OSSList title="PowerSync" categoryDesc="Offline-first sync engine for SQLite/PostgreSQL">
+              <OSSBody
+                pr="554"
+                repo="powersync-ja/powersync-service"
+                projectDesc="Sync engine backend service"
+                desc={<>Early warning and mitigation for WAL slot invalidation during snapshot.{' '}<a className="anchor" href="https://github.com/powersync-ja/powersync-service/pull/554" target="_blank">(20+ review comments)</a></>}
+              />
+              <OSSBody
+                pr="535"
+                repo="powersync-ja/powersync-service"
+                projectDesc="Sync engine backend service"
+                desc="Railroad diagram generation from EBNF grammars for sync-rules documentation."
+              />
+              <OSSBody
+                pr="372"
+                repo="powersync-ja/powersync-docs"
+                projectDesc="Official documentation (Mintlify)"
+                desc="Grammar reference with 41 railroad syntax diagrams and cross-linked navigation."
+              />
+              <OSSBody
+                pr="607"
+                repo="powersync-ja/powersync-service"
+                projectDesc="Sync engine backend service"
+                desc="Remove duplicate diagnostics error, add recovery guidance, fix stale comments. Plus 4 additional PRs for MongoDB credential handling, connection parameters, and logging."
+              />
             </OSSList>
-            <OSSList title="TailwindCSS">
-              <BodyListItem>
-                <a
-                  className="anchor"
-                  href="https://github.com/tailwindlabs/tailwindcss.com/pull/1378"
-                  target="_blank"
-                >
-                  <b>tailwindlabs/tailwindcss.com</b>
-                </a>
-                <p>Add arbitrary-variants section in arbitrary-values.</p>
-              </BodyListItem>
+            <OSSList title="GraphQL" categoryDesc="API query language and tooling">
+              <OSSBody
+                pr="2560"
+                repo="graphile/crystal"
+                projectDesc="Auto-generates a performant GraphQL API from a PostgreSQL schema"
+                desc={<>Improve TypeScript's type inference for GraphQL queries within the <a className="anchor" href="https://postgraphile.org/">postgraphile.org</a> project.</>}
+              />
             </OSSList>
-            <OSSList title="Neovim">
+            <OSSList title="Elixir" categoryDesc="Fault-tolerant real-time web apps">
+              <OSSBody
+                pr="1911"
+                repo="livebook-dev/livebook"
+                projectDesc="Interactive notebook environment for Elixir"
+                desc="Add doctest decorations to Monaco editor per result."
+              />
+              <OSSBody
+                pr="3967"
+                repo="elixir-ecto/ecto"
+                projectDesc="Database wrapper and query generator for Elixir"
+                desc="Support preloading associations in embedded schemas from the parent schema."
+              />
+              <OSSBody
+                pr="2340"
+                repo="phoenixframework/phoenix_live_view"
+                projectDesc="Real-time user experiences with server-rendered HTML for Elixir"
+                desc={<>Docs: Explain sockets as a server-only data struct{' '}<a className="anchor" href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00" target="_blank">(merge commit)</a></>}
+              />
+              <OSSBody
+                pr="2336"
+                repo="phoenixframework/phoenix_live_view"
+                projectDesc="Real-time user experiences with server-rendered HTML for Elixir"
+                desc="Update sample code for on_mount authentication."
+              />
+              <OSSBody
+                pr="4051"
+                repo="elixir-ecto/ecto"
+                projectDesc="Database wrapper and query generator for Elixir"
+                desc="Add small clarification to Ecto.Query docs."
+              />
+              <OSSBody
+                pr="1682"
+                repo="livebook-dev/livebook"
+                projectDesc="Interactive notebook environment for Elixir"
+                desc="Small clarification to running Livebook inside a Mix project."
+              />
+            </OSSList>
+            <OSSList title="TailwindCSS" categoryDesc="Utility-first CSS framework">
+              <OSSBody
+                pr="1378"
+                repo="tailwindlabs/tailwindcss.com"
+                projectDesc="Official website and documentation for Tailwind CSS"
+                desc="Add arbitrary-variants section in arbitrary-values."
+              />
+            </OSSList>
+            <OSSList title="Neovim" categoryDesc="Modal text editor plugins">
               <OSSBody
                 pr="268"
                 repo="renerocksai/telekasten.nvim"
+                projectDesc="Neovim plugin for Zettelkasten note-taking"
                 desc="Create subdirs when creating new note"
               />
               <OSSBody
                 pr="1626"
                 repo="hrsh7th/nvim-cmp"
+                projectDesc="Autocompletion engine for Neovim"
                 desc="Expand docs for select_next_item select_prev_item"
               />
             </OSSList>
-            <OSSList title="Emacs">
+            <OSSList title="Emacs" categoryDesc="Extensible text editor ecosystem">
               <OSSBody
                 pr="212"
                 repo="lassik/emacs-format-all-the-code"
+                projectDesc="Auto-format code in Emacs using external formatters"
                 desc="Add support for HTML+EEX"
               />
               <OSSBody
                 pr="23"
                 repo="lassik/emacs-language-id"
+                projectDesc="Language detection for Emacs formatters"
                 desc="Add HTML+EEX language-id"
               />
               <OSSBody
                 pr="6900"
                 repo="doomemacs/doomemacs"
+                projectDesc="Emacs configuration framework for Vim refugees"
                 desc="fix(highlight-indent-guides): for terminal users"
               />
               <OSSBody
                 pr="409"
                 repo="ananthakumaran/tide"
+                projectDesc="TypeScript IDE features for Emacs"
                 desc="Fix tide-rename-file bug on new buffer name"
               />
               <OSSBody
                 pr="19"
                 repo="andre-r/centered-cursor-mode.el"
+                projectDesc="Keeps cursor vertically centered in Emacs"
                 desc="Only use mouse-wheel variables when bound"
               />
             </OSSList>
