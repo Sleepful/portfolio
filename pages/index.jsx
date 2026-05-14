@@ -146,9 +146,9 @@ const LinkDescription = ({ children }) => (
   </p>
 )
 
-const hobbySection = ({ t }) => {
+const hobbySection = ({ t, id }) => {
   return (
-    <Section>
+    <Section id={id}>
       <Title>
         <a name="this" />
         <p >{t('personal')}</p>
@@ -349,11 +349,11 @@ const Pill = ({ children, onClick, active }) => {
   )
 }
 
-const Section = ({ children }) => {
+const Section = ({ children, id }) => {
   return (
     // <div className="sideburns -mx-4">
     <div className="sideburns">
-      <section className="px-4">{children}</section>
+      <section id={id} className="px-4">{children}</section>
     </div>
   )
 }
@@ -396,6 +396,30 @@ const Horizontal = ({ children }) => (
   <div className="flex flex-1 flex-row space-x-2">{children}</div>
 )
 
+const Sidebar = ({ items, activeId, onNavigate, t }) => (
+  <nav
+    className="hidden lg:block lg:w-44 lg:flex-shrink-0 lg:sticky lg:self-start lg:pr-6"
+    style={{ top: '50vh', transform: 'translateY(-50%)' }}
+  >
+    <ul className="space-y-3">
+      {items.map(({ id, label }) => (
+        <li key={id}>
+          <button
+            onClick={() => onNavigate(id)}
+            className={`text-left text-sm transition-colors duration-150 w-full py-0.5 ${
+              activeId === id
+                ? 'text-link font-bold border-l-2 border-link pl-2'
+                : 'text-secondary hover:text-body pl-2.5'
+            }`}
+          >
+            {label}
+          </button>
+        </li>
+      ))}
+    </ul>
+  </nav>
+)
+
 function Home({ t, i18n }) {
   const [theme, setTheme] = useLocalStorage('theme', 'theme-light')
   const [lang, setLang] = useLocalStorage('lang', i18n.language)
@@ -406,12 +430,52 @@ function Home({ t, i18n }) {
   }, [lang])
   const clampedScale = Math.min(Math.max(fontScale, 0.8), 1.4)
   const adjustFont = (delta) => setFontScale(Math.min(Math.max(clampedScale + delta, 0.8), 1.4))
+
+  const [activeSection, setActiveSection] = useState('about')
+  const sectionRefs = useRef({})
+
+  const navItems = [
+    { id: 'about', label: t('subheader') },
+    { id: 'blog', label: t('blog_post_title') },
+    { id: 'open-source', label: t('open_source') },
+    { id: 'personal', label: t('personal') },
+    { id: 'work', label: t('work') },
+    { id: 'pricing', label: 'Pricing' },
+    { id: 'contact', label: t('contact') },
+  ]
+
+  const handleNavigate = (id) => {
+    setActiveSection(id)
+    const el = document.getElementById(id)
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }
+  }
+
+  useEffect(() => {
+    const onScroll = () => {
+      const scrollPos = window.scrollY + window.innerHeight * 0.15
+      let current = navItems[0].id
+      for (const { id } of navItems) {
+        const el = document.getElementById(id)
+        if (el && el.offsetTop <= scrollPos) {
+          current = id
+        }
+      }
+      setActiveSection(current)
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    onScroll() // initial check
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [navItems])
+
   return (
     <div
       className={`${theme}
         bg-primary
-        flex flex-col
-        text-body px-2`}
+        min-h-screen
+        text-body`}
     >
       {/* Fixed font-size controls */}
       <div className="fixed top-4 right-4 z-50 flex items-baseline gap-2 text-link bg-primary bg-opacity-90 rounded-lg px-3 py-2 border border-secondary shadow-sm">
@@ -419,12 +483,15 @@ function Home({ t, i18n }) {
         <button onClick={() => adjustFont(0.1)} className="hover:opacity-70 transition-opacity font-bold text-2xl leading-none" aria-label="Increase font size">A+</button>
       </div>
 
-      <div className="mx-auto my-2 space-y-6 px-2"
-        style={{
-          maxWidth: `calc(clamp(28rem, 45vw, 42rem) * ${Math.min(clampedScale, 1.25)})`,
-          fontSize: `calc(clamp(0.9rem, 0.8vw + 0.75rem, 1.05rem) * ${clampedScale})`
-        }}
-      >
+      <div className="mx-auto max-w-6xl flex flex-col lg:flex-row lg:px-4">
+        <Sidebar items={navItems} activeId={activeSection} onNavigate={handleNavigate} t={t} />
+
+        <div className="flex-1 mx-auto my-2 space-y-6 px-2"
+          style={{
+            maxWidth: `calc(clamp(28rem, 45vw, 42rem) * ${Math.min(clampedScale, 1.25)})`,
+            fontSize: `calc(clamp(0.9rem, 0.8vw + 0.75rem, 1.05rem) * ${clampedScale})`
+          }}
+        >
         <Head>
           <title>Jose Vargas</title>
           <link rel="icon" href="/favicon.ico" />
@@ -454,7 +521,7 @@ function Home({ t, i18n }) {
           <h1 className="bg-primary font-serif text-emphasis" style={{ fontSize: '2.25em' }}>
             {t('header')}
           </h1>
-          <Section>
+          <Section id="about">
             <Title>
               <h2>{t('subheader')}</h2>
             </Title>
@@ -485,7 +552,7 @@ function Home({ t, i18n }) {
               </Body>
             </div>
           </Section>
-          <Section>
+          <Section id="blog">
             <Title>
               <a name="blog">{t('blog_post_title')}</a>
             </Title>
@@ -504,7 +571,7 @@ function Home({ t, i18n }) {
               </BodyListItem>
             </BulletList>
           </Section>
-          <Section>
+          <Section id="open-source">
             <Title>
               <a name="openSource">{t('open_source')}</a>
             </Title>
@@ -643,7 +710,7 @@ function Home({ t, i18n }) {
               />
             </OSSList>
           </Section>
-          {hobbySection({ t })}
+          {hobbySection({ t, id: 'personal' })}
           {
             // TODO embed yinyang with loop
             // - make it a video that can be
@@ -652,7 +719,7 @@ function Home({ t, i18n }) {
             //   one that loops nicely, or make
             //   high qual gif (eh)
           }
-          <Section>
+          <Section id="work">
             <Title>
               <p>{t('work')}</p>
             </Title>
@@ -662,8 +729,8 @@ function Home({ t, i18n }) {
               </Body>
             </div>
           </Section>
-          <Section>
-            <Title id="pricing">
+          <Section id="pricing">
+            <Title>
               <p>Pricing</p>
             </Title>
             <Body>
@@ -679,7 +746,7 @@ function Home({ t, i18n }) {
               <Alert />
             </Body>
           </Section>
-          <Section>
+          <Section id="contact">
             <Title>
               <p>{t('contact')}</p>
             </Title>
@@ -722,6 +789,7 @@ function Home({ t, i18n }) {
             Solarized
           </a>
         </footer>
+      </div>
       </div>
     </div>
   )
