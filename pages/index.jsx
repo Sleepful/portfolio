@@ -128,7 +128,7 @@ const Alert = () =>
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
       <span>I offer a free 30 minutes consultation for your project</span>
       <div>
-        <a className="btn btn-sm border-primary border-2 bg-highlight hover:bg-primary hover:border-primary text-body" href="https://calendly.com/josepablov/meeting-1">Schedule</a>
+        <a className="btn btn-sm border-primary border-2 bg-highlight hover:bg-primary hover:border-primary text-body" href="https://cal.com/jose-vargas/30min">Schedule</a>
       </div>
     </div>
   </div>
@@ -374,8 +374,8 @@ const OSSBody = ({ pr, repo, projectDesc, desc }) => {
             <InfoIcon />
           </span>
         ) : (
-          <span className="flex-shrink-0 w-4"></span>
-        )}
+            <span className="flex-shrink-0 w-4"></span>
+          )}
         <div>
           <a className="anchor font-bold" href={`https://github.com/${repo}/pull/${pr}`}
             target="_blank" >
@@ -406,11 +406,10 @@ const Sidebar = ({ items, activeId, onNavigate, t }) => (
         <li key={id}>
           <button
             onClick={() => onNavigate(id)}
-            className={`text-left text-sm transition-colors duration-150 w-full py-0.5 ${
-              activeId === id
+            className={`text-left text-sm transition-colors duration-150 w-full py-0.5 ${activeId === id
                 ? 'text-link font-bold border-l-2 border-link pl-2'
                 : 'text-secondary hover:text-body pl-2.5'
-            }`}
+              }`}
           >
             {label}
           </button>
@@ -492,304 +491,304 @@ function Home({ t, i18n }) {
             fontSize: `calc(clamp(0.9rem, 0.8vw + 0.75rem, 1.05rem) * ${clampedScale})`
           }}
         >
-        <Head>
-          <title>Jose Vargas</title>
-          <link rel="icon" href="/favicon.ico" />
-        </Head>
+          <Head>
+            <title>Jose Vargas</title>
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
 
-        <main className=" space-y-6 flex flex-col">
-          <FourGrid>
-            <Pill active={lang == 'en'} onClick={() => setLang('en')}>
-              <p>English</p>
-            </Pill>
-            <Pill active={lang == 'es'} onClick={() => setLang('es')}>
-              <p>Español</p>
-            </Pill>
-            <Pill
-              active={theme == 'theme-light'}
-              onClick={() => setTheme('theme-light')}
-            >
-              <p>{t('light')}</p>
-            </Pill>
-            <Pill
-              active={theme == 'theme-dark'}
-              onClick={() => setTheme('theme-dark')}
-            >
-              <p>{t('dark')}</p>
-            </Pill>
-          </FourGrid>
-          <h1 className="bg-primary font-serif text-emphasis" style={{ fontSize: '2.25em' }}>
-            {t('header')}
-          </h1>
-          <Section id="about">
-            <Title>
-              <h2>{t('subheader')}</h2>
-            </Title>
-            <div className="pl-6">
-              <Body>
-                <p>{t('aboutme')}</p>
-                <div className="pt-6" >
-                  <p>{t('work_with_me')}</p>
-                </div >
-                <BulletList className="pb-4">
-                  <div className="pt-3 space-y-2">
-                    <li>{t('aboutme_b_1')}</li>
-                    <li>{t('aboutme_b_2')}</li>
-                    <li>{t('aboutme_b_3')}</li>
-                  </div>
-                </BulletList>
-                <p>{t('aboutme_3')}</p>
-                <BulletList>
-                  <div className="pt-3">
-                    <li>TypeScript, Elixir, Rust, Clojure, NixOS, Docker, PosgreSQL, AWS.</li>
-                  </div>
-                </BulletList>
+          <main className=" space-y-6 flex flex-col">
+            <FourGrid>
+              <Pill active={lang == 'en'} onClick={() => setLang('en')}>
+                <p>English</p>
+              </Pill>
+              <Pill active={lang == 'es'} onClick={() => setLang('es')}>
+                <p>Español</p>
+              </Pill>
+              <Pill
+                active={theme == 'theme-light'}
+                onClick={() => setTheme('theme-light')}
+              >
+                <p>{t('light')}</p>
+              </Pill>
+              <Pill
+                active={theme == 'theme-dark'}
+                onClick={() => setTheme('theme-dark')}
+              >
+                <p>{t('dark')}</p>
+              </Pill>
+            </FourGrid>
+            <h1 className="bg-primary font-serif text-emphasis" style={{ fontSize: '2.25em' }}>
+              {t('header')}
+            </h1>
+            <Section id="about">
+              <Title>
+                <h2>{t('subheader')}</h2>
+              </Title>
+              <div className="pl-6">
+                <Body>
+                  <p>{t('aboutme')}</p>
+                  <div className="pt-6" >
+                    <p>{t('work_with_me')}</p>
+                  </div >
+                  <BulletList className="pb-4">
+                    <div className="pt-3 space-y-2">
+                      <li>{t('aboutme_b_1')}</li>
+                      <li>{t('aboutme_b_2')}</li>
+                      <li>{t('aboutme_b_3')}</li>
+                    </div>
+                  </BulletList>
+                  <p>{t('aboutme_3')}</p>
+                  <BulletList>
+                    <div className="pt-3">
+                      <li>TypeScript, Elixir, Rust, Clojure, NixOS, Docker, PosgreSQL, AWS.</li>
+                    </div>
+                  </BulletList>
 
-                {
-                  // t('available')
-                  // <a className="anchor" href="#pricing">[Pricing]</a>
-                }
-              </Body>
-            </div>
-          </Section>
-          <Section id="blog">
-            <Title>
-              <a name="blog">{t('blog_post_title')}</a>
-            </Title>
-            <BulletList>
-              <BodyListItem>
-                {KagiBlogPost({ t })}
-              </BodyListItem>
-              <BodyListItem>
-                {HMACBlogPost({ t })}
-              </BodyListItem>
-              <BodyListItem>
-                {NixosMCBlogPost({ t })}
-              </BodyListItem>
-              <BodyListItem>
-                {RustSSGBlogPost({ t })}
-              </BodyListItem>
-            </BulletList>
-          </Section>
-          <Section id="open-source">
-            <Title>
-              <a name="openSource">{t('open_source')}</a>
-            </Title>
-            <OSSList title="OpenCode" categoryDesc="AI coding agent ecosystem">
-              <OSSBody
-                pr="24725"
-                repo="anomalyco/opencode"
-                projectDesc="Open-source AI coding agent"
-                desc="Sort session picker by full updated timestamp while keeping order stable while browsing."
-              />
-            </OSSList>
-            <OSSList title="PowerSync" categoryDesc="Offline-first sync engine for SQLite/PostgreSQL">
-              <OSSBody
-                pr="554"
-                repo="powersync-ja/powersync-service"
-                projectDesc="Sync engine backend service"
-                desc={<>Early warning and mitigation for WAL slot invalidation during snapshot.{' '}<a className="anchor" href="https://github.com/powersync-ja/powersync-service/pull/554" target="_blank">(20+ review comments)</a></>}
-              />
-              <OSSBody
-                pr="535"
-                repo="powersync-ja/powersync-service"
-                projectDesc="Sync engine backend service"
-                desc="Railroad diagram generation from EBNF grammars for sync-rules documentation."
-              />
-              <OSSBody
-                pr="372"
-                repo="powersync-ja/powersync-docs"
-                projectDesc="Official documentation (Mintlify)"
-                desc="Grammar reference with 41 railroad syntax diagrams and cross-linked navigation."
-              />
-              <OSSBody
-                pr="607"
-                repo="powersync-ja/powersync-service"
-                projectDesc="Sync engine backend service"
-                desc="Remove duplicate diagnostics error, add recovery guidance, fix stale comments. Plus 4 additional PRs for MongoDB credential handling, connection parameters, and logging."
-              />
-            </OSSList>
-            <OSSList title="GraphQL" categoryDesc="API query language and tooling">
-              <OSSBody
-                pr="2560"
-                repo="graphile/crystal"
-                projectDesc="Auto-generates a performant GraphQL API from a PostgreSQL schema"
-                desc={<>Improve TypeScript's type inference for GraphQL queries within the <a className="anchor" href="https://postgraphile.org/">postgraphile.org</a> project.</>}
-              />
-            </OSSList>
-            <OSSList title="Elixir" categoryDesc="Fault-tolerant real-time web apps">
-              <OSSBody
-                pr="1911"
-                repo="livebook-dev/livebook"
-                projectDesc="Interactive notebook environment for Elixir"
-                desc="Add doctest decorations to Monaco editor per result."
-              />
-              <OSSBody
-                pr="3967"
-                repo="elixir-ecto/ecto"
-                projectDesc="Database wrapper and query generator for Elixir"
-                desc="Support preloading associations in embedded schemas from the parent schema."
-              />
-              <OSSBody
-                pr="2340"
-                repo="phoenixframework/phoenix_live_view"
-                projectDesc="Real-time user experiences with server-rendered HTML for Elixir"
-                desc={<>Docs: Explain sockets as a server-only data struct{' '}<a className="anchor" href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00" target="_blank">(merge commit)</a></>}
-              />
-              <OSSBody
-                pr="2336"
-                repo="phoenixframework/phoenix_live_view"
-                projectDesc="Real-time user experiences with server-rendered HTML for Elixir"
-                desc="Update sample code for on_mount authentication."
-              />
-              <OSSBody
-                pr="4051"
-                repo="elixir-ecto/ecto"
-                projectDesc="Database wrapper and query generator for Elixir"
-                desc="Add small clarification to Ecto.Query docs."
-              />
-              <OSSBody
-                pr="1682"
-                repo="livebook-dev/livebook"
-                projectDesc="Interactive notebook environment for Elixir"
-                desc="Small clarification to running Livebook inside a Mix project."
-              />
-            </OSSList>
-            <OSSList title="TailwindCSS" categoryDesc="Utility-first CSS framework">
-              <OSSBody
-                pr="1378"
-                repo="tailwindlabs/tailwindcss.com"
-                projectDesc="Official website and documentation for Tailwind CSS"
-                desc="Add arbitrary-variants section in arbitrary-values."
-              />
-            </OSSList>
-            <OSSList title="Neovim" categoryDesc="Modal text editor plugins">
-              <OSSBody
-                pr="268"
-                repo="renerocksai/telekasten.nvim"
-                projectDesc="Neovim plugin for Zettelkasten note-taking"
-                desc="Create subdirs when creating new note"
-              />
-              <OSSBody
-                pr="1626"
-                repo="hrsh7th/nvim-cmp"
-                projectDesc="Autocompletion engine for Neovim"
-                desc="Expand docs for select_next_item select_prev_item"
-              />
-            </OSSList>
-            <OSSList title="Emacs" categoryDesc="Extensible text editor ecosystem">
-              <OSSBody
-                pr="212"
-                repo="lassik/emacs-format-all-the-code"
-                projectDesc="Auto-format code in Emacs using external formatters"
-                desc="Add support for HTML+EEX"
-              />
-              <OSSBody
-                pr="23"
-                repo="lassik/emacs-language-id"
-                projectDesc="Language detection for Emacs formatters"
-                desc="Add HTML+EEX language-id"
-              />
-              <OSSBody
-                pr="6900"
-                repo="doomemacs/doomemacs"
-                projectDesc="Emacs configuration framework for Vim refugees"
-                desc="fix(highlight-indent-guides): for terminal users"
-              />
-              <OSSBody
-                pr="409"
-                repo="ananthakumaran/tide"
-                projectDesc="TypeScript IDE features for Emacs"
-                desc="Fix tide-rename-file bug on new buffer name"
-              />
-              <OSSBody
-                pr="19"
-                repo="andre-r/centered-cursor-mode.el"
-                projectDesc="Keeps cursor vertically centered in Emacs"
-                desc="Only use mouse-wheel variables when bound"
-              />
-            </OSSList>
-          </Section>
-          {hobbySection({ t, id: 'personal' })}
-          {
-            // TODO embed yinyang with loop
-            // - make it a video that can be
-            //   unfolded
-            // - need to replace mov with better
-            //   one that loops nicely, or make
-            //   high qual gif (eh)
-          }
-          <Section id="work">
-            <Title>
-              <p>{t('work')}</p>
-            </Title>
-            <div className="pl-6">
-              <Body>
-                <p>{t('workdesc')}</p>
-              </Body>
-            </div>
-          </Section>
-          <Section id="pricing">
-            <Title>
-              <p>Pricing</p>
-            </Title>
-            <Body>
-              <div className="pl-6 pb-4">
-                <p>I am currently available to work with new clients. The pricing depends on the characteristics of the job, you can calculate the hourly charge by selecting the qualities of the job. Alternatively, I prefer working for a <a className="anchor" target="_blank" href="https://www.investopedia.com/terms/d/dayrate.asp">day-rate</a>, in which case the price will be lower than the hourly rate shown here. Full-time offers are also considered.</p>
+                  {
+                    // t('available')
+                    // <a className="anchor" href="#pricing">[Pricing]</a>
+                  }
+                </Body>
               </div>
-              <PricingTable t={t} />
-              <div className="pl-6 py-4">
-                <p>
-                  I can offer dynamic pricing, for example, if you want some fixed hours of work when we may collaborate, but other hours are flexible. Get in touch with me and we will iron out the details.
+            </Section>
+            <Section id="blog">
+              <Title>
+                <a name="blog">{t('blog_post_title')}</a>
+              </Title>
+              <BulletList>
+                <BodyListItem>
+                  {KagiBlogPost({ t })}
+                </BodyListItem>
+                <BodyListItem>
+                  {HMACBlogPost({ t })}
+                </BodyListItem>
+                <BodyListItem>
+                  {NixosMCBlogPost({ t })}
+                </BodyListItem>
+                <BodyListItem>
+                  {RustSSGBlogPost({ t })}
+                </BodyListItem>
+              </BulletList>
+            </Section>
+            <Section id="open-source">
+              <Title>
+                <a name="openSource">{t('open_source')}</a>
+              </Title>
+              <OSSList title="OpenCode" categoryDesc="AI coding agent ecosystem">
+                <OSSBody
+                  pr="24725"
+                  repo="anomalyco/opencode"
+                  projectDesc="Open-source AI coding agent"
+                  desc="Sort session picker by full updated timestamp while keeping order stable while browsing."
+                />
+              </OSSList>
+              <OSSList title="PowerSync" categoryDesc="Offline-first sync engine for SQLite/PostgreSQL">
+                <OSSBody
+                  pr="554"
+                  repo="powersync-ja/powersync-service"
+                  projectDesc="Sync engine backend service"
+                  desc={<>Early warning and mitigation for WAL slot invalidation during snapshot.{' '}<a className="anchor" href="https://github.com/powersync-ja/powersync-service/pull/554" target="_blank">(20+ review comments)</a></>}
+                />
+                <OSSBody
+                  pr="535"
+                  repo="powersync-ja/powersync-service"
+                  projectDesc="Sync engine backend service"
+                  desc="Railroad diagram generation from EBNF grammars for sync-rules documentation."
+                />
+                <OSSBody
+                  pr="372"
+                  repo="powersync-ja/powersync-docs"
+                  projectDesc="Official documentation (Mintlify)"
+                  desc="Grammar reference with 41 railroad syntax diagrams and cross-linked navigation."
+                />
+                <OSSBody
+                  pr="607"
+                  repo="powersync-ja/powersync-service"
+                  projectDesc="Sync engine backend service"
+                  desc="Remove duplicate diagnostics error, add recovery guidance, fix stale comments. Plus 4 additional PRs for MongoDB credential handling, connection parameters, and logging."
+                />
+              </OSSList>
+              <OSSList title="GraphQL" categoryDesc="API query language and tooling">
+                <OSSBody
+                  pr="2560"
+                  repo="graphile/crystal"
+                  projectDesc="Auto-generates a performant GraphQL API from a PostgreSQL schema"
+                  desc={<>Improve TypeScript's type inference for GraphQL queries within the <a className="anchor" href="https://postgraphile.org/">postgraphile.org</a> project.</>}
+                />
+              </OSSList>
+              <OSSList title="Elixir" categoryDesc="Fault-tolerant real-time web apps">
+                <OSSBody
+                  pr="1911"
+                  repo="livebook-dev/livebook"
+                  projectDesc="Interactive notebook environment for Elixir"
+                  desc="Add doctest decorations to Monaco editor per result."
+                />
+                <OSSBody
+                  pr="3967"
+                  repo="elixir-ecto/ecto"
+                  projectDesc="Database wrapper and query generator for Elixir"
+                  desc="Support preloading associations in embedded schemas from the parent schema."
+                />
+                <OSSBody
+                  pr="2340"
+                  repo="phoenixframework/phoenix_live_view"
+                  projectDesc="Real-time user experiences with server-rendered HTML for Elixir"
+                  desc={<>Docs: Explain sockets as a server-only data struct{' '}<a className="anchor" href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00" target="_blank">(merge commit)</a></>}
+                />
+                <OSSBody
+                  pr="2336"
+                  repo="phoenixframework/phoenix_live_view"
+                  projectDesc="Real-time user experiences with server-rendered HTML for Elixir"
+                  desc="Update sample code for on_mount authentication."
+                />
+                <OSSBody
+                  pr="4051"
+                  repo="elixir-ecto/ecto"
+                  projectDesc="Database wrapper and query generator for Elixir"
+                  desc="Add small clarification to Ecto.Query docs."
+                />
+                <OSSBody
+                  pr="1682"
+                  repo="livebook-dev/livebook"
+                  projectDesc="Interactive notebook environment for Elixir"
+                  desc="Small clarification to running Livebook inside a Mix project."
+                />
+              </OSSList>
+              <OSSList title="TailwindCSS" categoryDesc="Utility-first CSS framework">
+                <OSSBody
+                  pr="1378"
+                  repo="tailwindlabs/tailwindcss.com"
+                  projectDesc="Official website and documentation for Tailwind CSS"
+                  desc="Add arbitrary-variants section in arbitrary-values."
+                />
+              </OSSList>
+              <OSSList title="Neovim" categoryDesc="Modal text editor plugins">
+                <OSSBody
+                  pr="268"
+                  repo="renerocksai/telekasten.nvim"
+                  projectDesc="Neovim plugin for Zettelkasten note-taking"
+                  desc="Create subdirs when creating new note"
+                />
+                <OSSBody
+                  pr="1626"
+                  repo="hrsh7th/nvim-cmp"
+                  projectDesc="Autocompletion engine for Neovim"
+                  desc="Expand docs for select_next_item select_prev_item"
+                />
+              </OSSList>
+              <OSSList title="Emacs" categoryDesc="Extensible text editor ecosystem">
+                <OSSBody
+                  pr="212"
+                  repo="lassik/emacs-format-all-the-code"
+                  projectDesc="Auto-format code in Emacs using external formatters"
+                  desc="Add support for HTML+EEX"
+                />
+                <OSSBody
+                  pr="23"
+                  repo="lassik/emacs-language-id"
+                  projectDesc="Language detection for Emacs formatters"
+                  desc="Add HTML+EEX language-id"
+                />
+                <OSSBody
+                  pr="6900"
+                  repo="doomemacs/doomemacs"
+                  projectDesc="Emacs configuration framework for Vim refugees"
+                  desc="fix(highlight-indent-guides): for terminal users"
+                />
+                <OSSBody
+                  pr="409"
+                  repo="ananthakumaran/tide"
+                  projectDesc="TypeScript IDE features for Emacs"
+                  desc="Fix tide-rename-file bug on new buffer name"
+                />
+                <OSSBody
+                  pr="19"
+                  repo="andre-r/centered-cursor-mode.el"
+                  projectDesc="Keeps cursor vertically centered in Emacs"
+                  desc="Only use mouse-wheel variables when bound"
+                />
+              </OSSList>
+            </Section>
+            {hobbySection({ t, id: 'personal' })}
+            {
+              // TODO embed yinyang with loop
+              // - make it a video that can be
+              //   unfolded
+              // - need to replace mov with better
+              //   one that loops nicely, or make
+              //   high qual gif (eh)
+            }
+            <Section id="work">
+              <Title>
+                <p>{t('work')}</p>
+              </Title>
+              <div className="pl-6">
+                <Body>
+                  <p>{t('workdesc')}</p>
+                </Body>
+              </div>
+            </Section>
+            <Section id="pricing">
+              <Title>
+                <p>Pricing</p>
+              </Title>
+              <Body>
+                <div className="pl-6 pb-4">
+                  <p>I am currently available to work with new clients. The pricing depends on the characteristics of the job, you can calculate the hourly charge by selecting the qualities of the job. Alternatively, I prefer working for a <a className="anchor" target="_blank" href="https://www.investopedia.com/terms/d/dayrate.asp">day-rate</a>, in which case the price will be lower than the hourly rate shown here. Full-time offers are also considered.</p>
+                </div>
+                <PricingTable t={t} />
+                <div className="pl-6 py-4">
+                  <p>
+                    I can offer dynamic pricing, for example, if you want some fixed hours of work when we may collaborate, but other hours are flexible. Get in touch with me and we will iron out the details.
                 </p>
-              </div>
-              <Alert />
-            </Body>
-          </Section>
-          <Section id="contact">
-            <Title>
-              <p>{t('contact')}</p>
-            </Title>
-            <div className="pl-6">
-              <Horizontal className="flex-center">
-                <a target="_blank" className="anchor" href="https://github.com/Sleepful">
-                  GitHub
+                </div>
+                <Alert />
+              </Body>
+            </Section>
+            <Section id="contact">
+              <Title>
+                <p>{t('contact')}</p>
+              </Title>
+              <div className="pl-6">
+                <Horizontal className="flex-center">
+                  <a target="_blank" className="anchor" href="https://github.com/Sleepful">
+                    GitHub
               </a>
-                <a
-                  target="_blank"
-                  className="anchor"
-                  href="https://www.linkedin.com/in/jose-pablo-vargas-campos-685a4b172/"
-                >
-                  LinkedIn
+                  <a
+                    target="_blank"
+                    className="anchor"
+                    href="https://www.linkedin.com/in/jose-pablo-vargas-campos-685a4b172/"
+                  >
+                    LinkedIn
               </a>
-                <a
-                  target="_blank"
-                  className="anchor"
-                  href="https://stackoverflow.com/users/2446144/jose-v"
-                >
-                  Stack Overflow
+                  <a
+                    target="_blank"
+                    className="anchor"
+                    href="https://stackoverflow.com/users/2446144/jose-v"
+                  >
+                    Stack Overflow
               </a>
-              </Horizontal>
-              <Horizontal>
-                <a target="_blank" className="anchor" href="mailto:josepablov+biz@gmail.com">
-                  josepablov+biz@gmail.com
+                </Horizontal>
+                <Horizontal>
+                  <a target="_blank" className="anchor" href="mailto:josepablov+biz@gmail.com">
+                    josepablov+biz@gmail.com
                 </a>
-              </Horizontal>
-            </div>
-            <div className="pl-6 pt-6">
-              <p >
-                Please, no soliciting for unpaid work. Equity does not count as payment.
+                </Horizontal>
+              </div>
+              <div className="pl-6 pt-6">
+                <p >
+                  Please, no soliciting for unpaid work. Equity does not count as payment.
                 </p>
-            </div>
-          </Section>
-        </main>
-        <footer>
-          {t('themeby')}{' '}
-          <a target="_blank" className="anchor" href="https://github.com/altercation/solarized">
-            Solarized
+              </div>
+            </Section>
+          </main>
+          <footer>
+            {t('themeby')}{' '}
+            <a target="_blank" className="anchor" href="https://github.com/altercation/solarized">
+              Solarized
           </a>
-        </footer>
-      </div>
+          </footer>
+        </div>
       </div>
     </div>
   )
