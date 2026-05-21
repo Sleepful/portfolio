@@ -579,7 +579,7 @@ function Home({ t, i18n }) {
                   pr="24725"
                   repo="anomalyco/opencode"
                   projectDesc="Open-source AI coding agent"
-                  desc="UX improvement: sort session picker by full updated timestamp while keeping order stable while browsing."
+                  desc={<><strong>UX improvement:</strong> sort session picker by full updated timestamp while keeping order stable while browsing.</>}
                 />
               </OSSList>
               <OSSList title="PowerSync" categoryDesc="Offline-first sync engine for SQLite, PostgreSQL, MongoDB and MySQL">
@@ -633,25 +633,25 @@ function Home({ t, i18n }) {
                   pr="2340"
                   repo="phoenixframework/phoenix_live_view"
                   projectDesc="Real-time user experiences with server-rendered HTML for Elixir"
-                  desc={<>Docs: Explain sockets as a server-only data struct{' '}<a className="anchor" href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00" target="_blank">(merge commit)</a></>}
+                  desc={<><strong>Docs:</strong> Explain sockets as a server-only data struct{' '}<a className="anchor" href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00" target="_blank">(merge commit)</a></>}
                 />
                 <OSSBody
                   pr="2336"
                   repo="phoenixframework/phoenix_live_view"
                   projectDesc="Real-time user experiences with server-rendered HTML for Elixir"
-                  desc="Docs: Update sample code for on_mount authentication."
+                  desc={<><strong>Docs:</strong> Update sample code for on_mount authentication.</>}
                 />
                 <OSSBody
                   pr="4051"
                   repo="elixir-ecto/ecto"
                   projectDesc="Database wrapper and query generator for Elixir"
-                  desc="Docs: Clarify Ecto.Query filtering behavior."
+                  desc={<><strong>Docs:</strong> Clarify Ecto.Query filtering behavior.</>}
                 />
                 <OSSBody
                   pr="1682"
                   repo="livebook-dev/livebook"
                   projectDesc="Interactive notebook environment for Elixir"
-                  desc="Docs: Clarify running Livebook inside a Mix project."
+                  desc={<><strong>Docs:</strong> Clarify running Livebook inside a Mix project.</>}
                 />
               </OSSList>
               <OSSList title="TailwindCSS" categoryDesc="Utility-first CSS framework">
@@ -659,7 +659,7 @@ function Home({ t, i18n }) {
                   pr="1378"
                   repo="tailwindlabs/tailwindcss.com"
                   projectDesc="Official website and documentation for Tailwind CSS"
-                  desc="Docs: Add arbitrary-variants section in arbitrary-values."
+                  desc={<><strong>Docs:</strong> Add arbitrary-variants section in arbitrary-values.</>}
                 />
               </OSSList>
               <OSSList title="Neovim" categoryDesc="Modal text editor plugins">
@@ -673,7 +673,7 @@ function Home({ t, i18n }) {
                   pr="1626"
                   repo="hrsh7th/nvim-cmp"
                   projectDesc="Autocompletion engine for Neovim"
-                  desc="Docs: Expand docs for select_next_item select_prev_item"
+                  desc={<><strong>Docs:</strong> Expand docs for select_next_item select_prev_item</>}
                 />
               </OSSList>
               <OSSList title="Emacs" categoryDesc="Extensible text editor ecosystem">
