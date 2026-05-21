@@ -602,10 +602,10 @@ function Home({ t, i18n }) {
                   desc="Grammar reference with 41 railroad syntax diagrams and cross-linked navigation."
                 />
                 <OSSBody
-                  pr="607"
+                  pr="499"
                   repo="powersync-ja/powersync-service"
                   projectDesc="Sync engine backend service"
-                  desc="Remove duplicate diagnostics error, add recovery guidance, fix stale comments. Plus 4 additional PRs for MongoDB credential handling, connection parameters, and logging."
+                  desc="Redesign Postgres compaction algorithm — replace a fragile unicode sentinel approach for prefix-matching data groups with exact key lookups, eliminating sequential table scans in favor of efficient index access across 12 packages."
                 />
               </OSSList>
               <OSSList title="GraphQL" categoryDesc="API query language and tooling">
