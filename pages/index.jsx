@@ -582,7 +582,7 @@ function Home({ t, i18n }) {
                   desc="Sort session picker by full updated timestamp while keeping order stable while browsing."
                 />
               </OSSList>
-              <OSSList title="PowerSync" categoryDesc="Offline-first sync engine for SQLite, PostgreSQL and MongoDB">
+              <OSSList title="PowerSync" categoryDesc="Offline-first sync engine for SQLite, PostgreSQL, MongoDB and MySQL">
                 <OSSBody
                   pr="554"
                   repo="powersync-ja/powersync-service"
