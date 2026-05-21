@@ -582,12 +582,12 @@ function Home({ t, i18n }) {
                   desc="Sort session picker by full updated timestamp while keeping order stable while browsing."
                 />
               </OSSList>
-              <OSSList title="PowerSync" categoryDesc="Offline-first sync engine for SQLite/PostgreSQL">
+              <OSSList title="PowerSync" categoryDesc="Offline-first sync engine for SQLite, PostgreSQL and MongoDB">
                 <OSSBody
                   pr="554"
                   repo="powersync-ja/powersync-service"
                   projectDesc="Sync engine backend service"
-                  desc={<>Detect silent <a className="anchor" href="https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION-SLOTS" target="_blank">WAL slot</a> failure mid-sync and abort early instead of completing a doomed hours-long snapshot, with budget monitoring and actionable error guidance.{' '}<a className="anchor" href="https://github.com/powersync-ja/powersync-service/pull/554" target="_blank">(20+ review comments)</a></>}
+                  desc={<>Detect silent <a className="anchor" href="https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION-SLOTS" target="_blank">Postgres WAL slot</a> failure mid-sync and abort early instead of completing a doomed hours-long snapshot, with budget monitoring and actionable error guidance.{' '}<a className="anchor" href="https://github.com/powersync-ja/powersync-service/pull/554" target="_blank">(20+ review comments)</a></>}
                 />
                 <OSSBody
                   pr="535"
