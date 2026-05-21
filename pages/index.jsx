@@ -587,7 +587,7 @@ function Home({ t, i18n }) {
                   pr="554"
                   repo="powersync-ja/powersync-service"
                   projectDesc="Sync engine backend service"
-                  desc={<>Early warning and mitigation for WAL slot invalidation during snapshot.{' '}<a className="anchor" href="https://github.com/powersync-ja/powersync-service/pull/554" target="_blank">(20+ review comments)</a></>}
+                  desc={<>Detect silent <a className="anchor" href="https://www.postgresql.org/docs/current/warm-standby.html#STREAMING-REPLICATION-SLOTS" target="_blank">WAL slot</a> failure mid-sync and abort early instead of completing a doomed hours-long snapshot, with budget monitoring and actionable error guidance.{' '}<a className="anchor" href="https://github.com/powersync-ja/powersync-service/pull/554" target="_blank">(20+ review comments)</a></>}
                 />
                 <OSSBody
                   pr="535"
