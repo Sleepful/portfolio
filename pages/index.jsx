@@ -406,7 +406,7 @@ function Home({ t, i18n }) {
         >
           <Head>
             <title>Jose Vargas</title>
-            <link rel="icon" href="/favicon.ico" />
+            <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
           </Head>
 
           <main className=" space-y-6 flex flex-col">
