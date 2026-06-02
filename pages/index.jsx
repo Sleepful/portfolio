@@ -33,94 +33,7 @@ const BulletList = ({ children, className = "" }) => {
   )
 }
 
-const PricingTr = ({ children, classes }) =>
-  (<tr className={"p-2 ${ classes }"}>
-    {children}
-  </tr>)
 
-const PricingTh = ({ children, center = true }) =>
-  (<th className="p-2 px-4">
-    <div className={center && "flex justify-around" || ""} >
-      {children}
-    </div >
-  </th>)
-
-const PricingTd = ({ children, center = true }) => (
-  <td className="p-1 px-4">
-    <div className={center && "flex justify-around" || ""} >
-      {children}
-    </div >
-  </td>)
-
-const PricingBox = ({ disabled = false, active = false, onClick }) =>
-  <input
-    disabled={disabled} defaultChecked={active && true}
-    onClick={onClick}
-    className="checkbox border-2 border-primary" type="checkbox" />
-
-const PricingTable = ({ t }) => {
-  const [oss, setOss] = useState(false);
-  const [fixed, setFixed] = useState(false);
-  const [daily, setDaily] = useState(false);
-  const [manager, setManager] = useState(false);
-  const prices = {
-    baseline: 80,
-    oss: -20,
-    fixed: 10,
-    daily: 10,
-    manager: 20,
-  }
-  const total = prices.baseline
-    + (oss && prices.oss || 0)
-    + (fixed && prices.fixed + 0)
-    + (daily && prices.daily + 0)
-    + (manager && prices.manager + 0)
-
-  return (
-    <div className="overflow-x-auto flex justify-around">
-      <table className="table">
-        <thead>
-          <tr className="bg-highlight text-body">
-            <PricingTh>Quality</PricingTh>
-            <PricingTh>Included</PricingTh>
-            <PricingTh>Hourly cost</PricingTh>
-          </tr>
-        </thead>
-        <tbody>
-          <tr className="">
-            <PricingTd center={false}>Baseline</PricingTd>
-            <PricingTd><PricingBox disabled active /></PricingTd>
-            <PricingTd>{prices.baseline} USD</PricingTd>
-          </tr>
-          <tr className="bg-highlight">
-            <PricingTd center={false}>Open Source Discount</PricingTd>
-            <PricingTd><PricingBox onClick={() => setOss(!oss)} /></PricingTd>
-            <PricingTd>{prices.oss} USD</PricingTd>
-          </tr>
-          <tr className="">
-            <PricingTd center={false}>Fixed Schedule</PricingTd>
-            <PricingTd><PricingBox onClick={() => setFixed(!fixed)} /></PricingTd>
-            <PricingTd>{prices.fixed} USD</PricingTd>
-          </tr>
-          <tr className="bg-highlight">
-            <PricingTd center={false}>Daily meetings</PricingTd>
-            <PricingTd><PricingBox onClick={() => setDaily(!daily)} /></PricingTd>
-            <PricingTd>{prices.daily} USD</PricingTd>
-          </tr>
-          <tr className="">
-            <PricingTd center={false}>Managerial role</PricingTd>
-            <PricingTd><PricingBox onClick={() => setManager(!manager)} /></PricingTd>
-            <PricingTd>{prices.manager} USD</PricingTd>
-          </tr>
-          <tr className="bg-highlight">
-            <PricingTd>Total hourly cost:</PricingTd>
-            <PricingTd><b>{total} USD</b></PricingTd>
-            <PricingTd></PricingTd>
-          </tr>
-        </tbody>
-      </table>
-    </div>)
-}
 
 const Alert = () =>
   <div className="p-2 pt-4">
@@ -407,8 +320,8 @@ const Sidebar = ({ items, activeId, onNavigate, t }) => (
           <button
             onClick={() => onNavigate(id)}
             className={`text-left text-sm transition-colors duration-150 w-full py-0.5 ${activeId === id
-                ? 'text-link font-bold border-l-2 border-link pl-2'
-                : 'text-secondary hover:text-body pl-2.5'
+              ? 'text-link font-bold border-l-2 border-link pl-2'
+              : 'text-secondary hover:text-body pl-2.5'
               }`}
           >
             {label}
@@ -733,14 +646,8 @@ function Home({ t, i18n }) {
                 <p>Pricing</p>
               </Title>
               <Body>
-                <div className="pl-6 pb-4">
-                  <p>I am currently available to work with new clients. The pricing depends on the characteristics of the job, you can calculate the hourly charge by selecting the qualities of the job. Alternatively, I prefer working for a <a className="anchor" target="_blank" href="https://www.investopedia.com/terms/d/dayrate.asp">day-rate</a>, in which case the price will be lower than the hourly rate shown here. Full-time offers are also considered.</p>
-                </div>
-                <PricingTable t={t} />
-                <div className="pl-6 py-4">
-                  <p>
-                    I can offer dynamic pricing, for example, if you want some fixed hours of work when we may collaborate, but other hours are flexible. Get in touch with me and we will iron out the details.
-                </p>
+                <div className="pl-6">
+                  <p>I contribute to the frameworks your stack runs on. The sections above show what I ship to production OSS; I bring the same standard to client work. Flat rate of <b>70 USD/hour</b>, lower at a <a className="anchor" target="_blank" href="https://www.investopedia.com/terms/d/dayrate.asp">day-rate</a> or for full-time engagements.</p>
                 </div>
                 <Alert />
               </Body>
