@@ -453,7 +453,7 @@ function Home({ t, i18n }) {
                   <p>{t('aboutme_3')}</p>
                   <BulletList>
                     <div className="pt-3">
-                      <li>TypeScript, Elixir, Rust, Clojure, NixOS, Docker, PosgreSQL, AWS.</li>
+                      <li>TypeScript, Elixir, Rust, NixOS, Docker, PostgreSQL, AWS.</li>
                     </div>
                   </BulletList>
 
