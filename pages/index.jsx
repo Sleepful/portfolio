@@ -351,7 +351,6 @@ function Home({ t, i18n }) {
     { id: 'blog', label: t('blog_post_title') },
     { id: 'open-source', label: t('open_source') },
     { id: 'personal', label: t('personal') },
-    { id: 'work', label: t('work') },
     { id: 'pricing', label: 'Pricing' },
     { id: 'contact', label: t('contact') },
   ]
@@ -440,27 +439,6 @@ function Home({ t, i18n }) {
               <div className="pl-6">
                 <Body>
                   <p>{t('aboutme')}</p>
-                  <div className="pt-6" >
-                    <p>{t('work_with_me')}</p>
-                  </div >
-                  <BulletList className="pb-4">
-                    <div className="pt-3 space-y-2">
-                      <li>{t('aboutme_b_1')}</li>
-                      <li>{t('aboutme_b_2')}</li>
-                      <li>{t('aboutme_b_3')}</li>
-                    </div>
-                  </BulletList>
-                  <p>{t('aboutme_3')}</p>
-                  <BulletList>
-                    <div className="pt-3">
-                      <li>TypeScript, Elixir, Rust, NixOS, Docker, PostgreSQL, AWS.</li>
-                    </div>
-                  </BulletList>
-
-                  {
-                    // t('available')
-                    // <a className="anchor" href="#pricing">[Pricing]</a>
-                  }
                 </Body>
               </div>
             </Section>
@@ -631,16 +609,6 @@ function Home({ t, i18n }) {
               //   one that loops nicely, or make
               //   high qual gif (eh)
             }
-            <Section id="work">
-              <Title>
-                <p>{t('work')}</p>
-              </Title>
-              <div className="pl-6">
-                <Body>
-                  <p>{t('workdesc')}</p>
-                </Body>
-              </div>
-            </Section>
             <Section id="pricing">
               <Title>
                 <p>Pricing</p>
