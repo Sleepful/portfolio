@@ -524,10 +524,14 @@ function Home({ t, i18n }) {
                 <p>{t('contact')}</p>
               </Title>
               <div className="pl-6">
+                <div className="pt-4 pb-1 font-serif text-emphasis" style={{ fontSize: '1em' }}>
+                  Personal
+                </div>
                 <Horizontal className="flex-center">
                   <a target="_blank" className="anchor" href="https://github.com/Sleepful">
                     GitHub
               </a>
+                  <span className="text-secondary">|</span>
                   <a
                     target="_blank"
                     className="anchor"
@@ -535,6 +539,7 @@ function Home({ t, i18n }) {
                   >
                     LinkedIn
               </a>
+                  <span className="text-secondary">|</span>
                   <a
                     target="_blank"
                     className="anchor"
@@ -543,16 +548,22 @@ function Home({ t, i18n }) {
                     Stack Overflow
               </a>
                 </Horizontal>
+                <div className="pt-4 pb-1 font-serif text-emphasis" style={{ fontSize: '1em' }}>
+                  Business
+                </div>
+                <Horizontal>
+                  <a target="_blank" className="anchor" href="https://muralsystems.com">
+                    Mural Systems — we build and staff your product
+                  </a>
+                </Horizontal>
+                <div className="pt-4 pb-1 font-serif text-emphasis" style={{ fontSize: '1em' }}>
+                  Inquire
+                </div>
                 <Horizontal>
                   <a target="_blank" className="anchor" href="mailto:josepablov+biz@gmail.com">
                     josepablov+biz@gmail.com
                 </a>
                 </Horizontal>
-              </div>
-              <div className="pl-6 pt-6">
-                <p >
-                  Please, no soliciting for unpaid work. Equity does not count as payment.
-                </p>
               </div>
             </Section>
           </main>
