@@ -67,6 +67,15 @@
   --color-border-second  : var(--yellow);
 }
 
+.shadow-glow {
+  animation: section-glow 5s ease-out;
+}
+
+@keyframes section-glow {
+  0% { box-shadow: 0 0 20px 4px var(--color-border-primary); }
+  100% { box-shadow: 0 0 0px 0px transparent; }
+}
+
 :root {
   --base03:    #002b36;
   --base02:    #073642;

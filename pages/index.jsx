@@ -37,7 +37,7 @@ const BulletList = ({ children, className = "" }) => {
 
 const Alert = () =>
   <div className="p-2 pt-4">
-    <div role="alert" className="alert bg-highlight text-body">
+    <div role="alert" className="alert bg-highlight text-body border-0">
       <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="stroke-info shrink-0 w-6 h-6"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
       <span>I offer a free 30 minutes consultation for your project</span>
       <div>
@@ -185,9 +185,8 @@ const Pill = ({ children, onClick, active }) => {
 
 const Section = ({ children, id }) => {
   return (
-    // <div className="sideburns -mx-4">
     <div className="sideburns">
-      <section id={id} className="px-4">{children}</section>
+      <section id={id} className={`px-4 scroll-mt-20`}>{children}</section>
     </div>
   )
 }
@@ -240,7 +239,7 @@ const Sidebar = ({ items, activeId, onNavigate, t }) => (
         <li key={id}>
           <button
             onClick={() => onNavigate(id)}
-            className={`text-left text-sm transition-colors duration-150 w-full py-0.5 ${activeId === id
+            className={`text-left text-base transition-colors duration-150 w-full py-0.5 ${activeId === id
               ? 'text-link font-bold border-l-2 border-link pl-2'
               : 'text-secondary hover:text-body pl-2.5'
               }`}
@@ -279,6 +278,11 @@ function Home({ t, i18n }) {
     setActiveSection(id)
     const el = document.getElementById(id)
     if (el) {
+      el.classList.remove('shadow-glow')
+      // Force browser reflow so the class removal is painted before re-adding.
+      // Without this, removing and re-adding the same class in the same frame does not restart the CSS animation.
+      void el.offsetWidth
+      el.classList.add('shadow-glow')
       el.scrollIntoView({ behavior: 'smooth', block: 'start' })
     }
   }
@@ -494,7 +498,7 @@ function Home({ t, i18n }) {
                 <p>Pricing</p>
               </Title>
               <Body>
-                <div className="pl-6">
+              <div className="pl-6">
                   <p>I contribute to the frameworks your stack runs on. The sections above show what I ship to production OSS; I bring the same standard to client work. Flat rate of <b>70 USD/hour</b>, lower at a <a className="anchor" target="_blank" href="https://www.investopedia.com/terms/d/dayrate.asp">day-rate</a> or for full-time engagements.</p>
                 </div>
                 <Alert />
@@ -523,8 +527,8 @@ function Home({ t, i18n }) {
               <Title>
                 <p>{t('contact')}</p>
               </Title>
-              <div className="pl-6">
-                <div className="pt-4 pb-1 font-serif text-emphasis" style={{ fontSize: '1em' }}>
+              <div className="pl-6 pb-12">
+                <div className="pt-4 pb-1 font-serif text-emphasis" style={{ fontSize: '1.125em' }}>
                   Personal
                 </div>
                 <Horizontal className="flex-center">
@@ -548,7 +552,7 @@ function Home({ t, i18n }) {
                     Stack Overflow
               </a>
                 </Horizontal>
-                <div className="pt-4 pb-1 font-serif text-emphasis" style={{ fontSize: '1em' }}>
+                <div className="pt-4 pb-1 font-serif text-emphasis" style={{ fontSize: '1.125em' }}>
                   Business
                 </div>
                 <Horizontal>
@@ -556,7 +560,7 @@ function Home({ t, i18n }) {
                     Mural Systems — we build and staff your product
                   </a>
                 </Horizontal>
-                <div className="pt-4 pb-1 font-serif text-emphasis" style={{ fontSize: '1em' }}>
+                <div className="pt-4 pb-1 font-serif text-emphasis" style={{ fontSize: '1.125em' }}>
                   Inquire
                 </div>
                 <Horizontal>
