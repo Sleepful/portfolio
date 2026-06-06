@@ -126,9 +126,9 @@ const KagiBlogPost = ({ t }) => (
 
 const OSSList = ({ title, categoryDesc, children }) => (
   <>
-    <div className="pl-6 pt-4">
+    <div className="py-4">
       <Title textSize="text-lg">
-        <span>{title}</span>
+        <span className="font-bold">{title}</span>
         {categoryDesc && <span className="text-secondary font-sans ml-2" style={{ fontSize: '0.875em' }}>— {categoryDesc}</span>}
       </Title>
     </div>
