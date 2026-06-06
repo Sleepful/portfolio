@@ -404,7 +404,7 @@ function Home({ t, i18n }) {
           }}
         >
           <Head>
-            <title>Jose Vargas</title>
+            <title>Jose Vargas / Engineer</title>
             <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
           </Head>
 
