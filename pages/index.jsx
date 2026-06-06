@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import { withTranslation } from '../i18n'
 import { jsx, css } from '@emotion/react'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useLocalStorage } from '../hooks/useLocalStorage'
 
 const Body = ({ children }) => {
@@ -58,87 +58,6 @@ const LinkDescription = ({ children }) => (
     {children}{' '}
   </p>
 )
-
-const hobbySection = ({ t, id }) => {
-  return (
-    <Section id={id}>
-      <Title>
-        <a name="this" />
-        <p >{t('personal')}</p>
-      </Title>
-      <BulletList>
-        <BodyListItem>
-          <LinkTitle
-            title={t('bloggeroo_title')}
-            href="https://bloggeroo.dev" />
-          <LinkDescription>
-            {t('bloggeroo_desc')}{' '}
-            <a
-              target="_blank"
-              className="anchor"
-              href="https://bloggeroo.dev/articles/202307301408"
-            >
-              How I did it
-            </a>
-            {" & "}
-            <a
-              target="_blank"
-              className="anchor"
-              href="https://github.com/Sleepful/Bloggeroo"
-            >
-              GitHub
-            </a>.
-          </LinkDescription>
-        </BodyListItem>
-
-        <BodyListItem>
-          <LinkTitle
-            title={t('p1title')}
-            href="https://movie-searcher-site.netlify.app" />
-          <LinkDescription>
-            {t('p1desc')}{' '}
-            <a
-              target="_blank"
-              className="anchor"
-              href="https://github.com/Sleepful/movie_searcher"
-            >
-              GitHub
-            </a>.
-          </LinkDescription>
-        </BodyListItem>
-        <BodyListItem>
-          <LinkTitle
-            title={t('yinyang_title')}
-            href="/static/YingYangTunnel_output_Spin.mov" />
-          <LinkDescription>
-            {t('yinyang_description')}{' '}
-            <a
-              target="_blank"
-              className="anchor"
-              href="https://github.com/Sleepful/Visuals"
-            >
-              GitHub
-            </a>.
-          </LinkDescription>
-        </BodyListItem>
-        <BodyListItem>
-          <LinkTitle
-            title={t('p3title')}
-            href="#this" />
-          <LinkDescription>
-            {t('p3desc')}{' '}
-            <a
-              target="_blank"
-              className="anchor"
-              href="https://github.com/Sleepful/portfolio"
-            >
-              GitHub
-            </a>.
-          </LinkDescription>
-        </BodyListItem>
-      </BulletList>
-    </Section>)
-}
 
 const HMACBlogPost = ({ t }) => (
   <>
@@ -207,10 +126,12 @@ const KagiBlogPost = ({ t }) => (
 
 const OSSList = ({ title, categoryDesc, children }) => (
   <>
-    <Title textSize="text-lg">
-      <span>{title}</span>
-      {categoryDesc && <span className="text-secondary font-sans ml-2" style={{ fontSize: '0.875em' }}>— {categoryDesc}</span>}
-    </Title>
+    <div className="pl-6 pt-4">
+      <Title textSize="text-lg">
+        <span>{title}</span>
+        {categoryDesc && <span className="text-secondary font-sans ml-2" style={{ fontSize: '0.875em' }}>— {categoryDesc}</span>}
+      </Title>
+    </div>
     <ul className="list-none pl-0 pb-8">
       {children}
     </ul>
@@ -283,14 +204,14 @@ const OSSBody = ({ pr, repo, projectDesc, desc }) => {
     <BodyListItem>
       <div className="flex items-baseline gap-2">
         {projectDesc ? (
-          <span className="tooltip tooltip-right flex-shrink-0 text-link font-bold" data-tip={projectDesc}>
+          <span className="tooltip tooltip-right flex-shrink-0 text-link" data-tip={projectDesc}>
             <InfoIcon />
           </span>
         ) : (
             <span className="flex-shrink-0 w-4"></span>
           )}
         <div>
-          <a className="anchor font-bold" href={`https://github.com/${repo}/pull/${pr}`}
+          <a className="anchor" href={`https://github.com/${repo}/pull/${pr}`}
             target="_blank" >
             {repoName}
           </a>
@@ -344,14 +265,13 @@ function Home({ t, i18n }) {
   const adjustFont = (delta) => setFontScale(Math.min(Math.max(clampedScale + delta, 0.8), 1.4))
 
   const [activeSection, setActiveSection] = useState('about')
-  const sectionRefs = useRef({})
+  const [showMore, setShowMore] = useState(false)
 
   const navItems = [
     { id: 'about', label: t('subheader') },
-    { id: 'blog', label: t('blog_post_title') },
     { id: 'open-source', label: t('open_source') },
-    { id: 'personal', label: t('personal') },
     { id: 'pricing', label: 'Pricing' },
+    { id: 'blog', label: t('blog_post_title') },
     { id: 'contact', label: t('contact') },
   ]
 
@@ -442,25 +362,6 @@ function Home({ t, i18n }) {
                 </Body>
               </div>
             </Section>
-            <Section id="blog">
-              <Title>
-                <a name="blog">{t('blog_post_title')}</a>
-              </Title>
-              <BulletList>
-                <BodyListItem>
-                  {KagiBlogPost({ t })}
-                </BodyListItem>
-                <BodyListItem>
-                  {HMACBlogPost({ t })}
-                </BodyListItem>
-                <BodyListItem>
-                  {NixosMCBlogPost({ t })}
-                </BodyListItem>
-                <BodyListItem>
-                  {RustSSGBlogPost({ t })}
-                </BodyListItem>
-              </BulletList>
-            </Section>
             <Section id="open-source">
               <Title>
                 <a name="openSource">{t('open_source')}</a>
@@ -485,12 +386,6 @@ function Home({ t, i18n }) {
                   repo="powersync-ja/powersync-service"
                   projectDesc="Sync engine backend service"
                   desc="Railroad diagram generation from EBNF grammars for sync-rules documentation."
-                />
-                <OSSBody
-                  pr="372"
-                  repo="powersync-ja/powersync-docs"
-                  projectDesc="Official documentation (Mintlify)"
-                  desc="Grammar reference with 41 railroad syntax diagrams and cross-linked navigation."
                 />
                 <OSSBody
                   pr="499"
@@ -526,25 +421,17 @@ function Home({ t, i18n }) {
                   projectDesc="Real-time user experiences with server-rendered HTML for Elixir"
                   desc={<><strong>Docs:</strong> Explain sockets as a server-only data struct{' '}<a className="anchor" href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00" target="_blank">(merge commit)</a></>}
                 />
-                <OSSBody
-                  pr="2336"
-                  repo="phoenixframework/phoenix_live_view"
-                  projectDesc="Real-time user experiences with server-rendered HTML for Elixir"
-                  desc={<><strong>Docs:</strong> Update sample code for on_mount authentication.</>}
-                />
-                <OSSBody
-                  pr="4051"
-                  repo="elixir-ecto/ecto"
-                  projectDesc="Database wrapper and query generator for Elixir"
-                  desc={<><strong>Docs:</strong> Clarify Ecto.Query filtering behavior.</>}
-                />
-                <OSSBody
-                  pr="1682"
-                  repo="livebook-dev/livebook"
-                  projectDesc="Interactive notebook environment for Elixir"
-                  desc={<><strong>Docs:</strong> Clarify running Livebook inside a Mix project.</>}
-                />
               </OSSList>
+              <div className="pl-0 pb-4">
+                <button
+                  onClick={() => setShowMore(!showMore)}
+                  className="btn btn-sm border-primary border-2 bg-highlight hover:bg-primary hover:border-primary text-body"
+                >
+                  {showMore ? 'Show less' : 'Show more contributions'}
+                </button>
+              </div>
+              {showMore && (
+                <>
               <OSSList title="TailwindCSS" categoryDesc="Utility-first CSS framework">
                 <OSSBody
                   pr="1378"
@@ -599,16 +486,9 @@ function Home({ t, i18n }) {
                   desc="Only use mouse-wheel variables when bound"
                 />
               </OSSList>
+                </>
+              )}
             </Section>
-            {hobbySection({ t, id: 'personal' })}
-            {
-              // TODO embed yinyang with loop
-              // - make it a video that can be
-              //   unfolded
-              // - need to replace mov with better
-              //   one that loops nicely, or make
-              //   high qual gif (eh)
-            }
             <Section id="pricing">
               <Title>
                 <p>Pricing</p>
@@ -619,6 +499,25 @@ function Home({ t, i18n }) {
                 </div>
                 <Alert />
               </Body>
+            </Section>
+            <Section id="blog">
+              <Title>
+                <a name="blog">{t('blog_post_title')}</a>
+              </Title>
+              <BulletList>
+                <BodyListItem>
+                  {KagiBlogPost({ t })}
+                </BodyListItem>
+                <BodyListItem>
+                  {HMACBlogPost({ t })}
+                </BodyListItem>
+                <BodyListItem>
+                  {NixosMCBlogPost({ t })}
+                </BodyListItem>
+                <BodyListItem>
+                  {RustSSGBlogPost({ t })}
+                </BodyListItem>
+              </BulletList>
             </Section>
             <Section id="contact">
               <Title>
