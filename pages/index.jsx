@@ -426,12 +426,12 @@ function Home({ t, i18n }) {
                   desc={<><strong>Docs:</strong> Explain sockets as a server-only data struct{' '}<a className="anchor" href="https://github.com/phoenixframework/phoenix_live_view/commit/41d5ab8f7ff3beaaaca53f1c9b68983c3da77a00" target="_blank">(merge commit)</a></>}
                 />
               </OSSList>
-              <div className="pl-0 pb-4">
+              <div className="pl-0 pb-4 flex justify-center">
                 <button
                   onClick={() => setShowMore(!showMore)}
-                  className="btn btn-sm border-primary border-2 bg-highlight hover:bg-primary hover:border-primary text-body"
+className="btn btn-sm bg-primary hover:bg-highlight text-body border-0 shadow-none"
                 >
-                  {showMore ? 'Show less' : 'Show more contributions'}
+                  {showMore ? <span className="inline-flex items-center gap-2"><span className="font-bold text-link" style={{ fontSize: '2em' }}>−</span><span className="mt-0.5">Show less contributions</span></span> : <span className="inline-flex items-center gap-2"><span className="font-bold text-link" style={{ fontSize: '2em' }}>+</span><span className="mt-0.5">Show more contributions</span></span>}
                 </button>
               </div>
               {showMore && (
