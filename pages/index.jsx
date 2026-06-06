@@ -129,7 +129,7 @@ const OSSList = ({ title, categoryDesc, children }) => (
     <div className="py-4">
       <Title textSize="text-lg">
         <span className="font-bold">{title}</span>
-        {categoryDesc && <span className="text-secondary font-sans ml-2" style={{ fontSize: '0.875em' }}>— {categoryDesc}</span>}
+        {categoryDesc && <><span className="text-secondary font-sans ml-2" style={{ fontSize: '0.875em' }}>—</span><span className="text-secondary font-sans ml-1" style={{ fontSize: '0.875em' }}>{categoryDesc}</span></>}
       </Title>
     </div>
     <ul className="list-none pl-0 pb-8">
